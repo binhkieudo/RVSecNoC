@@ -2,11 +2,13 @@
 2020.2
 Oct 14 2022
 05:07:14
-/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.sim/sim_1/behav/xsim/glbl.v,1696902344,verilog,,,,glbl,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sim_1/new/tb_div_ser.sv,1696827236,systemVerilog,,,,tb_div_ser,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sim_1/new/tb_fifo.sv,1696921348,systemVerilog,,,,tb_fifo,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sim_1/new/tb_mul.sv,1696819085,systemVerilog,,,,tb_mul,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sim_1/new/tb_mul_ser.sv,1696823454,systemVerilog,,,,tb_mul_ser,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sim_1/new/tb_shift_barrel.sv,1696779172,systemVerilog,,,,tb_shift_barrel,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/ip_fifo.v,1696920796,verilog,,,,ip_fifo,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_div_ser.v,1696826916,verilog,,,,rv32_cpu_cp_div_ser,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_mul_dsp.v,1696818705,verilog,,,,rv32_cpu_cp_mul_dsp,,uvm,,,,,,
 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_mul_ser.v,1696823592,verilog,,,,rv32_cpu_cp_mul_ser,,uvm,,,,,,
