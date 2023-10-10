@@ -11,6 +11,8 @@ module rv32_cpu_control #(
     parameter CPU_EXTENSION_RISCV_C         = 1,  // Compress
     parameter CPU_EXTENSION_RISCV_M         = 0,  // Mul/div
     parameter CPU_EXTENSION_RISCV_U         = 0,  // User mode
+    parameter CPU_EXTENSION_RISCV_F         = 0,  // Single-precision
+    parameter CPU_EXTENSION_RISCV_D         = 0,  // Double-precision
     parameter CPU_EXTENSION_RISCV_Zicntr    = 1,  // Base counter
     parameter CPU_EXTENSION_RISCV_Zihpm     = 1,  // Hardware performance monitor
     parameter CPU_EXTENSION_RISCV_Zifencei  = 1,  // Insctruction sync
@@ -114,18 +116,18 @@ module rv32_cpu_control #(
     wire [1:0]                ipb_we;           // write enable
     reg  [1:0]                ibp_free;         // free entry
     reg  [IPB_DATA_WIDTH-1:0] ipb_rdata [0:1];  // read data
-    reg  [1:0]                ipb_re;           // read enable
+    wire [1:0]                ipb_re;           // read enable
     reg  [1:0]                ibp_avail;        // data available
 
     // Instruction issue (is)
-    reg              is_align;
-    reg              is_align_set;
-    reg              is_align_clr;
-    reg [15:0]       is_ci_i16;
-    reg [31:0]       is_ci_i32;
-    reg [(3+32)-1:0] is_data; // 3-bit status + 32-bit instruction
-    reg [1:0]        is_valid; // data word is valid
-    reg              is_ack;
+    reg               is_align;
+    reg               is_align_set;
+    reg               is_align_clr;
+    wire [15:0]       is_ci_i16;
+    wire [31:0]       is_ci_i32;
+    reg  [(3+32)-1:0] is_data; // 3-bit status + 32-bit instruction
+    reg  [1:0]        is_valid; // data word is valid
+    reg               is_ack;
 
     // Instruction fetch
     parameter IF_RESTART = 2'b00,
@@ -397,30 +399,117 @@ module rv32_cpu_control #(
     assign o_bus_req_src  = 1'b1; // instruction fetch
     assign o_bus_req_rvso = 1'b0; // cannot be a reservation set operation
 
-//=================================================================================================================
+///=================================================================================================================
 // Instruction Prefetch Buffer (FIFO)
 //=================================================================================================================
     ip_fifo prefetch_buffer0 #(
-        .FIFO_DEPTH (), // number of fifo entries; has to be a power of two; min 1
-        .FIFO_WIDTH (), // size of data elements in fifo
-        .FIFO_RSYNC (), // 0 = async read; 1 = sync read
-        .FIFO_SAFE  ()  // 1 = allow read/write only if entry available
+        .FIFO_DEPTH (INSTR_BUFFER_DEPTH ), // number of fifo entries; has to be a power of two; min 1
+        .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
+        .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
+        .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available
     ) 
     (
         // Global control
-        .i_clk,   // global clock, rising edge
-        .i_rstn,  // global reset, low-active, async
+        .i_clk      ( i_clk        ),   // global clock, rising edge
+        .i_rstn     ( i_rstn       ),  // global reset, low-active, async
         // Control signal
-        .i_clear, // sync reset, high-active
-        .o_half,  // FIFO is half full
+        .i_clear    ( if_restart   ), // sync reset, high-active
+        .o_half     (              ),  // FIFO is half full
         // Write port
-        .i_wdata, // write data
-        .i_we,    // write enable
-        .o_free,  // at least one entry is free when set
+        .i_wdata    ( ipb_wdata[0] ), // write data
+        .i_we       ( ipb_we[0]    ),    // write enable
+        .o_free     ( ibp_free[0]  ),  // at least one entry is free when set
         // Read port
-        .i_re,    // read enable
-        .o_rdata, // read data
-        .o_avail  // data available when set
+        .i_re       ( ipb_re[0]    ),    // read enable
+        .o_rdata    ( ipb_rdata[0] ), // read data
+        .o_avail    ( ipb[0]       )  // data available when set
     );
 
+    ip_fifo prefetch_buffer1 #(
+        .FIFO_DEPTH (INSTR_BUFFER_DEPTH ), // number of fifo entries; has to be a power of two; min 1
+        .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
+        .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
+        .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available
+    ) 
+    (
+        // Global control
+        .i_clk      ( i_clk        ),   // global clock, rising edge
+        .i_rstn     ( i_rstn       ),  // global reset, low-active, async
+        // Control signal
+        .i_clear    ( if_restart   ), // sync reset, high-active
+        .o_half     (              ),  // FIFO is half full
+        // Write port
+        .i_wdata    ( ipb_wdata[1] ), // write data
+        .i_we       ( ipb_we[1]    ),    // write enable
+        .o_free     ( ibp_free[1]  ),  // at least one entry is free when set
+        // Read port
+        .i_re       ( ipb_re[1]    ),    // read enable
+        .o_rdata    ( ipb_rdata[1] ), // read data
+        .o_avail    ( ipb[1]       )  // data available when set
+    );
+
+//=================================================================================================================
+// Instruction Issue (decompress 16-bit instructions and assemble a 32-bit instruction word)
+//=================================================================================================================
+    
+    // Compressed Instruction decode
+    generate
+        if (CPU_EXTENSION_RISCV_C == 1) begin: gen_decompressor
+            rv32_cpu_decompressor #(
+                .FPU_ENABLE = (CPU_EXTENSION_RISCV_F == 1) || (CPU_EXTENSION_RISCV_D == 1)
+            ) rv32_cpu_decompressor_inst (
+                .i_instr16  (is_ci_i16), // compressed instruction
+                .o_instr32  (is_ci_i32)  // decompressed instruction
+            );
+
+            always @(posedge i_clk) begin
+                if (if_restart) 
+                    is_align <=  ie_pc[1]; // branch to unaligned address?
+                else if (is_ack)
+                    is_align <= (is_align && !is_align_clr) || is_align_set; // "RS" flip-flop
+            end
+
+            always @(*) begin
+                is_align_set = 1'b0;
+                is_align_clr = 1'b0;
+                is_valid     = 2'b00;
+                // Start with LOW half-word --
+                if (!is_align) begin
+                    if (ipb_rdata[0][1:0] != 2'b11) begin // compressed
+                        is_align_set = ibp_avail[0]; // start of next instruction word is NOT 32-bit-aligned
+                        is_valid[0]  = ibp_avail[0];
+                        is_data      = {ipb_rdata[0][17:16], 1'b1, is_ci_i32};
+                    end
+                    else begin // aligned uncompressed; use IPB(0) status flags only
+                        is_valid     = {2{ibp_avail[1] && ibp_avail[0]}};
+                        is_data      = {ipb_rdata[0][17:16], 1'b0, ipb_rdata[1][15:0], ipb_rdata[0][15:0]};
+                    end
+                end
+                else begin
+                    if (ipb_rdata[1][1:0] != 2'b11) begin // compressed
+                        is_align_clr = ibp_avail[1]; // start of next instruction word is 32-bit-aligned again
+                        is_valid[1]  = ibp_avail[1];
+                        is_data      = {ipb_rdata[1][17:16], 1'b1, is_ci_i32};
+                    end
+                    else begin // aligned uncompressed; use IPB(0) status flags only
+                        is_valid     = {2{ibp_avail[1] && ibp_avail[0]}};
+                        is_data      = {ipb_rdata[0][17:16], 1'b0, ipb_rdata[0][15:0], ipb_rdata[1][15:0]};
+                    end
+                end
+            end
+        end
+        else begin: gen_ncompress
+            assign is_ci_i32 = 32'd0;
+
+            always @(*) begin
+                is_align_clr = 1'b0;
+                is_valid = {2{ibp_avail[0]}};
+                is_data  = {ipb_rdata[0][17:16], 1'b0, ipb_rdata[1][15:0], ipb_rdata[0][15:0]};
+            end
+        end
+    endgenerate 
+
+    assign is_ci_i16 = is_align? ipb_rdata[1][15:0]: ipb_rdata[0][15:0];
+    assign ipb_re[0] = is_valid[0] && is_ack;
+    assign ipb_re[1] = is_valid[1] && is_ack;
 endmodule
