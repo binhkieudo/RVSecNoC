@@ -1,8 +1,8 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  \
+verilog xil_defaultlib  --include "../../../../neorv32.srcs/sources_1/new" \
 "../../../../neorv32.srcs/sources_1/new/ip_fifo.v" \
 
-sv xil_defaultlib  \
+sv xil_defaultlib  --include "../../../../neorv32.srcs/sources_1/new" \
 "../../../../neorv32.srcs/sim_1/new/tb_fifo.sv" \
 
 # compile glbl module

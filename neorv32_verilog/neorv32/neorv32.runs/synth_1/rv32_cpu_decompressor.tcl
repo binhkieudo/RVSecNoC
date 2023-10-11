@@ -85,6 +85,7 @@ set_property ip_output_repo /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_verilog /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_package.vh
 read_verilog -library xil_defaultlib /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_decompressor.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

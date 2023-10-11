@@ -1,3 +1,5 @@
+`include "rv32_package.vh"
+
 module rv32_cpu_control #(
     parameter XLEN                          = 32,
     parameter HART_ID                       = 0,  // hardware thread ID (HART)
@@ -30,6 +32,7 @@ module rv32_cpu_control #(
     parameter HPM_CNT_WIDTH                 = 64  // Size of HPM counters
 )
 (
+
     // Global control
     input wire              i_clk,
     input wire              i_rstn,
@@ -81,7 +84,8 @@ module rv32_cpu_control #(
     input wire              i_pmp_fault,     // instruction fetch pmp fault
     input wire              i_alu_cp_done,   // ALU coprocessor done
     input wire              i_lsu_wait,      // wait for data bus
-    input wire              i_cmp,           // comparator status
+    input wire              i_cmp_eq,        // comparator equal
+    input wire              i_cmp_lt,        // comparator less than
     // Data input
     input wire  [XLEN-1:0]  i_alu_addr,      // ALU address result,
     input wire  [XLEN-1:0]  i_rs1,           // rf source 1
@@ -109,6 +113,25 @@ module rv32_cpu_control #(
     input  wire             i_be_load,       // bus error on load data access
     input  wire             i_be_store       // bus error store data access   
 )
+
+  //CPU Trap System ------------------------------------------------------------------------
+  -- -------------------------------------------------------------------------------------------
+  -- exception source bits --
+  constant exc_iaccess_c  : natural :=  0; -- instruction access fault
+  constant exc_illegal_c  : natural :=  1; -- illegal instruction
+  constant exc_ialign_c   : natural :=  2; -- instruction address misaligned
+  constant exc_ecall_c    : natural :=  3; -- environment call
+  constant exc_ebreak_c   : natural :=  4; -- breakpoint
+  constant exc_salign_c   : natural :=  5; -- store address misaligned
+  constant exc_lalign_c   : natural :=  6; -- load address misaligned
+  constant exc_saccess_c  : natural :=  7; -- store access fault
+  constant exc_laccess_c  : natural :=  8; -- load access fault
+  -- for debug mode only --
+  constant exc_db_break_c : natural :=  9; -- enter debug mode via ebreak instruction ("sync EXCEPTION")
+  constant exc_db_hw_c    : natural := 10; -- enter debug mode via hw trigger ("sync EXCEPTION")
+
+    // Intermediate reg
+    reg [XLEN-1:0]  ro_imm;
 
     // Instruction prefetch buffer (FIFO)
     parameter IPB_DATA_WIDTH = 2 + 16; // {bus_error, align_error, 16-bit instruciton}
@@ -167,22 +190,22 @@ module rv32_cpu_control #(
               IE_MEM_REQ        = 4'b1011,
               IE_MEM_WAIT       = 4'b1100;
     
-    reg [3:0]      ie_state, 
-                   ie_next, 
-                   ie_prev, 
-                   ie_prev2;
-    reg [31:0]     ie_ir, 
-                   ie_ir_next;
-    reg            ie_is_ci; // current instruction is decompressed or not
-    reg            ie_is_ci_next;
-    reg            ie_branch_taken;
-    reg [XLEN-1:0] ie_pc;
-    reg            ie_pc_mux_sel; // source select for PC update
-    reg            ie_pc_we;      // pc update enable
-    reg [XLEN-1:0] ie_next_pc;    // next PC
-    reg [XLEN-1:0] ie_next_pc_inc; // increment to get next PC
-    reg            ie_branched; // increment to get next PC
-    reg            ie_branched_next; 
+    reg  [3:0]      ie_state; 
+    reg  [3:0]      ie_next; 
+    // reg [3:0]      ie_prev; 
+    // reg [3:0]      ie_prev2;
+    reg  [31:0]     ie_ir; 
+    // reg [31:0]     ie_ir_next;
+    reg             ie_is_ci; // current instruction is decompressed or not
+    // reg             ie_is_ci_next;
+    wire            ie_branch_taken;
+    reg  [XLEN-1:0] ie_pc;
+    wire            ie_pc_mux_sel; // source select for PC update
+    reg             ie_pc_we;      // pc update enable
+    reg  [XLEN-1:0] ie_next_pc;    // next PC
+    wire [XLEN-1:0] ie_next_pc_inc; // increment to get next PC
+    reg             ie_branched; // increment to get next PC
+    // reg            ie_branched_next; 
 
     // Instruction monitor (monitor): raise exception if multi-cycle operation times out (default = 512-cycle)
     reg [9:0]      monitor_cnt;
@@ -328,6 +351,34 @@ module rv32_cpu_control #(
     // CSR read-back data
     reg [XLEN-1:0]  csr_rdata;
     reg [XLEN-1:0]  xcsr_rdata;
+
+    // Instruction extract
+    wire [6:0]   ir_opcode;
+    wire [4:0]   ir_rd;
+    wire [4:0]   ir_rs1;
+    wire [4:0]   ir_rs2;
+    wire [4:0]   ir_rs3;
+    wire [2:0]   ir_funct3;
+    wire [4:0]   ir_funct5;
+    wire [6:0]   ir_funct7;
+    wire [11:0]  ir_funct12;
+    wire [11:0]  ir_imm12;
+    wire [19:0]  ir_imm20;
+
+//=================================================================================================================
+// Instruction extract
+//================================================================================================================= 
+    assign  ir_opcode   = ie_ir[6:0];
+    assign  ir_rd       = ie_ir[11:7];
+    assign  ir_rs1      = ie_ir[19:15];
+    assign  ir_rs2      = ie_ir[24:20];
+    assign  ir_rs3      = ie_ir[31:27];
+    assign  ir_funct3   = ie_ir[14:12];
+    assign  ir_funct5   = ie_ir[31:27];
+    assign  ir_funct7   = ie_ir[31:25];
+    assign  ir_funct12  = ie_ir[31:20];
+    assign  ir_imm12    = ie_ir[31:20];
+    assign  ir_imm20    = ie_ir[31:12];
 
 //=================================================================================================================
 // Instruction Fetch (always fetch 32-bit-aligned 32-bit chunks of data)
@@ -512,4 +563,245 @@ module rv32_cpu_control #(
     assign is_ci_i16 = is_align? ipb_rdata[1][15:0]: ipb_rdata[0][15:0];
     assign ipb_re[0] = is_valid[0] && is_ack;
     assign ipb_re[1] = is_valid[1] && is_ack;
+
+//=================================================================================================================
+// Instruction Execution
+//=================================================================================================================
+    // Immediate Generator
+    always @(posedge i_clk) begin
+        case (id_opcode)
+            `OP_STORE: begin // S-immediate: store
+                ro_imm[31:11]   <= {21{ie_ir[31]}}; // sign extend
+                ro_imm[10:5]    <= ie_ir[30:25];
+                ro_imm[4:0]     <= ie_ir[11:7];
+            end
+            `OP_BRANCH: begin // B-immediate: conditional branch
+                ro_imm[31:12]   <= {20{ie_ir[31]}}; // sign extend
+                ro_imm[11]      <= ie_ir[7];
+                ro_imm[10:5]    <= ie_ir[30:25];
+                ro_imm[4:1]     <= ie_ir[11:8];
+                ro_imm[0]       <= 1'b0;
+            end
+            `OP_LUI: begin // U-immediate: lui, auipc
+                ro_imm[31:12]   <= ie_ir[31:12];
+                ro_imm[11:0]    <= 12'h000;
+            end
+            `OP_AUIPC: begin // U-immediate: lui, auipc
+                ro_imm[31:12]   <= ie_ir[31:12];
+                ro_imm[11:0]    <= 12'h000;
+            end
+            `OP_JAL: begin // J-immediate: unconditional jump
+                ro_imm[31:20]   <= {12{ie_ir[31]}}; // sign extend
+                ro_imm[19:12]   <= ie_ir[19:12];
+                ro_imm[11]      <= ie_ir[20];
+                ro_imm[10:1]    <= ie_ir[30:21];
+                ro_imm[0]       <= 1'b0;
+            end
+            default: begin
+                if ((id_opcode == `OP_AMO) && (CPU_EXTENSION_RISCV_A == 1))
+                    ro_imm <= 32'd0;
+                else begin
+                    ro_imm[31:11]   <= {21{ie_ir[31]}}; // sign extension
+                    ro_imm[10:1]    <= ie_ir[30:21];
+                    ro_imm[0]       <= ie_ir[20];
+                end
+            end
+        endcase
+    end
+
+    assign o_imm = ro_imm;
+
+    // Branch Condition Check (eq: beq / bne, lt: blt(u) / bge(u))
+    assign ie_branch_taken = ir_funct3[0] ^ (!ir_funct3[2]? i_cmp_eq: i_cmp_lt); 
+
+    // Execute FSM
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn) ie_state <= IE_BRANCH;
+        else ie_state <= ie_next;
+    end
+
+    always @(*) begin
+        case (ie_state)
+            IE_DISPATCH:
+                if (is_valid[0] || is_valid[1]) begin // new instruction word available
+                    if (trap_ctrl_env_pending || trap_ctrl_exc_fire) // pending trap
+                        ie_next = IE_TRAP_ENTER;
+                    else // normal execution
+                        ie_next = IE_EXECUTE;
+                end
+                else ie_next = IE_DISPATCH;
+            IE_TRAP_ENTER: // Enter trap environment and get trap vector
+                if (trap_ctrl_env_pending)
+                    ie_next = IE_TRAP_EXECUTE;
+                else
+                    ie_next = IE_TRAP_ENTER;
+            IE_TRAP_EXIT: // Return from trap environment and get xEPC
+                ie_next = IE_TRAP_EXECUTE;
+            IE_TRAP_EXECUTE:
+                ie_next = IE_BRANCHED;
+            IE_FENCE: // memory fence
+                if (trap_ctrl_exc_buf[`EXC_ILLEGAL]) // abort if illegal instruction
+                    ie_next = IE_DISPATCH;
+                else if ((ir_funct3 == `FUNCT3_FENCEI) && (CPU_EXTENSION_RISCV_Zifencei == 1))
+                    ie_next = IE_TRAP_EXECUTE; // used to flush instruction prefetch buffer
+                else
+                    ie_next = IE_DISPATCH;
+            IE_SLEEP:
+                if (dbg_running || csr_dcsr_step || trap_ctrl_wakeup)
+                    ie_next = IE_DISPATCH;
+            IE_EXECUTE: // Decode and execute instruction (control has to be here for exactly 1 cycle in any case!)
+                case (id_opcode)
+                    `OP_ALU:
+                        if ((id_is_mul || id_is_div) && ir_opcode[5] && (FAST_MUL_EN == 0)) // MUL/DIV
+                            ie_next = IE_ALU_WAIT;
+                        else if ((FAST_SHIFT_EN == 0) && ((ir_funct3 == `FUNCT3_SLL) || (ir_funct3 == `FUNCT3_SR))) // SLL/SRL
+                            ie_next = IE_ALU_WAIT;
+                        else ie_next = IE_DISPATCH;
+                    `OP_ALUI:
+                        if ((id_is_mul || id_is_div) && ir_opcode[5] && (FAST_MUL_EN == 0)) // MUL/DIV
+                            ie_next = IE_ALU_WAIT;
+                        else if ((FAST_SHIFT_EN == 0) && ((ir_funct3 == `FUNCT3_SLL) || (ir_funct3 == `FUNCT3_SR))) // SLL/SRL
+                            ie_next = IE_ALU_WAIT;
+                        else ie_next = IE_DISPATCH;
+                    `OP_LUI     : ie_next = IE_DISPATCH;
+                    `OP_AUIPC   : ie_next = IE_DISPATCH;
+                    `OP_STORE   : ie_next = IE_MEM_REQ; 
+                    `OP_LOAD    : ie_next = IE_MEM_REQ;
+                    `OP_AMO     : ie_next = IE_MEM_REQ;
+                    `OP_BRANCH  : ie_next = IE_BRANCH;
+                    `OP_JAL     : ie_next = IE_BRANCH;
+                    `OP_JALR    : ie_next = IE_BRANCH;
+                    `OP_FENCE   : ie_next = IE_FENCE;
+                    `OP_FOP     :
+                        if ((CPU_EXTENSION_RISCV_F == 1) || (CPU_EXTENSION_RISCV_D == 1)) // Floating point extension
+                            ie_next = IE_ALU_WAIT;
+                        else
+                            ie_next = IE_DISPATCH;
+                    `OP_CUST0   : ie_next = IE_ALU_WAIT;
+                    `OP_CUST1   : ie_next = IE_ALU_WAIT;
+                    `OP_CUST2   : ie_next = IE_ALU_WAIT;
+                    `OP_CUST3   : ie_next = IE_ALU_WAIT;
+                    default:    : ie_next = IE_SYSTEM;    
+                endcase
+            IE_ALU_WAIT:    
+                    if (i_alu_cp_done || trap_ctrl_exc_buf[`EXC_ILLEGAL])
+                        ie_next = IE_DISPATCH;
+                    else
+                        ie_next = IE_ALU_WAIT;
+            IE_BRANCH:
+                    if (ir_opcode[2] || ie_branch_taken) // JAL[R] or taken branch
+                        ie_next = IE_BRANCHED;
+                    else
+                        ie_next = IE_DISPATCH;
+            IE_BRANCHED: ie_next = IE_DISPATCH;
+
+            IE_MEM_REQ: // trigger memory request
+                if (trap_ctrl_exc_buf[`EXC_ILLEGAL]) // abort if illegal instruction
+                    ie_next = IE_DISPATCH;
+                else
+                    ie_next = IE_MEM_WAIT;
+            IE_MEM_WAIT: // wait for bus transaction to finish
+                if (trap_ctrl_exc_buf[`EXC_LACCESS] || trap_ctrl_exc_buf[`EXC_SACCESS] ||   // bus access error
+                    trap_ctrl_exc_buf['EXC_LALIGN]  || trap_ctrl_exc_buf[`EXC_SALIGN])      // alignment error
+                    ie_next = IE_DISPATCH;
+                else if (i_lsu_wait) // bus sysytem has completed the transaction
+                    ie_next = IE_DISPATCH;
+                else
+                    ie_next = IE_MEM_WAIT; // wait until the memory access completed
+            default: // SYSTEM - system environment operation; no effect if illegal instruction
+                if ((ir_funct3 == `FUNCT3_ENV) && !trap_ctrl_exc_buf[`EXC_ILLEGAL]) begin // environemnt and illegal
+                    if ((ir_funct12 == `FUNCT12_MRET) || (ir_funct12 == `FUNCT12_DRET))
+                        ie_next = IE_TRAP_EXIT;
+                    else
+                        ie_next = IE_SLEEP; // wfi/sleep
+                end
+                else ie_next = IE_DISPATCH;
+        endcase
+    end
+
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn) begin
+            ie_branched <= 1'b0;
+            ie_ir       <= 32'd0;
+            ie_is_ci    <= 1'b0;
+            ie_pc       <= {CPU_BOOT_ADR[XLEN-1:2], 2'b00};
+            ie_next_pc <= 32'd0;  
+        end
+        else begin
+            // ie_branched
+            if (ie_state == IE_EXECUTE) 
+                ie_branched <= 1'b0; // clear branch flipflop
+            else if (ie_state == IE_BRANCHED) 
+                ie_branched <= 1'b1; // actual branch
+            else
+                ie_branched <= ie_branched;
+
+            // ie_ir
+            if ((ie_state == IE_DISPATCH) && (is_valid[0] || is_valid[1]) 
+                && !trap_ctrl_env_pending && !trap_ctrl_exc_fire)
+                ie_ir <= is_data;
+
+            // ie_is_ci
+            if ((ie_state == IE_DISPATCH) && (is_valid[0] || is_valid[1]) 
+                && !trap_ctrl_env_pending && !trap_ctrl_exc_fire)
+                ie_is_ci <= is_data[32];
+            
+            // PC update
+            if(ie_pc_we) begin
+                ie_pc <= ie_pc_mux_sel? {i_alu_addr[XLEN-1:1], 1'b0}: // jump/take-branch
+                                        {ie_next_pc[XLEN-1:1], 1'b0}; // next (linear) instruction address
+            end
+
+            // Next PC
+            case (ie_state)
+                IE_TRAP_ENTER:
+                    if ((CPU_EXTENSION_RISCV_Sdext == 1) && trap_ctrl_cause[5]) // trap cause: debug mode (re-)entry
+                        ie_next_pc <= CPU_DEBUG_PARK_ADDR; // debug mode enter; start at "parking loop" <normal_entry>
+                    else if ((CPU_EXTENSION_RISCV_Sdext == 1) && dbg_running) // any other trap INSIDE debug mode
+                        ie_next_pc <= CPU_DEBUG_EXC_ADDR; // debug mode enter: start at "parking loop" <exception_entry>
+                    else // normal start of trap
+                        if ((csr_mtvec[1:0] == 2'b01) && trap_ctrl_cause[6]) // vectored mode + interrupt
+                            ie_next_pc <= {csr_mtvec[XLEN-1:7], trap_ctrl_cause[4:0], 2'b00}; // pc = mtvec + 4 * mcause
+                        else
+                            ie_next_pc <= {csr_mtvec[XLEN-1:2], 2'b00};
+                IE_TRAP_EXIT:
+                    if ((CPU_EXTENSION_RISCV_Sdext == 1) && dbg_running) // -- debug mode exit
+                        ie_next_pc <= {csr_dpc[XLEN-1:1], 1'b0};
+                    else // normal end of trap
+                        ie_next_pc <= {csr_mepc[XLEN-1:1], 1'b0};
+                IE_EXECUTE:
+                    ie_next_pc <= ie_pc + ie_next_pc_inc;  // next linear PC
+                IE_BRANCHED:
+                    ie_next_pc <= {ie_pc[XLEN-1:0], 1'b0}; // get updated PC
+                default: ie_next_pc <= ie_next_pc;
+            endcase 
+        end
+    end
+
+    always @(*) begin
+        case (ie_state)
+            IE_DISPATCH:
+                if (is_valid[0] || is_valid[1]) begin // new instruction word available
+                    if (trap_ctrl_env_pending || trap_ctrl_exc_fire) // pending trap
+                        ie_pc_we = 1'b0;
+                    else // normal execution
+                        ie_pc_we = !ie_branched;
+                end
+                else ie_pc_we = 1'b0;    
+            IE_TRAP_EXECUTE: ie_pc_we = 1'b1;
+            IE_BRANCH: ie_pc_we = !trap_ctrl_exc_buf[`EXC_ILLEGAL]; // update PC with branch DST; will be overridden in DISPATCH if branch not taken
+            default: ie_pc_we = 1'b0;
+        endcase
+    end
+
+    assign ie_pc_mux_sel = (ie_state == IE_BRANCH); // PC <= alu.add = branch/jump destination
+
+    // PC increment for next linear instruction (+2 for compressed instr., +4 otherwise) --
+    assign ie_next_pc_inc[XLEN-1:4] = {28{1'b0}};
+    assign ie_next_pc_inc[3:0]      = (ie_is_ci && (CPU_EXTENSION_RISCV_C == 1))? 4'd2: 4'd4;
+
+    // PC output
+    assign o_curr_pc = {ie_pc[XLEN-1:1], 1'b0};
+    assign o_next_pc = {ie_next_pc[XLEN-1:1], 1'b0}; 
+
 endmodule

@@ -47,7 +47,7 @@ module tb_fifo(
     
     integer i;
     initial begin
-        #10 i_rstn = 1'b1;
+        #15 i_rstn = 1'b1;
         #10 i_we = 1'b1;
         i_wdata = 32'd1;
         for (i = 2; i < 32; i = i + 1)
@@ -56,6 +56,10 @@ module tb_fifo(
         i_re = 1;
         #10 i_wdata = 33;
         #10 i_we = 1'b0;
+        for (i = 0; i < 16; i = i + 1) begin
+            #10 i_re = 1'b0;
+            #10 i_re = 1'b1;
+        end
         #1000 $stop;
     end
     

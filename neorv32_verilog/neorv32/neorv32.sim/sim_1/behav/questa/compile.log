@@ -1,0 +1,30 @@
+QuestaSim-64 vmap 2021.2_1 Lib Mapping Utility 2021.05 May 15 2021
+vmap xil_defaultlib questa_lib/msim/xil_defaultlib 
+Modifying modelsim.ini
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+Start time: 14:24:27 on Oct 11,2023
+vlog -64 -incr -mfcu -work xil_defaultlib "+incdir+../../../../neorv32.srcs/sources_1/new" ../../../../neorv32.srcs/sources_1/new/ip_fifo.v 
+-- Compiling module ip_fifo
+
+Top level modules:
+	ip_fifo
+End time: 14:24:27 on Oct 11,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+Start time: 14:24:27 on Oct 11,2023
+vlog -64 -incr -mfcu -sv -work xil_defaultlib "+incdir+../../../../neorv32.srcs/sources_1/new" ../../../../neorv32.srcs/sim_1/new/tb_fifo.sv 
+-- Compiling module tb_fifo
+
+Top level modules:
+	tb_fifo
+End time: 14:24:27 on Oct 11,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+QuestaSim-64 vlog 2021.2_1 Compiler 2021.05 May 15 2021
+Start time: 14:24:27 on Oct 11,2023
+vlog -work xil_defaultlib glbl.v 
+-- Compiling module glbl
+
+Top level modules:
+	glbl
+End time: 14:24:27 on Oct 11,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

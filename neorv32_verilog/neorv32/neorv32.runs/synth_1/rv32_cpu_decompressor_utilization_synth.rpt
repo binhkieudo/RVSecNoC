@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Wed Oct 11 00:59:20 2023
-| Host         : binhkieudo-hotswap running 64-bit Ubuntu 20.04.6 LTS
+| Date         : Wed Oct 11 13:30:14 2023
+| Host         : binhkieudo running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file rv32_cpu_decompressor_utilization_synth.rpt -pb rv32_cpu_decompressor_utilization_synth.pb
 | Design       : rv32_cpu_decompressor
 | Device       : xc7vx485tffg1761-2

@@ -1,0 +1,19 @@
+QuestaSim-64 vopt 2021.2_1 Compiler 2021.05 May 15 2021
+Start time: 14:24:28 on Oct 11,2023
+vopt "+acc=npr" -suppress 10016 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.tb_fifo xil_defaultlib.glbl -o tb_fifo_opt 
+
+Top level modules:
+	tb_fifo
+	glbl
+
+Analyzing design...
+-- Loading module tb_fifo
+-- Loading module glbl
+-- Loading module ip_fifo
+Optimizing 3 design-units (inlining 0/3 module instances):
+-- Optimizing module ip_fifo(fast)
+-- Optimizing module glbl(fast)
+-- Optimizing module tb_fifo(fast)
+Optimized design name is tb_fifo_opt
+End time: 14:24:28 on Oct 11,2023, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

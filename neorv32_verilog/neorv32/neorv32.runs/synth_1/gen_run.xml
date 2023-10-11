@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1696953527" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/neorv32_cpu_regfile.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1696998579" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/neorv32_cpu_regfile.dcp">
   <File Type="VDS-TIMING-PB" Name="rv32_cpu_decompressor_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="rv32_cpu_decompressor_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="rv32_cpu_decompressor.dcp"/>
@@ -11,6 +11,13 @@
   <File Type="PA-TCL" Name="rv32_cpu_decompressor.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/rv32_package.vh">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="IsVisible" Val="1"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/rv32_cpu_decompressor.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
