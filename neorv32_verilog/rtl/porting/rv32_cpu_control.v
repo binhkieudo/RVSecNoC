@@ -114,50 +114,35 @@ module rv32_cpu_control #(
     input  wire             i_be_store       // bus error store data access   
 )
 
-  //CPU Trap System ------------------------------------------------------------------------
-  -- -------------------------------------------------------------------------------------------
-  -- exception source bits --
-  constant exc_iaccess_c  : natural :=  0; -- instruction access fault
-  constant exc_illegal_c  : natural :=  1; -- illegal instruction
-  constant exc_ialign_c   : natural :=  2; -- instruction address misaligned
-  constant exc_ecall_c    : natural :=  3; -- environment call
-  constant exc_ebreak_c   : natural :=  4; -- breakpoint
-  constant exc_salign_c   : natural :=  5; -- store address misaligned
-  constant exc_lalign_c   : natural :=  6; -- load address misaligned
-  constant exc_saccess_c  : natural :=  7; -- store access fault
-  constant exc_laccess_c  : natural :=  8; -- load access fault
-  -- for debug mode only --
-  constant exc_db_break_c : natural :=  9; -- enter debug mode via ebreak instruction ("sync EXCEPTION")
-  constant exc_db_hw_c    : natural := 10; -- enter debug mode via hw trigger ("sync EXCEPTION")
-
     // Intermediate reg
     reg [XLEN-1:0]  ro_imm;
 
     // Instruction prefetch buffer (FIFO)
     parameter IPB_DATA_WIDTH = 2 + 16; // {bus_error, align_error, 16-bit instruciton}
-    wire [IPB_DATA_WIDTH-1:0] ipb_wdata [0:1];  // write data
-    wire [1:0]                ipb_we;           // write enable
+
     reg  [1:0]                ibp_free;         // free entry
     reg  [IPB_DATA_WIDTH-1:0] ipb_rdata [0:1];  // read data
-    wire [1:0]                ipb_re;           // read enable
     reg  [1:0]                ibp_avail;        // data available
+    wire [IPB_DATA_WIDTH-1:0] ipb_wdata [0:1];  // write data
+    wire [1:0]                ipb_we;           // write enable
+    wire [1:0]                ipb_re;           // read enable
 
     // Instruction issue (is)
     reg               is_align;
     reg               is_align_set;
     reg               is_align_clr;
-    wire [15:0]       is_ci_i16;
-    wire [31:0]       is_ci_i32;
     reg  [(3+32)-1:0] is_data; // 3-bit status + 32-bit instruction
     reg  [1:0]        is_valid; // data word is valid
-    reg               is_ack;
+    wire              is_ack;
+    wire [15:0]       is_ci_i16;
+    wire [31:0]       is_ci_i32;
 
     // Instruction fetch
     parameter IF_RESTART = 2'b00,
               IF_REQUEST = 2'b01,
               IF_PENDING = 2'b10;
 
-    reg [1:0] if_state, if_next, if_prev;
+    reg [1:0]       if_state;
     reg             if_restart;
     reg             if_unaligned;    
     reg [XLEN-1:2]  if_pc;
@@ -166,14 +151,14 @@ module rv32_cpu_control #(
     wire            if_a_err;   // alignment error
 
     // Instruction decode (id)
-    reg [6:0]  id_opcode;
     reg        id_is_alr; // is atomic load reserve
     reg        id_is_asc; // is atomic store condition
     reg        id_is_fop; // is floating point instruction
     reg        id_is_mul; // is multiplication instruction
     reg        id_is_div; // is division instruction
-    reg        id_rs1_zero; // rs1 is zero
-    reg        id_rd_zero;  // rd is zero
+    wire [6:0] id_opcode;
+    wire       id_rs1_zero; // rs1 is zero
+    wire       id_rd_zero;  // rd is zero
 
     // Instruction execution (ie)
     parameter IE_DISPATCH       = 4'b0000,
@@ -192,25 +177,15 @@ module rv32_cpu_control #(
     
     reg  [3:0]      ie_state; 
     reg  [3:0]      ie_next; 
-    // reg [3:0]      ie_prev; 
-    // reg [3:0]      ie_prev2;
     reg  [31:0]     ie_ir; 
-    // reg [31:0]     ie_ir_next;
     reg             ie_is_ci; // current instruction is decompressed or not
-    // reg             ie_is_ci_next;
-    wire            ie_branch_taken;
     reg  [XLEN-1:0] ie_pc;
-    wire            ie_pc_mux_sel; // source select for PC update
     reg             ie_pc_we;      // pc update enable
     reg  [XLEN-1:0] ie_next_pc;    // next PC
-    wire [XLEN-1:0] ie_next_pc_inc; // increment to get next PC
     reg             ie_branched; // increment to get next PC
-    // reg            ie_branched_next; 
-
-    // Instruction monitor (monitor): raise exception if multi-cycle operation times out (default = 512-cycle)
-    reg [9:0]      monitor_cnt;
-    reg [9:0]      monitor_cnt_add;
-    reg            monitor_exc;
+    wire            ie_branch_taken;
+    wire [XLEN-1:0] ie_next_pc_inc; // increment to get next PC
+    wire            ie_pc_mux_sel; // source select for PC update
 
     // Trap controller (trap_ctrl)
     reg [10:0]     trap_ctrl_exc_buf;       // synchronous exception buffer (one bit per exception)
@@ -285,6 +260,11 @@ module rv32_cpu_control #(
     reg             ctrl_next_cpu_trap;    // set when CPU is entering trap exec
     reg             ctrl_next_cpu_debug;   // set when CPU is in debug mode
 
+    // Instruction monitor (monitor): raise exception if multi-cycle operation times out (default = 512-cycle)
+    reg [9:0]      monitor_cnt;
+    reg [9:0]      monitor_cnt_add;
+    reg            monitor_exc;
+
     // Control and status register (CSR)
     reg [11:0]      csr_addr;               // csr address
     reg [11:0]      csr_raddr;              // simplified csr read address
@@ -332,6 +312,18 @@ module rv32_cpu_control #(
     reg [XLEN-1:0]  csr_tdata1_rd;          // trigger register read-back
     reg [XLEN-1:0]  csr_tdata2;             // address-match register
 
+    // CSR access/privilege/read-write check
+    reg             csr_reg_valid;          // CSR implemented at all
+    reg             csr_rw_valid;           // valid r/w access rights
+    reg             csr_priv_valid;         // valid access privilege
+
+    // CSR read-back data
+    reg [XLEN-1:0]  csr_rdata;
+    reg [XLEN-1:0]  xcsr_rdata;
+
+    // hardware trigger module
+    reg             hw_trigger_fire;
+
     // Debug module controller (dbg)
     reg             dbg_running;            // CPU is in debug mode
     reg             dbg_trig_hw;            // hardware trigger
@@ -342,15 +334,6 @@ module rv32_cpu_control #(
 
     // Illegal instruction check
     reg             illegal_cmd;
-
-    // CSR access/privilege/read-write check
-    reg             csr_reg_valid;          // CSR implemented at all
-    reg             csr_rw_valid;           // valid r/w access rights
-    reg             csr_priv_valid;         // valid access privilege
-
-    // CSR read-back data
-    reg [XLEN-1:0]  csr_rdata;
-    reg [XLEN-1:0]  xcsr_rdata;
 
     // Instruction extract
     wire [6:0]   ir_opcode;
@@ -473,7 +456,7 @@ module rv32_cpu_control #(
         // Read port
         .i_re       ( ipb_re[0]    ),    // read enable
         .o_rdata    ( ipb_rdata[0] ), // read data
-        .o_avail    ( ipb[0]       )  // data available when set
+        .o_avail    ( ibp_avail[0] )  // data available when set
     );
 
     ip_fifo prefetch_buffer1 #(
@@ -496,13 +479,16 @@ module rv32_cpu_control #(
         // Read port
         .i_re       ( ipb_re[1]    ),    // read enable
         .o_rdata    ( ipb_rdata[1] ), // read data
-        .o_avail    ( ipb[1]       )  // data available when set
+        .o_avail    ( ibp_avail[1] )  // data available when set
     );
+
+    assign ipb_re[0] = is_valid[0] && is_ack;
+    assign ipb_re[1] = is_valid[1] && is_ack;
 
 //=================================================================================================================
 // Instruction Issue (decompress 16-bit instructions and assemble a 32-bit instruction word)
 //=================================================================================================================
-    
+
     // Compressed Instruction decode
     generate
         if (CPU_EXTENSION_RISCV_C == 1) begin: gen_decompressor
@@ -560,9 +546,12 @@ module rv32_cpu_control #(
         end
     endgenerate 
 
+    assign is_ack    = (ie_state == IE_DISPATCH) &&
+                       (is_valid[0] || is_valid[1]) &&
+                       (!trap_ctrl_env_pending && !trap_ctrl_exc_fire);
+
     assign is_ci_i16 = is_align? ipb_rdata[1][15:0]: ipb_rdata[0][15:0];
-    assign ipb_re[0] = is_valid[0] && is_ack;
-    assign ipb_re[1] = is_valid[1] && is_ack;
+
 
 //=================================================================================================================
 // Instruction Execution
@@ -611,8 +600,7 @@ module rv32_cpu_control #(
 
     assign o_imm = ro_imm;
 
-    // Branch Condition Check (eq: beq / bne, lt: blt(u) / bge(u))
-    assign ie_branch_taken = ir_funct3[0] ^ (!ir_funct3[2]? i_cmp_eq: i_cmp_lt); 
+
 
     // Execute FSM
     always @(posedge i_clk, negedge i_rstn) begin
@@ -719,6 +707,8 @@ module rv32_cpu_control #(
         endcase
     end
 
+
+
     always @(posedge i_clk, negedge i_rstn) begin
         if (!i_rstn) begin
             ie_branched <= 1'b0;
@@ -794,14 +784,135 @@ module rv32_cpu_control #(
         endcase
     end
 
+
+
     assign ie_pc_mux_sel = (ie_state == IE_BRANCH); // PC <= alu.add = branch/jump destination
 
     // PC increment for next linear instruction (+2 for compressed instr., +4 otherwise) --
     assign ie_next_pc_inc[XLEN-1:4] = {28{1'b0}};
     assign ie_next_pc_inc[3:0]      = (ie_is_ci && (CPU_EXTENSION_RISCV_C == 1))? 4'd2: 4'd4;
 
+    // Branch Condition Check (eq: beq / bne, lt: blt(u) / bge(u))
+    assign ie_branch_taken = ir_funct3[0] ^ (!ir_funct3[2]? i_cmp_eq: i_cmp_lt); 
+
     // PC output
     assign o_curr_pc = {ie_pc[XLEN-1:1], 1'b0};
     assign o_next_pc = {ie_next_pc[XLEN-1:1], 1'b0}; 
+
+//=================================================================================================================
+// Instruction Decode
+//=================================================================================================================
+    always @(*) begin
+        // Atomic LR/SC
+        if ((CPU_EXTENSION_RISCV_A == 1) && (ir_funct3 == 3'b010) && (ir_funct7[6:3] == 4'b0001)) begin
+            id_is_alr = !ir_funct7[2]; // LR.W
+            id_is_asc = ir_funct7[2]; // SC.W
+        end
+        else begin
+            id_is_alr = 1'b0;
+            id_is_asc = 1'b0;
+        end
+        // Floating point operations (single/double)
+        if ((CPU_EXTENSION_RISCV_F == 1) || (CPU_EXTENSION_RISCV_D == 1)) begin
+            id_is_fop = ((funct7[1:0] == `FLOAT_SINGLE) || (funct7[1:0] == `FLOAT_DOUBLE)) &&
+                        ((ir_funct7[6:3] == 4'b0000)  || // FADD.S / FSUB.S
+                        (ir_funct7[6:2] == 5'b00010) || // FMUL.S
+                        ((ir_funct7[6:2] == 5'b11100) && (ir_funct3 == 3'b001))  || // FCLASS.S
+                        ((ir_funct7[6:2] == 5'b00100) && (ir_funct3[2] == 1'b0)) || // FSGNJ[N/X].s
+                        ((ir_funct7[6:2] == 5'b00101) && (ir_funct3[2:1] == 2'b00)) || // FMIN.S / FMAX.S
+                        ((ir_funct7[6:2] == 5'b10100) && (ir_funct3[2] == 1'b0)) || // FEQ.S / FLT.S / FLE.S
+                        ((ir_funct7[6:2] == 5'b11010) && (ir_funct12[4:1] == 4'b0000)) || // FCVT.S.W*
+                        ((ir_funct7[6:2] == 5'b11000) && (ir_funct12[4:1] == 4'b0000))); // FCVT.W*.S
+        end
+        else id_is_fop = 1'b0;
+
+        // Multiplication/Division
+        if ((CPU_EXTENSION_RISCV_M == 1) || (CPU_EXTENSION_RISCV_Zmmul == 1)) begin
+            id_is_mul = (ir_funct7 == 7'b0000001) && (ir_funct3[2] == 1'b0);
+        
+            if (CPU_EXTENSION_RISCV_M == 1)
+                id_is_div = (ir_funct7 == 7'b0000001) && (ir_funct3[2] == 1'b1);
+            else
+                id_is_div = 1'b0;
+        end
+        else begin
+            id_is_mul = 1'b0;
+            id_is_div = 1'b0;
+        end
+    end
+
+    assign id_opcode    = {ir_opcode[6:2], 2'b11};
+    assign id_rs1_zero  = ir_rs1 == 5'b00000;
+    assign id_rd_zero   = ir_rd  == 5'b00000;
+
+//=================================================================================================================
+// Trap controller
+//=================================================================================================================
+    reg [10:0]     trap_ctrl_exc_buf;       // synchronous exception buffer (one bit per exception)
+    reg            trap_ctrl_exc_fire;      // set if there is a valid source in the exception buffer
+    reg [20:0]     trap_ctrl_irq_pnd;       // pending interrupt
+    reg [20:0]     trap_ctrl_irq_buf;       // asynchronous exception/interrupt buffer (one bit per interrupt source)
+    reg            trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
+    reg [6:0]      trap_ctrl_cause;         // trap ID for mcause CSR & debug-mode entry identifier 
+    reg [XLEN-1:0] trap_ctrl_epc;           // exception program counter
+    reg            trap_ctrl_env_pending;   // start of trap environment if pending
+    reg            trap_ctrl_env_enter;     // enter trap environment
+    reg            trap_ctrl_env_exit;      // leave trap environment
+    reg            trap_ctrl_wakeup;        // wakeup from sleep due to an enabled pending IRQ
+    reg            trap_ctrl_instr_be;      // instruction fetch bus error
+    reg            trap_ctrl_instr_ma;      // instruction fetch misaligned address
+    reg            trap_ctrl_instr_il;      // illegal instruction
+    reg            trap_ctrl_env_call;      // ecall instruction
+    reg            trap_ctrl_break_point;   // ebreak instruction
+
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn) begin
+            trap_ctrl_exc_buf <= 11'd0;
+        end
+        else begin
+            // Exception Buffer -----------------------------------------------------
+            // If several exception sources trigger at once, all the requests will
+            // stay active until the trap environment is started. Only the exception
+            // with highest priority will be used to update the MCAUSE CSR. All
+            // remaining ones will be discarded.
+            // ----------------------------------------------------------------------
+            
+            // Misaligned load/store/instruction address --
+            trap_ctrl_exc_buf[`EXC_LALIGN] <= (trap_ctrl_exc_buf[`EXC_LALIGN] || i_ma_load)  && !trap_ctrl_env_enter;
+            trap_ctrl_exc_buf[`EXC_SALIGN] <= (trap_ctrl_exc_buf[`EXC_SALIGN] || i_ma_store) && !trap_ctrl_env_enter;
+            trap_ctrl_exc_buf[`EXC_IALIGN] <= (trap_ctrl_exc_buf[`EXC_IALIGN] || trap_ctrl_instr_ma) && !trap_ctrl_env_enter;
+
+            // load/store/instruction bus access fault
+            trap_ctrl_exc_buf[`EXC_LACCESS] <= (trap_ctrl_exc_buf[`EXC_LACCESS] || i_be_load)  && !trap_ctrl_env_enter;
+            trap_ctrl_exc_buf[`EXC_SACCESS] <= (trap_ctrl_exc_buf[`EXC_SACCESS] || i_be_store) && !trap_ctrl_env_enter;
+            trap_ctrl_exc_buf[`EXC_IACCESS] <= (trap_ctrl_exc_buf[`EXC_IACCESS] || trap_ctrl_instr_be) && !trap_ctrl_env_enter;
+
+            // illegal instruction & environment call
+            trap_ctrl_exc_buf[`EXC_ECALL] <= (trap_ctrl_exc_buf[`EXC_ECALL]     || trap_ctrl_env_call)  && !trap_ctrl_env_enter;
+            trap_ctrl_exc_buf[`EXC_ILLEGAL] <= (trap_ctrl_exc_buf[`EXC_ILLEGAL] || trap_ctrl_instr_il)  && !trap_ctrl_env_enter;
+
+            // break point
+            if (CPU_EXTENSION_RISCV_Sdext == 1) begin
+                trap_ctrl_exc_buf[`EXC_EBREAK] <= !trap_ctrl_env_enter &&
+                                                ( trap_ctrl_exc_buf[`EXC_EBREAK] ||
+                                                (hw_trigger_fire && !csr_tdata1_action) || // trigger module fires and enter-debug is disabled
+                                                (trap_ctrl_break_point &&  csr_privilege && !csr_dcsr_ebreakm && !dbg_running) || // enter M-mode handler on ebreak in M-mode  
+                                                (trap_ctrl_break_point && !csr_privilege && !csr_dcsr_ebreakm && !dbg_running));  // enter M-mode handler on ebreak in U-mode
+            end
+            else begin
+                trap_ctrl_exc_buf[`EXC_EBREAK] <= (trap_ctrl_exc_buf[`EXC_EBREAK] || trap_ctrl_break_point || hw_trigger_fire) && !trap_ctrl_env_enter;
+            end
+
+            // Debug-mode entry  
+            if (CPU_EXTENSION_RISCV_Sdext == 1) begin
+                trap_ctrl_exc_buf[`EXC_DB_BREAK] <= (trap_ctrl_exc_buf[`EXC_DB_BREAK]  || dbg_trig_break) && !trap_ctrl_env_enter;
+                trap_ctrl_exc_buf[`EXC_DB_HW]    <= (trap_ctrl_exc_buf[`EXC_DB_HW]     || dbg_trig_hw   ) && !trap_ctrl_env_enter;
+            end
+            else begin
+                trap_ctrl_exc_buf[`EXC_DB_BREAK] <= 1'b0;
+                trap_ctrl_exc_buf[`EXC_DB_HW]    <= 1'b0;
+            end
+        end
+    end
 
 endmodule
