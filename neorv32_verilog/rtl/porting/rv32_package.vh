@@ -29,6 +29,27 @@
   `define OP_CUST3   7'b1111011 // custom-3
 
 /****************************************************************************************************************************
+    ALU Function Codes
+****************************************************************************************************************************/
+  `define ALU_OP_ADD  3'b000 // result <= A + B
+  `define ALU_OP_SUB  3'b001 // result <= A - B
+  `define ALU_OP_CP   3'b010 // result <= ALU co-processor
+  `define ALU_OP_SLT  3'b011 // result <= A < B
+  `define ALU_OP_MOVB 3'b100 // result <= B
+  `define ALU_OP_XOR  3'b101 // result <= A xor B
+  `define ALU_OP_OR   3'b110 // result <= A or B
+  `define ALU_OP_AND  3'b111 // result <= A and B
+
+/****************************************************************************************************************************
+    CPU Co-Processor control
+****************************************************************************************************************************/
+  `define CP_SEL_SHIFT     0 // CP0: shift operations (base ISA)
+  `define CP_SEL_MUL       1 // CP1: multiplication operations ('M/Zmul' extensions)
+  `define CP_SEL_DIV       2 // CP2: division operations ('M')
+  `define CP_SEL_FPU       3 // CP3: floating-point unit ('F/D' extension)
+  `define CP_SEL_CFU       4 // CP4: custom instructions CFU ('Zxcfu' extension)
+
+/****************************************************************************************************************************
     RISC-V Funt3
 ****************************************************************************************************************************/
   // control flow //
@@ -80,14 +101,22 @@
   `define FUNCT12_DRET   12'h7b2 // dret
 
 /****************************************************************************************************************************
+  -- Register File Input Select -------------------------------------------------------------
+****************************************************************************************************************************/
+  `define RF_MUX_ALU 2'b00 // register file <= alu result
+  `define RF_MUX_MEM 2'b01 // register file <= memory read data
+  `define RF_MUX_CSR 2'b10 // register file <= CSR read data
+  `define RF_MUX_NPC 2'b11 // register file <= next-PC (for branch-and-link)
+
+/****************************************************************************************************************************
     RISC-V Floating-Point Stuff ------------------------------------------------------------
 ****************************************************************************************************************************/
   `define FLOAT_SINGLE 2'b00 // single-precision (32-bit)
   `define FLOAT_DOUBLE 2'b01 // double-precision (64-bit)
 
-  /*******************************************************************************************
+  /**************************************************************************************************************************
   -- CPU Trap System 
-  *******************************************************************************************/
+  **************************************************************************************************************************/
   // exception source bits --
   `define EXC_IACCESS    0 // instruction access fault        
   `define EXC_ILLEGAL    1 // illegal instruction             
@@ -128,4 +157,57 @@
   //
   `define IRQ_WIDTH     21 // length of this list in bits
   
+
+  /**************************************************************************************************************************
+  -- CPU Privilege Modes
+  **************************************************************************************************************************/
+  `define PRIV_MODE_M   1  // Machine mode
+  `define PRIV_MODE_U   0  // User mode
+
+  /**************************************************************************************************************************
+  -- Trap ID Codes
+  -- MSB:   1 = interrupt, 0 = sync. exception
+  -- MSB-1: 1 = entry to debug mode, 0 = normal trapping
+  -- RISC-V compliant synchronous exceptions --
+  **************************************************************************************************************************/
+  `define TRAP_IMA       {1'b0 ,1'b0 ,5'b00000} // 0: instruction misaligned
+  `define TRAP_IAF       {1'b0 ,1'b0 ,5'b00001} // 1: instruction access fault
+  `define TRAP_IIL       {1'b0 ,1'b0 ,5'b00010} // 2: illegal instruction
+  `define TRAP_BRK       {1'b0 ,1'b0 ,5'b00011} // 3: breakpoint
+  `define TRAP_LMA       {1'b0 ,1'b0 ,5'b00100} // 4: load address misaligned
+  `define TRAP_LAF       {1'b0 ,1'b0 ,5'b00101} // 5: load access fault
+  `define TRAP_SMA       {1'b0 ,1'b0 ,5'b00110} // 6: store address misaligned
+  `define TRAP_SAF       {1'b0 ,1'b0 ,5'b00111} // 7: store access fault
+  `define TRAP_ENV       {1'b0 ,1'b0 ,3'b010}   // environment call from u/s/h/m
+  `define TRAP_ENVU      {1'b0 ,1'b0 ,5'b01000} // 8..11: environment call from u
+  `define TRAP_ENVS      {1'b0 ,1'b0 ,5'b01001} // 8..11: environment call from s
+  `define TRAP_ENVH      {1'b0 ,1'b0 ,5'b01010} // 8..11: environment call from h
+  `define TRAP_ENVM      {1'b0 ,1'b0 ,5'b01011} // 8..11: environment call from m
+  // RISC-V compliant asynchronous exceptions (interrupts) --
+  `define TRAP_MSI       {1'b1 ,1'b0 ,5'b00011} // 3:  machine software interrupt
+  `define TRAP_MTI       {1'b1 ,1'b0 ,5'b00111} // 7:  machine timer interrupt
+  `define TRAP_MEI       {1'b1 ,1'b0 ,5'b01011} // 11: machine external interrupt
+  // NEORV32-specific (RISC-V custom) asynchronous exceptions (interrupts) --
+  `define TRAP_FIRQ0     {1'b1 ,1'b0 ,5'b10000} // 16: fast interrupt 0
+  `define TRAP_FIRQ1     {1'b1 ,1'b0 ,5'b10001} // 17: fast interrupt 1
+  `define TRAP_FIRQ2     {1'b1 ,1'b0 ,5'b10010} // 18: fast interrupt 2
+  `define TRAP_FIRQ3     {1'b1 ,1'b0 ,5'b10011} // 19: fast interrupt 3
+  `define TRAP_FIRQ4     {1'b1 ,1'b0 ,5'b10100} // 20: fast interrupt 4
+  `define TRAP_FIRQ5     {1'b1 ,1'b0 ,5'b10101} // 21: fast interrupt 5
+  `define TRAP_FIRQ6     {1'b1 ,1'b0 ,5'b10110} // 22: fast interrupt 6
+  `define TRAP_FIRQ7     {1'b1 ,1'b0 ,5'b10111} // 23: fast interrupt 7
+  `define TRAP_FIRQ8     {1'b1 ,1'b0 ,5'b11000} // 24: fast interrupt 8
+  `define TRAP_FIRQ9     {1'b1 ,1'b0 ,5'b11001} // 25: fast interrupt 9
+  `define TRAP_FIRQ10    {1'b1 ,1'b0 ,5'b11010} // 26: fast interrupt 10
+  `define TRAP_FIRQ11    {1'b1 ,1'b0 ,5'b11011} // 27: fast interrupt 11
+  `define TRAP_FIRQ12    {1'b1 ,1'b0 ,5'b11100} // 28: fast interrupt 12
+  `define TRAP_FIRQ13    {1'b1 ,1'b0 ,5'b11101} // 29: fast interrupt 13
+  `define TRAP_FIRQ14    {1'b1 ,1'b0 ,5'b11110} // 30: fast interrupt 14
+  `define TRAP_FIRQ15    {1'b1 ,1'b0 ,5'b11111} // 31: fast interrupt 15
+  // entering debug mode (sync./async. exceptions) --
+  `define TRAP_DB_BREAK  {1'b0 ,1'b1 ,5'b00001} // 1: break instruction (sync)
+  `define TRAP_DB_TRIG   {1'b0 ,1'b1 ,5'b00010} // 2: hardware trigger (sync)
+  `define TRAP_DB_HALT   {1'b1 ,1'b1 ,5'b00011} // 3: external halt request (async)
+  `define TRAP_DB_STEP   {1'b1 ,1'b1 ,5'b00100} // 4: single-stepping (async) 
+
 `endif

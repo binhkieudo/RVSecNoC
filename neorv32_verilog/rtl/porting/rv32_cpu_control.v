@@ -188,22 +188,22 @@ module rv32_cpu_control #(
     wire            ie_pc_mux_sel; // source select for PC update
 
     // Trap controller (trap_ctrl)
-    reg [10:0]     trap_ctrl_exc_buf;       // synchronous exception buffer (one bit per exception)
-    reg            trap_ctrl_exc_fire;      // set if there is a valid source in the exception buffer
-    reg [20:0]     trap_ctrl_irq_pnd;       // pending interrupt
-    reg [20:0]     trap_ctrl_irq_buf;       // asynchronous exception/interrupt buffer (one bit per interrupt source)
-    reg            trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
-    reg [6:0]      trap_ctrl_cause;         // trap ID for mcause CSR & debug-mode entry identifier 
-    reg [XLEN-1:0] trap_ctrl_epc;           // exception program counter
-    reg            trap_ctrl_env_pending;   // start of trap environment if pending
-    reg            trap_ctrl_env_enter;     // enter trap environment
-    reg            trap_ctrl_env_exit;      // leave trap environment
-    reg            trap_ctrl_wakeup;        // wakeup from sleep due to an enabled pending IRQ
-    reg            trap_ctrl_instr_be;      // instruction fetch bus error
-    reg            trap_ctrl_instr_ma;      // instruction fetch misaligned address
-    reg            trap_ctrl_instr_il;      // illegal instruction
-    reg            trap_ctrl_env_call;      // ecall instruction
-    reg            trap_ctrl_break_point;   // ebreak instruction
+    reg  [10:0]     trap_ctrl_exc_buf;       // synchronous exception buffer (one bit per exception)
+    wire            trap_ctrl_exc_fire;      // set if there is a valid source in the exception buffer
+    reg  [20:0]     trap_ctrl_irq_pnd;       // pending interrupt
+    reg  [20:0]     trap_ctrl_irq_buf;       // asynchronous exception/interrupt buffer (one bit per interrupt source)
+    reg             trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
+    reg  [6:0]      trap_ctrl_cause;         // trap ID for mcause CSR & debug-mode entry identifier 
+    wire [XLEN-1:0] trap_ctrl_epc;           // exception program counter
+    reg             trap_ctrl_env_pending;   // start of trap environment if pending
+    wire            trap_ctrl_env_enter;     // enter trap environment
+    wire            trap_ctrl_env_exit;      // leave trap environment
+    reg             trap_ctrl_wakeup;        // wakeup from sleep due to an enabled pending IRQ
+    reg             trap_ctrl_instr_be;      // instruction fetch bus error
+    reg             trap_ctrl_instr_ma;      // instruction fetch misaligned address
+    wire            trap_ctrl_instr_il;      // illegal instruction
+    reg             trap_ctrl_env_call;      // ecall instruction
+    reg             trap_ctrl_break_point;   // ebreak instruction
 
     // CPU control signals
     reg             ctrl_rf_wb_en;    // write back enable
@@ -213,57 +213,37 @@ module rv32_cpu_control #(
     reg [4:0]       ctrl_rf_rd;       // destination register address
     reg [1:0]       ctrl_rf_mux;      // input source select
     reg             ctrl_rf_zero_we;  // allow/force write access to x0
+
     reg [2:0]       ctrl_alu_op;      // ALU operation select
     reg             ctrl_alu_opa_mux; // operand A select (0=rs1; 1=PC)
     reg             ctrl_alu_opb_mux; // operand B select (0=rs2; 1=IMM)
     reg             ctrl_alu_unsigned;// is unsigned ALU operation
     reg [4:0]       ctrl_alu_cp_trig; // co-processor trigger (one-hot)
+
     reg             ctrl_lsu_req_rd;  // trigger memory read request
     reg             ctrl_lsu_req_wr;  // trigger memory write request
     reg             ctrl_lsu_rw;      // 0: read access; 1: write access
-    reg             ctrl_lsu_mo_we;   // memory address and data output register write enable
+    // reg             ctrl_lsu_mo_we;   // memory address and data output register write enable
     reg             ctrl_lsu_fence;   // fence operation
     reg             ctrl_lsu_fencei;  // fence.i operation
-    reg             ctrl_lsu_priv;    // effective privilege level for load/store
-    reg [2:0]       ctrl_ir_funct3;   // funct3 bit field
-    reg [11:0]      ctrl_ir_funct12;  // funct12 bit field
-    reg [6:0]       ctrl_ir_opcode;   // opcode bit field
-    reg             ctrl_cpu_priv;    // effective privilege mode
-    reg             ctrl_cpu_sleep;   // set when CPU is in sleep mode
-    reg             ctrl_cpu_trap;    // set when CPU is entering trap exec
-    reg             ctrl_cpu_debug;   // set when CPU is in debug mode
+    // reg             ctrl_lsu_priv;    // effective privilege level for load/store
 
-    reg             ctrl_next_rf_wb_en;    // write back enable
-    reg [4:0]       ctrl_next_rf_rs1;      // source register 1 address
-    reg [4:0]       ctrl_next_rf_rs2;      // source register 2 address
-    reg [4:0]       ctrl_next_rf_rs3;      // source register 3 address
-    reg [4:0]       ctrl_next_rf_rd;       // destination register address
-    reg [1:0]       ctrl_next_rf_mux;      // input source select
-    reg             ctrl_next_rf_zero_we;  // allow/force write access to x0
-    reg [2:0]       ctrl_next_alu_op;      // ALU operation select
-    reg             ctrl_next_alu_opa_mux; // operand A select (0=rs1; 1=PC)
-    reg             ctrl_next_alu_opb_mux; // operand B select (0=rs2; 1=IMM)
-    reg             ctrl_next_alu_unsigned;// is unsigned ALU operation
-    reg [4:0]       ctrl_next_alu_cp_trig; // co-processor trigger (one-hot)
-    reg             ctrl_next_lsu_req_rd;  // trigger memory read request
-    reg             ctrl_next_lsu_req_wr;  // trigger memory write request
-    reg             ctrl_next_lsu_rw;      // 0: read access; 1: write access
-    reg             ctrl_next_lsu_mo_we;   // memory address and data output register write enable
-    reg             ctrl_next_lsu_fence;   // fence operation
-    reg             ctrl_next_lsu_fencei;  // fence.i operation
-    reg             ctrl_next_lsu_priv;    // effective privilege level for load/store
-    reg [2:0]       ctrl_next_ir_funct3;   // funct3 bit field
-    reg [11:0]      ctrl_next_ir_funct12;  // funct12 bit field
-    reg [6:0]       ctrl_next_ir_opcode;   // opcode bit field
-    reg             ctrl_next_cpu_priv;    // effective privilege mode
-    reg             ctrl_next_cpu_sleep;   // set when CPU is in sleep mode
-    reg             ctrl_next_cpu_trap;    // set when CPU is entering trap exec
-    reg             ctrl_next_cpu_debug;   // set when CPU is in debug mode
+    // reg [2:0]       ctrl_ir_funct3;   // funct3 bit field
+    // reg [11:0]      ctrl_ir_funct12;  // funct12 bit field
+    // reg [6:0]       ctrl_ir_opcode;   // opcode bit field
+
+    // reg             ctrl_cpu_priv;    // effective privilege mode
+    // reg             ctrl_cpu_sleep;   // set when CPU is in sleep mode
+    // reg             ctrl_cpu_trap;    // set when CPU is entering trap exec
+    // reg             ctrl_cpu_debug;   // set when CPU is in debug mode
 
     // Instruction monitor (monitor): raise exception if multi-cycle operation times out (default = 512-cycle)
-    reg [9:0]      monitor_cnt;
-    reg [9:0]      monitor_cnt_add;
-    reg            monitor_exc;
+    reg [9:0]       monitor_cnt;
+    wire [9:0]      monitor_cnt_add;
+    wire            monitor_exc;
+
+    // hardware trigger module
+    wire            hw_trigger_fire;
 
     // Control and status register (CSR)
     reg [11:0]      csr_addr;               // csr address
@@ -321,8 +301,6 @@ module rv32_cpu_control #(
     reg [XLEN-1:0]  csr_rdata;
     reg [XLEN-1:0]  xcsr_rdata;
 
-    // hardware trigger module
-    reg             hw_trigger_fire;
 
     // Debug module controller (dbg)
     reg             dbg_running;            // CPU is in debug mode
@@ -848,27 +826,13 @@ module rv32_cpu_control #(
 //=================================================================================================================
 // Trap controller
 //=================================================================================================================
-    reg [10:0]     trap_ctrl_exc_buf;       // synchronous exception buffer (one bit per exception)
-    reg            trap_ctrl_exc_fire;      // set if there is a valid source in the exception buffer
-    reg [20:0]     trap_ctrl_irq_pnd;       // pending interrupt
-    reg [20:0]     trap_ctrl_irq_buf;       // asynchronous exception/interrupt buffer (one bit per interrupt source)
-    reg            trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
-    reg [6:0]      trap_ctrl_cause;         // trap ID for mcause CSR & debug-mode entry identifier 
-    reg [XLEN-1:0] trap_ctrl_epc;           // exception program counter
-    reg            trap_ctrl_env_pending;   // start of trap environment if pending
-    reg            trap_ctrl_env_enter;     // enter trap environment
-    reg            trap_ctrl_env_exit;      // leave trap environment
-    reg            trap_ctrl_wakeup;        // wakeup from sleep due to an enabled pending IRQ
-    reg            trap_ctrl_instr_be;      // instruction fetch bus error
-    reg            trap_ctrl_instr_ma;      // instruction fetch misaligned address
-    reg            trap_ctrl_instr_il;      // illegal instruction
-    reg            trap_ctrl_env_call;      // ecall instruction
-    reg            trap_ctrl_break_point;   // ebreak instruction
-
     always @(posedge i_clk, negedge i_rstn) begin
-        if (!i_rstn) begin
+        if (!i_rstn)
             trap_ctrl_exc_buf <= 11'd0;
-        end
+            trap_ctrl_irq_pnd <= 21'd0;
+            trap_ctrl_irq_buf <= 21'd0;
+            trap_ctrl_env_pending <= 1'b0;
+            trap_ctrl_wakeup <= 1'b0;
         else begin
             // Exception Buffer -----------------------------------------------------
             // If several exception sources trigger at once, all the requests will
@@ -912,7 +876,379 @@ module rv32_cpu_control #(
                 trap_ctrl_exc_buf[`EXC_DB_BREAK] <= 1'b0;
                 trap_ctrl_exc_buf[`EXC_DB_HW]    <= 1'b0;
             end
+
+            // Interrupt-Pending Buffer ---------------------------------------------
+            // Once triggered the fast interrupt requests stay active until
+            // explicitly cleared via the MIP CSR. The RISC-V standard interrupts
+            // have to stay high until cleared by a platform-specific mechanism.
+            // ----------------------------------------------------------------------
+            
+            // RISC-V machine interrupts --
+            trap_ctrl_irq_pnd[`IRQ_MSI] <= i_msi;
+            trap_ctrl_irq_pnd[`IRQ_MEI] <= i_mei;
+            trap_ctrl_irq_pnd[`IRQ_MTI] <= i_mti;
+
+            // Fast interrupts
+            trap_ctrl_irq_pnd[`IRQ_FIRQ0] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ0] && csr_mip_firq_nclr[0]) || i_firq[0];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ1] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ1] && csr_mip_firq_nclr[1]) || i_firq[1];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ2] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ2] && csr_mip_firq_nclr[2]) || i_firq[2];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ3] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ3] && csr_mip_firq_nclr[3]) || i_firq[3];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ4] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ4] && csr_mip_firq_nclr[4]) || i_firq[4];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ5] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ5] && csr_mip_firq_nclr[5]) || i_firq[5];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ6] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ6] && csr_mip_firq_nclr[6]) || i_firq[6];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ7] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ7] && csr_mip_firq_nclr[7]) || i_firq[7];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ8] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ8] && csr_mip_firq_nclr[8]) || i_firq[8];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ9] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ9] && csr_mip_firq_nclr[9]) || i_firq[9];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ10] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ10] && csr_mip_firq_nclr[10]) || i_firq[10];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ11] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ11] && csr_mip_firq_nclr[11]) || i_firq[11];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ12] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ12] && csr_mip_firq_nclr[12]) || i_firq[12];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ13] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ13] && csr_mip_firq_nclr[13]) || i_firq[13];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ14] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ14] && csr_mip_firq_nclr[14]) || i_firq[14];
+            trap_ctrl_irq_pnd[`IRQ_FIRQ15] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ15] && csr_mip_firq_nclr[15]) || i_firq[15];
+
+            // Debug mode entry
+            trap_ctrl_irq_pnd[`IRQ_DB_HALT] <= 1'b0;
+            trap_ctrl_irq_pnd[`IRQ_DB_STEP] <= 1'b0;
+
+            // Interrupt Masking Buffer ---------------------------------------------
+            // Masking of interrupt request lines. Furthermore, this buffer ensures
+            // that an *active* interrupt request line *stays* active (even if
+            // disabled via MIE) if the trap environment is *currently* starting.
+            // ----------------------------------------------------------------------
+
+            // RISC-V machine interrupts --
+            trap_ctrl_irq_buf[`IRQ_MSI] <= (trap_ctrl_irq_pnd[`IRQ_MSI] && csr_mie_msi) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_MSI]);
+            trap_ctrl_irq_buf[`IRQ_MEI] <= (trap_ctrl_irq_pnd[`IRQ_MEI] && csr_mie_mei) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_MEI]);
+            trap_ctrl_irq_buf[`IRQ_MTI] <= (trap_ctrl_irq_pnd[`IRQ_MTI] && csr_mie_mti) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_MTI]);
+
+            // Fast interrupts
+            trap_ctrl_irq_buf[`IRQ_FIRQ0] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ0] && csr_mie_firq[0]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ0]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ1] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ1] && csr_mie_firq[1]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ1]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ2] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ2] && csr_mie_firq[2]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ2]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ3] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ3] && csr_mie_firq[3]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ3]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ4] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ4] && csr_mie_firq[4]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ4]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ5] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ5] && csr_mie_firq[5]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ5]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ6] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ6] && csr_mie_firq[6]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ6]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ7] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ7] && csr_mie_firq[7]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ7]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ8] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ8] && csr_mie_firq[8]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ8]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ9] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ9] && csr_mie_firq[9]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ9]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ10] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ10] && csr_mie_firq[10]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ10]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ11] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ11] && csr_mie_firq[11]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ11]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ12] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ12] && csr_mie_firq[12]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ12]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ13] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ13] && csr_mie_firq[13]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ13]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ14] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ14] && csr_mie_firq[14]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ14]);
+            trap_ctrl_irq_buf[`IRQ_FIRQ15] <= (trap_ctrl_irq_pnd[`IRQ_FIRQ15] && csr_mie_firq[15]) || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_FIRQ15]);            
+
+            // Debug mode entry
+            if (CPU_EXTENSION_RISCV_Sdext == 1) begin
+                trap_ctrl_irq_buf[`IRQ_DB_HALT] <= dbg_trig_halt || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_DB_HALT]);
+                trap_ctrl_irq_buf[`IRQ_DB_STEP] <= dbg_trig_step || (trap_ctrl_env_pending && trap_ctrl_irq_buf[`IRQ_DB_STEP]);
+            end
+            else begin
+                trap_ctrl_irq_buf[`IRQ_DB_HALT] <= 1'b0;
+                trap_ctrl_irq_buf[`IRQ_DB_STEP] <= 1'b0;
+            end
+
+            // Trap environment pending
+            if (trap_ctrl_env_pending) 
+                trap_ctrl_env_pending <= !trap_ctrl_env_enter; // start of trap environment acknowledged by execute engine
+            else
+                trap_ctrl_env_pending <= trap_ctrl_exc_fire || (trap_ctrl_irq_fire && (ie_state == IE_EXECUTE));
+
+            // Trap wake up
+            trap_ctrl_wakeup <= |trap_ctrl_irq_buf;
         end
     end
+
+    always @(posedge i_clk) begin
+        // Standard RISC-V exceptions
+        if (trap_ctrl_exc_buf[`EXC_IALIGN])         trap_ctrl_cause <= `TRAP_IMA; // instruction address misaligned
+        else if (trap_ctrl_exc_buf[`EXC_IACCESS])   trap_ctrl_cause <= `TRAP_IAF; // instruction access fault
+        else if (trap_ctrl_exc_buf[`EXC_ILLEGAL])   trap_ctrl_cause <= `TRAP_IIL; // illegal instruction
+        else if (trap_ctrl_exc_buf[`EXC_ECALL])     trap_ctrl_cause <= {`TRAP_ENV, csr_privilege, csr_privilege}; // environment call (U/M)
+        else if (trap_ctrl_exc_buf[`EXC_EBREAK])    trap_ctrl_cause <= `TRAP_BRK; // breakpoint
+        else if (trap_ctrl_exc_buf[`EXC_SALIGN])    trap_ctrl_cause <= `TRAP_SMA; // store address misaligned
+        else if (trap_ctrl_exc_buf[`EXC_LALIGN])    trap_ctrl_cause <= `TRAP_LMA; // load address misaligned
+        else if (trap_ctrl_exc_buf[`EXC_SACCESS])   trap_ctrl_cause <= `TRAP_SAF; // store access fault
+        else if (trap_ctrl_exc_buf[`EXC_LACCESS])   trap_ctrl_cause <= `TRAP_LAF; // load access fault
+        // Standard RISC-V debug mode exceptions and interrupts
+        else if (trap_ctrl_irq_buf[`IRQ_DB_HALT])   trap_ctrl_cause <= `TRAP_DB_HALT;   // external halt request (async)
+        else if (trap_ctrl_exc_buf[`EXC_DB_HW])     trap_ctrl_cause <= `TRAP_DB_TRIG;   // hardware trigger (sync)
+        else if (trap_ctrl_exc_buf[`EXC_DB_BREAK])  trap_ctrl_cause <= `TRAP_DB_BREAK;  // break instruction (sync)
+        else if (trap_ctrl_irq_buf[`IRQ_DB_STEP])   trap_ctrl_cause <= `TRAP_DB_STEP;   // single stepping (async)
+        // Fast interrupt
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ0])     trap_ctrl_cause <= `TRAP_FIRQ0;     // fast interrupt channel 0
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ1])     trap_ctrl_cause <= `TRAP_FIRQ1;     // fast interrupt channel 1
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ2])     trap_ctrl_cause <= `TRAP_FIRQ2;     // fast interrupt channel 2
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ3])     trap_ctrl_cause <= `TRAP_FIRQ3;     // fast interrupt channel 3
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ4])     trap_ctrl_cause <= `TRAP_FIRQ4;     // fast interrupt channel 4
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ5])     trap_ctrl_cause <= `TRAP_FIRQ5;     // fast interrupt channel 5
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ6])     trap_ctrl_cause <= `TRAP_FIRQ6;     // fast interrupt channel 6
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ7])     trap_ctrl_cause <= `TRAP_FIRQ7;     // fast interrupt channel 7
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ8])     trap_ctrl_cause <= `TRAP_FIRQ8;     // fast interrupt channel 8
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ9])     trap_ctrl_cause <= `TRAP_FIRQ9;     // fast interrupt channel 9
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ10])    trap_ctrl_cause <= `TRAP_FIRQ10;    // fast interrupt channel 10
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ11])    trap_ctrl_cause <= `TRAP_FIRQ11;    // fast interrupt channel 11
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ12])    trap_ctrl_cause <= `TRAP_FIRQ12;    // fast interrupt channel 12
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ13])    trap_ctrl_cause <= `TRAP_FIRQ13;    // fast interrupt channel 13
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ14])    trap_ctrl_cause <= `TRAP_FIRQ14;    // fast interrupt channel 14
+        else if (trap_ctrl_irq_buf[`IRQ_FIRQ15])    trap_ctrl_cause <= `TRAP_FIRQ15;    // fast interrupt channel 15
+        // Standard RISC-V interrupts
+        else if (trap_ctrl_irq_buf[`IRQ_MEI])       trap_ctrl_cause <= `TRAP_MEI;       // machine external interrupt (MEI)
+        else if (trap_ctrl_irq_buf[`IRQ_MSI])       trap_ctrl_cause <= `TRAP_MSI;       // machine software interrupt (MSI)
+        else if (trap_ctrl_irq_buf[`IRQ_MTI])       trap_ctrl_cause <= `TRAP_MTI;       // machine timer interrupt (MTI)
+        else                                        trap_ctrl_cause <= `TRAP_MTI;       // don't care
+    end
+
+    always @(*) begin
+        if ((ie_state == IE_DISPATCH) && |is_valid && !trap_ctrl_env_pending && !trap_ctrl_exc_fire) begin
+            trap_ctrl_instr_be = is_data[34];
+            trap_ctrl_instr_ma = is_data[33];
+        end
+        else begin
+            trap_ctrl_instr_be = 1'b0;
+            trap_ctrl_instr_ma = 1'b0;
+        end
+
+        if ((ie_state == IE_SYSTEM) && (ir_funct3 == `FUNCT3_ENV) && !trap_ctrl_exc_buf[`EXC_ILLEGAL]) begin
+            trap_ctrl_env_call      = (ir_funct12 == `FUNCT12_ECALL);
+            trap_ctrl_break_point   = (ir_funct12 == `FUNCT12_EBREAK);
+        end
+        else begin
+            trap_ctrl_env_call      = 1'b0;
+            trap_ctrl_break_point   = 1'b0;
+        end
+    end
+
+    // Any exception?
+    assign trap_ctrl_exc_fire = |trap_ctrl_exc_buf;
+
+    // Any interrupt?
+    assign trap_ctrl_irq_fire = ( |trap_ctrl_irq_buf && // pending IRQ
+                                  (csr_mstatus_mie || (csr_privilege == PRIV_MODE_U)) && // take IRQ when in M-mode and MIE=1 OR when in U-mode
+                                  (!dbg_running && !csr_dcsr_step) // no IRQs when in debug-mode or during debug single-stepping
+                                ) || 
+                                trap_ctrl_irq_buf[`IRQ_DB_STEP] ||
+                                trap_ctrl_irq_buf[`IRQ_DB_HALT];
+
+    // exception program counter (for updating xPC CSR) --
+    assign trap_ctrl_epc = trap_ctrl_cause[6]? ie_next_pc: ie_pc;
+
+    // Trap enter
+    assign trap_ctrl_env_enter = (ie_state == IE_TRAP_ENTER);
+    assign trap_ctrl_env_exit  = (ie_state == IE_TRAP_EXIT);
+
+    // Illegal Operation Check
+    assign trap_ctrl_instr_il = ((ie_state == IE_EXECUTE) || (ie_state == IE_ALU_WAIT)) && // check in execution states only
+                                (monitor_exc || illegal_cmd || (ir_opcode[1:0] != 2'b11));
+
+
+//=================================================================================================================
+// Main controller
+//=================================================================================================================
+    // Register file controller ===================================================================================
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn) begin
+            ctrl_rf_wb_en   <= 1'b0;
+            ctrl_rf_mux     <= 2'b00;
+            ctrl_rf_zero_we <= 1'b0;
+        end
+        else begin
+            // ctrl_rf_wb_en
+            case (ie_state)
+                IE_EXECUTE: begin
+                    if ((id_opcode == `OP_ALU) || (id_opcode == `OP_ALUI)) begin
+                        if ((id_is_mul && (FAST_MUL_EN == 0)) || id_is_div
+                             ((ir_funct3 == `FUNCT3_SLL) && (FAST_SHIFT_EN == 0)) ||
+                             ((ir_funct3 == `FUNCT3_SR ) && (FAST_SHIFT_EN == 0)))
+                             ctrl_rf_wb_en <= 1'b0;
+                        else ctrl_rf_wb_en <= 1'b1; // valid RF write-back
+                    end
+                    else if ((id_opcode == `OP_LUI) || (id_opcode == `OP_AUIPC))
+                        ctrl_rf_wb_en <= 1'b1; // valid RF write-back
+                    else
+                        ctrl_rf_wb_en <= 1'b0;
+                end
+                IE_ALU_WAIT: // valid RF write-back (won't happen in case of an illegal instruction)
+                    ctrl_rf_wb_en <= i_alu_cp_done || trap_ctrl_exc_buf[`EXC_ILLEGAL];
+                IE_BRANCH:
+                    ctrl_rf_wb_en <= ir_opcode[2]; // save return address if link operation
+                IE_MEM_WAIT: // atomic operation or normal load
+                    if ((CPU_EXTENSION_RISCV_A == 1) && (id_opcode[2] == `OP_AMO[2]) || (ir_opcode[5] == 1'b0)) 
+                        ctrl_rf_wb_en <= !i_lsu_wait;
+                    else
+                        ctrl_rf_wb_en <= 1'b0;
+                IE_SYSTEM:
+                    ctrl_rf_wb_en <= (ir_funct3 != `FUNCT3_ENV) || trap_ctrl_exc_buf[`EXC_ILLEGAL];
+                default:
+                    ctrl_rf_wb_en <= 1'b0;    
+            endcase
+
+            // ctrl_rf_mux
+            if (ie_state == IE_BRANCH)        ctrl_rf_mux <= `RF_MUX_NPC; // return address = next PC
+            else if (ie_state == IE_BRANCHED) ctrl_rf_mux <= `RF_MUX_CSR; // this will return 0 since csr.re_nxt has not been set 
+            else if (ie_state == IE_MEM_WAIT) ctrl_rf_mux <= `RF_MUX_MEM; // RF input = memory read data
+            else if (ie_state == IE_SYSTEM)   ctrl_rf_mux <= `RF_MUX_CSR; // CSR read data
+            else ctrl_rf_mux <= `RF_MUX_ALU;
+
+            // ctrl_rf_zero_we (not implemented yet)
+            ctrl_rf_zero_we <= 1'b0;
+        end
+    end
+
+    assign o_ctrl_rf_wb_en   = ctrl_rf_wb_en && !trap_ctrl_exc_buf[`EXC_ILLEGAL];
+    assign o_ctrl_rf_rs1     = ir_rs1;
+    assign o_ctrl_rf_rs2     = ir_rs2;
+    assign o_ctrl_rf_rs3     = ir_rs3;
+    assign o_ctrl_rf_rd      = ir_rd;
+    assign o_ctrl_rf_mux     = ctrl_rf_mux;
+    assign o_ctrl_rf_zero_we = ctrl_rf_zero_we;
+
+    // ALU controller ================================================================================================
+    always @(posedge i_clk, negedge i_rstn) begin 
+        if (!i_rstn) begin
+            ctrl_alu_op       <= `ALU_OP_ADD;
+            ctrl_alu_opa_mux  <= 1'b0;
+            ctrl_alu_opb_mux  <= 1'b0;
+            ctrl_alu_unsigned <= 1'b0;
+            ctrl_alu_cp_trig  <= 5'b00000;
+        end
+        else begin
+            // ctrl_alu_op
+            if (ie_state == IE_EXECUTE) begin
+                if ((ir_opcode == `OP_ALU) || (ir_opcode == `OP_ALUI)) begin
+                    case (ir_funct3)
+                        `FUNCT3_SUBADD  : ctrl_alu_op <= (ir_opcode[5] && ir_funct7[5])? `ALU_OP_SUB: `ALU_OP_ADD;
+                        `FUNCT3_SLT     : ctrl_alu_op <= `ALU_OP_SLT;
+                        `FUNCT3_SLTU    : ctrl_alu_op <= `ALU_OP_SLT;
+                        `FUNCT3_XOR     : ctrl_alu_op <= `ALU_OP_XOR;
+                        `FUNCT3_OR      : ctrl_alu_op <= `ALU_OP_OR;
+                        default         : ctrl_alu_op <= `ALU_OP_AND;                                
+                    endcase
+                end
+                else if ((ir_opcode == `OP_LUI) || (ir_opcode == `OP_AUIPC))
+                    ctrl_alu_op <= (ir_opcode[5] == `OP_LUI[5])? `ALU_OP_MOVB: `ALU_OP_ADD;
+            end
+            else if (ie_state == IE_ALU_WAIT) ctrl_alu_op <= `ALU_OP_CP;
+            else ctrl_alu_op <= `ALU_OP_ADD;
+
+            // ctrl_alu_opa_mux
+            ctrl_alu_opa_mux <= (id_opcode == `OP_AUIPC)  || (id_opcode == `OP_JAL)   || (id_opcode == `OP_BRANCH);
+
+            ctrl_alu_opb_mux <= (id_opcode == `OP_ALUI)   || (id_opcode == `OP_LUI)   || (id_opcode == `OP_AUIPC) ||
+                                (id_opcode == `OP_LOAD)   || (id_opcode == `OP_STORE) || (id_opcode == `OP_AMO)   ||
+                                (id_opcode == `OP_BRANCH) || (id_opcode == `OP_JAL)   || (id_opcode == `OP_JALR);
+
+            // ctrl_alu_unsigned ir_op[4] == 1 --> ALU ops (SLTIU, SLTU), otherwise branches (BLTU, BGEU)
+            ctrl_alu_unsigned <= ir_op[4]? ir_funct3[0]: ir_funct3[1];
+
+            // Co-preocessor trigger (one-hot)
+            if (ie_state == IE_EXECUTE) begin
+                if ((id_opcode == `OP_ALU) || (id_opcode == `OP_ALUI)) begin
+                    ctrl_alu_cp_trig[`CP_SEL_SHIFT] <= (ir_funct3 == `FUNCT3_SLL) || (ir_funct3 == `FUNCT3_SR);
+                    ctrl_alu_cp_trig[`CP_SEL_MUL]   <= id_is_mul;
+                    ctrl_alu_cp_trig[`CP_SEL_DIV]   <= id_is_div;
+                    ctrl_alu_cp_trig[`CP_SEL_FPU]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_CFU]   <= 1'b0;
+                end
+                else if (id_opcode == `OP_FOP) begin
+                    ctrl_alu_cp_trig[`CP_SEL_SHIFT] <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_MUL]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_DIV]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_FPU]   <= 1'b1;
+                    ctrl_alu_cp_trig[`CP_SEL_CFU]   <= 1'b0;                    
+                end
+                else if ((id_opcode == `OP_CUST0) || 
+                         (id_opcode == `OP_CUST1) || 
+                         (id_opcode == `OP_CUST2) || 
+                         (id_opcode == `OP_CUST3)) begin
+                    ctrl_alu_cp_trig[`CP_SEL_SHIFT] <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_MUL]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_DIV]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_FPU]   <= 1'b0;
+                    ctrl_alu_cp_trig[`CP_SEL_CFU]   <= 1'b1;                              
+                end
+                else ctrl_alu_cp_trig <= 5'b00000;
+            end
+            else begin
+                ctrl_alu_cp_trig <= 5'b00000;
+            end
+        end
+    end
+
+    assign o_ctrl_alu_op = ctrl_alu_op;
+    assign o_ctrl_alu_opa_mux = ctrl_alu_opa_mux;
+    assign o_ctrl_alu_opb_mux = ctrl_alu_opb_mux;
+    assign o_ctrl_alu_unsigned = ctrl_alu_unsigned;
+    assign o_ctrl_alu_cp_trig = ctrl_alu_cp_trig;
+
+    // Load/Store unit controller =============================================================================
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn) begin
+            ctrl_lsu_req_rd <= 1'b0;
+            ctrl_lsu_req_wr <= 1'b0;
+            ctrl_lsu_rw     <= 1'b0;
+            ctrl_lsu_fence  <= 1'b0;
+            ctrl_lsu_fencei <= 1'b0;
+        end
+        else begin
+            ctrl_lsu_req_rd <= (ie_state == `IE_MEM_REQ) && !ctrl_lsu_rw && !trap_ctrl_exc_buf[`EXC_ILLEGAL];
+            ctrl_lsu_req_wr <= (ie_state == `IE_MEM_REQ) &&  ctrl_lsu_rw && !trap_ctrl_exc_buf[`EXC_ILLEGAL];
+        
+            if ((CPU_EXTENSION_RISCV_A == 1) && (id_opcode[2] == `OP_AMO[2])) // lr/sc
+                ctrl_lsu_rw <= ir_funct7[2];
+            else
+                ctrl_lsu_rw <= ie_ir[5];
+
+            if (ie_state == IE_FENCE) begin
+                ctrl_lsu_fence  <= !trap_ctrl_exc_buf[`EXC_ILLEGAL] && (ir_funct3 == `FUNCT3_FENCE);
+                ctrl_lsu_fencei <= !trap_ctrl_exc_buf[`EXC_ILLEGAL] && (ir_funct3 == `FUNCT3_FENCEI) && (CPU_EXTENSION_RISCV_Zifencei == 1);
+            end
+            else begin
+                ctrl_lsu_fence  <= 1'b0;
+                ctrl_lsu_fencei <= 1'b0;                
+            end
+        end
+    end
+
+    assign o_ctrl_lsu_req_rd = ctrl_lsu_req_rd;
+    assign o_ctrl_lsu_req_wr = ctrl_lsu_req_wr;
+    assign o_ctrl_lsu_rw     = ctrl_lsu_rw;
+    assign o_ctrl_lsu_mo_we  = (ie_state == `IE_MEM_REQ); // write memory output registers (data & address)
+    assign o_ctrl_lsu_fence  = ctrl_lsu_fence;
+    assign o_ctrl_lsu_fencei = ctrl_lsu_fencei;
+    assign o_ctrl_lsu_priv   = csr_mstatus_mprv? csr_mstatus_mpp: csr_privilege_eff; // effective privilege level for loads/stores in M-mode
+
+    // Functional fields extrac =============================================================================
+    assign o_ctrl_ir_opcode  = ir_opcode;
+    assign o_ctrl_ir_funct12 = ir_funct12;
+    assign o_ctrl_ir_funct3  = ir_funct3;
+
+    assign o_ctrl_cpu_priv   = csr_privilege_eff;
+    assign o_ctrl_cpu_sleep  = (ie_state == `IE_SLEEP);
+    assign o_ctrl_cpu_trap   = trap_ctrl_env_enter;
+    assign o_ctrl_cpu_debug  = dbg_running;
+
+    // Monitor controller ===================================================================================
+    always @(posedge i_clk, negedge i_rstn) begin
+        if (!i_rstn)
+            monitor_cnt <= 10'd0;
+        else
+            monitor_cnt <= monitor_cnt_add + 1'b1;
+    end
+
+    // timeout counter (allow mapping of entire logic into the LUTs in front of the carry-chain) --
+    assign monitor_cnt_add = (ie_state == IE_ALU_WAIT)? monitor_cnt: 10'd0;
+
+    // raise illegal instruction exception if a multi-cycle instruction takes longer than a bound amount of time
+    assign monitor_exc = monitor_cnt[9];
+
+    // Hardware Trigger Module (Part of the On-Chip Debugger) ================================================
+    
+    // trigger to enter debug-mode: instruction address match (fire AFTER execution) --
+    assign hw_trigger_fire = (CPU_EXTENSION_RISCV_Sdtrig == 1) &&
+                              csr_tdata1_exe &&
+                             (csr_tdata2[XLEN-1:1] == ie_pc[XLEN-1:1]) &&
+                             (ie_state == IE_EXECUTE);
 
 endmodule
