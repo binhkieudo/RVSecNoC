@@ -22,7 +22,7 @@
 
 module rv32_cpu_regfile #(
     parameter XLEN = 32,
-    parameter RVE = 1, // E extension
+    parameter RVE = 0, // E extension
     parameter RF_LATCH = 0,      
     parameter RS3_EN = 1, // enable 3rd read port
     parameter RS4_EN = 1  // enable 4th read port

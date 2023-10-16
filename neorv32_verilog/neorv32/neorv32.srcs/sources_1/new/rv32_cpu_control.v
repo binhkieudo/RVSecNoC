@@ -1772,6 +1772,6 @@ module rv32_cpu_control #(
     assign o_xcsr_we    = csr_we;
     assign o_xcsr_addr  = csr_addr;
     assign o_xcsr_wdata = csr_wdata;
-    assign xcsr_rdata   = i_xcsr_rdata;
+    assign xcsr_rdata = i_xcsr_rdata;
     
 endmodule

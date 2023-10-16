@@ -24,7 +24,7 @@ module rv32_cpu_alu #(
     parameter XLEN                  = 32,
     parameter FAST_SHIFT            = 1,
     parameter FAST_MUL              = 1,
-    parameter CPU_EXTENSION_RISCV_M = 0,
+    parameter CPU_EXTENSION_RISCV_M = 1,
     parameter CPU_EXTENSION_RISCV_Zmmul = 1
 )
 (

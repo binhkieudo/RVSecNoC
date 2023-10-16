@@ -26,40 +26,40 @@ module rv32_cpu_lsu #(
 )
 (
     // Global control
-    input wire i_clk,
-    input wire i_rstn,
+    input wire              i_clk,
+    input wire              i_rstn,
     // Control signals
-    input wire [2:0] i_ir_func3,
-    input wire [6:0] i_ir_opcode,
-    input wire       i_ctrl_cpu_trap,
-    input wire       i_ctrl_lsu_mo_we, // memory address and data output register write enable
-    input wire       i_ctrl_lsu_priv,  // effective privilege level for load/store
-    input wire       i_ctrl_lsu_req_rd, // memory read request
-    input wire       i_ctrl_lsu_req_wr, // memory write request
+    input wire [2:0]        i_ir_func3,
+    input wire [6:0]        i_ir_opcode,
+    input wire              i_ctrl_cpu_trap,
+    input wire              i_ctrl_lsu_mo_we, // memory address and data output register write enable
+    input wire              i_ctrl_lsu_priv,  // effective privilege level for load/store
+    input wire              i_ctrl_lsu_req_rd, // memory read request
+    input wire              i_ctrl_lsu_req_wr, // memory write request
     // Data access interface
-    input wire [XLEN-1:0] i_addr, // address access
-    input wire [XLEN-1:0] i_wdata, // write data
-    output reg [XLEN-1:0] o_rdata, // read data
-    output wire [XLEN-1:0] o_mar, // current memory address register
-    output wire o_wait, // wait for access to complete
-    output wire o_ma_load, // missaligned load data address
-    output wire o_ma_store, // missaligned store data access
-    output wire o_be_load, // bus error on load data access
-    output wire o_be_store, // bus error on store data access
-    input wire i_pmp_r_fault, // PMP read fault
-    input wire i_pmp_w_fault, // PMP write fault
+    input wire [XLEN-1:0]   i_addr, // address access
+    input wire [XLEN-1:0]   i_wdata, // write data
+    output reg [XLEN-1:0]   o_rdata, // read data
+    output wire [XLEN-1:0]  o_mar, // current memory address register
+    output wire             o_wait, // wait for access to complete
+    output wire             o_ma_load, // missaligned load data address
+    output wire             o_ma_store, // missaligned store data access
+    output wire             o_be_load, // bus error on load data access
+    output wire             o_be_store, // bus error on store data access
+    input wire              i_pmp_r_fault, // PMP read fault
+    input wire              i_pmp_w_fault, // PMP write fault
     // Data bus
-    output wire [XLEN-1:0] o_bus_req_addr, // access address
-    output reg [XLEN-1:0]  o_bus_req_data, // write data
-    output reg [3:0]       o_bus_req_ben,  // byte enable
-    output wire            o_bus_req_we,   // write request
-    output wire            o_bus_req_re,   // read request
-    output wire            o_bus_req_src,  // access source (1=instruction fetch, 0=data access)
-    output reg             o_bus_req_priv, // set if privileged (machine-mode) access
-    output reg             o_bus_req_rvso, // set if reservation set operation (atomic LR/SC)
-    input wire  [XLEN-1:0] i_bus_rsp_data, // read data
-    input wire             i_bus_rsp_ack,  // access acknowledge
-    input wire             i_bus_rsp_err   // access error
+    output wire [XLEN-1:0]  o_bus_req_addr, // access address
+    output reg [XLEN-1:0]   o_bus_req_data, // write data
+    output reg [3:0]        o_bus_req_ben,  // byte enable
+    output wire             o_bus_req_we,   // write request
+    output wire             o_bus_req_re,   // read request
+    output wire             o_bus_req_src,  // access source (1=instruction fetch, 0=data access)
+    output reg              o_bus_req_priv, // set if privileged (machine-mode) access
+    output reg              o_bus_req_rvso, // set if reservation set operation (atomic LR/SC)
+    input wire  [XLEN-1:0]  i_bus_rsp_data, // read data
+    input wire              i_bus_rsp_ack,  // access acknowledge
+    input wire              i_bus_rsp_err   // access error
 );
 
     localparam OP_AMO = 7'b0101111; // atomic memory access
