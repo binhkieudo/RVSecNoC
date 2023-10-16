@@ -32,10 +32,10 @@ module rv32_cpu_regfile #(
     // Register file interface
     input wire  [1:0]        i_ctrl_wb_sel, // write back data select
     input wire               i_ctrl_wb_en, // write back enable
-    input wire               i_alu, // ALU results
-    input wire               i_mem, // Memory results
-    input wire               i_csr, // CSR results,
-    input wire               i_npc,  // next pc
+    input wire  [XLEN-1:0]   i_alu, // ALU results
+    input wire  [XLEN-1:0]   i_mem, // Memory results
+    input wire  [XLEN-1:0]   i_csr, // CSR results,
+    input wire  [XLEN-1:0]   i_npc,  // next pc
     input wire  [2:0]        i_ir_funct3,
     input wire  [11:0]       i_ir_funct12,
     input wire  [4:0]        i_rf_rd, // destination address

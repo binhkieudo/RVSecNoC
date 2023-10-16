@@ -16,7 +16,6 @@ module rv32_cpu_alu #(
     input wire i_ctrl_alu_shift_right,    // 0:shift left, 1: shift right
     input wire i_ctrl_alu_shift_arth,  // 0: shift logical, 1: shift arithmetic
     input wire i_ctrl_ir_funct3,
-    input wire [4:0] i_ctrl_alu_shamt,
     input wire [4:0] i_ctrl_cp_en, // active co processor signals
     input wire i_ctrl_pc_sel,       // 0:rs1, 1:pc
     input wire i_ctrl_imm_sel,      // 0:rs2, 1:imm
@@ -121,7 +120,7 @@ module rv32_cpu_alu #(
                 .i_shift_arth (i_ctrl_alu_shift_arth),
                 .i_start (cp_start[0]),
                 .i_rs1 (i_rs1),
-                .i_shamt(i_ctrl_alu_shamt),
+                .i_shamt(opb[XLEN-1:0]),
                 .o_res(cp_result[0]),
                 .o_valid(cp_valid[0])
             );
@@ -135,7 +134,7 @@ module rv32_cpu_alu #(
                 .i_shift_arth (i_ctrl_alu_shift_arth),
                 .i_start (cp_start[0]),
                 .i_rs1 (i_rs1),
-                .i_shamt(i_ctrl_alu_shamt),
+                .i_shamt(opb[XLEN-1:0]),
                 .o_res(cp_result[0]),
                 .o_valid(cp_valid[0])
             );          

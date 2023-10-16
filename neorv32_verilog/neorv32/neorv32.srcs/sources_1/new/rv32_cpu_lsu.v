@@ -207,5 +207,8 @@ module rv32_cpu_lsu #(
     assign o_ma_store = arbiter_pend_wr && misaligned;
     assign o_be_store = arbiter_pend_wr && (arbiter_bus_err || i_pmp_w_fault);
 
+    assign o_bus_req_re = i_ctrl_lsu_req_rd && !misaligned && !i_pmp_r_fault;
+    assign o_bus_req_we = i_ctrl_lsu_req_wr && !misaligned && !i_pmp_w_fault;
+
 endmodule
 

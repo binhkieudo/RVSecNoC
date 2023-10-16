@@ -59,9 +59,9 @@ module rv32_cpu #(
         output wire             o_dbus_req_src,
         output wire             o_dbus_req_priv,
         output wire             o_dbus_req_rvso,
-        input  wire [XLEN-1:0]  i_dbus_resp_data,
-        input  wire             i_dbus_resp_ack,
-        input  wire             i_dbus_resp_err
+        input  wire [XLEN-1:0]  i_ibus_resp_data,
+        input  wire             i_ibus_resp_ack,
+        input  wire             i_ibus_resp_err
     );
     
     // Local signals
@@ -113,16 +113,15 @@ module rv32_cpu #(
     wire [XLEN-1:0] fetch_pc;
     wire [XLEN-1:0] curr_pc;
     wire [XLEN-1:0] next_pc;
-    
-    wire            pmp_ex_fault = 1'b0;
-    wire            pmp_rd_fault = 1'b0;
-    wire            pmp_wr_fault = 1'b0;
+    wire            pmp_ex_fault;
+    wire            pmp_rd_fault;
+    wire            pmp_wr_fault;
 
     // External CSR interface
-    wire            xcsr_we;
-    wire [11:0]     xcsr_addr;
+    wire            xcsr_we:
+    wire [11:0]     xcsr_addr
     wire [XLEN-1:0] xcsr_wdata;
-    wire [XLEN-1:0] xcsr_rdata_pmp = 32'd0;
+    wire [XLEN-1:0] xcsr_rdata_pmp;
     wire [XLEN-1:0] xcsr_rdata_alu;
     wire [XLEN-1:0] xcsr_rdata_res;
 
@@ -256,7 +255,7 @@ module rv32_cpu #(
         .i_rstn                 (i_rstn                 ), // global reset, active low, async
         // Control signals
         .i_ctrl_trap            (ctrl_cpu_trap          ),
-        .i_ctrl_alu_unsigned    (ctrl_alu_unsigned      ), // is unsigned ALU operation
+        .i_ctrl_alu_unsigned    (ctrl_alu_unsigned      )    , // is unsigned ALU operation
         .i_ctrl_alu_op          (ctrl_alu_op            ),       // ALU operation
         .i_ctrl_alu_shift_right (ctrl_ir_funct3[1]      ),    // 0:shift left, 1: shift right
         .i_ctrl_alu_shift_arth  (ctrl_ir_funct12[10]    ),  // 0: shift logical, 1: shift arithmetic
@@ -321,9 +320,9 @@ module rv32_cpu #(
         .o_bus_req_src      (o_dbus_req_src     ),  // access source (1=instruction fetch, 0=data access)
         .o_bus_req_priv     (o_dbus_req_priv    ), // set if privileged (machine-mode) access
         .o_bus_req_rvso     (o_dbus_req_rvso    ), // set if reservation set operation (atomic LR/SC)
-        .i_bus_rsp_data     (i_dbus_resp_data   ), // read data
-        .i_bus_rsp_ack      (i_dbus_resp_ack    ),  // access acknowledge
-        .i_bus_rsp_err      (i_dbus_resp_err    )   // access error
+        .i_bus_rsp_data     (i_ibus_resp_data   ), // read data
+        .i_bus_rsp_ack      (i_ibus_resp_ack    ),  // access acknowledge
+        .i_bus_rsp_err      (i_ibus_resp_err    )   // access error
     );
     
 endmodule

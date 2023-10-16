@@ -7,9 +7,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/tools/Xilinx/Vitis/2022.2/bin:/tools/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2022.2/bin
+  PATH=/opt/Xilinx/Vitis/2022.2/bin:/opt/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/opt/Xilinx/Vivado/2022.2/bin
 else
-  PATH=/tools/Xilinx/Vitis/2022.2/bin:/tools/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2022.2/bin:$PATH
+  PATH=/opt/Xilinx/Vitis/2022.2/bin:/opt/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/opt/Xilinx/Vivado/2022.2/bin:$PATH
 fi
 export PATH
 
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log rv32_cpu_control.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_control.tcl
+EAStep vivado -log rv32_cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu.tcl

@@ -1366,12 +1366,10 @@ module rv32_cpu_control #(
                     end
                     `CSR_MCOUNTEREN:
                         if (CPU_EXTENSION_RISCV_U == 1) begin
-                            if ((CPU_EXTENSION_RISCV_Zicntr == 1) && (CPU_EXTENSION_RISCV_Zihpm == 1))
+                            if ((CPU_EXTENSION_RISCV_Zicntr == 1))
                                 csr_mcounteren <= |csr_wdata[15 : 3] || csr_wdata[2] || csr_wdata[0]; // hpms, instret, cycle
                             else if (CPU_EXTENSION_RISCV_Zicntr == 1) 
                                 csr_mcounteren <= csr_wdata[2] || csr_wdata[0]; // instret, cycle
-                            else if (CPU_EXTENSION_RISCV_Zihpm == 1) 
-                                csr_mcounteren <= |csr_wdata[15 : 3]; // hpms
                         end
                 
                     // Machine trap handling
@@ -1385,10 +1383,7 @@ module rv32_cpu_control #(
                         if (CPU_EXTENSION_RISCV_Zicntr == 1) begin
                             csr_mcountinhibit[0] <= csr_wdata[0];
                             csr_mcountinhibit[2] <= csr_wdata[2];                            
-                        end
-                        if (CPU_EXTENSION_RISCV_Zihpm == 1) begin
-                            csr_mcountinhibit[15:3] <= csr_wdata[15:3];
-                        end                        
+                        end                      
                     end
                     `CSR_MCYCLECFGH: begin // machine cycle counter privilege mode filtering
                         if ((CPU_EXTENSION_RISCV_Zicntr == 1) && (CPU_EXTENSION_RISCV_U == 1)) begin
@@ -1518,13 +1513,9 @@ module rv32_cpu_control #(
             if (CPU_EXTENSION_RISCV_Zicntr == 0)
                 csr_mcountinhibit[2:0] <= 3'b000;
 
-            // no hardware performance monitors
-            if (CPU_EXTENSION_RISCV_Zihpm == 0)
-                csr_mcountinhibit[15:3] <= 13'd0;
+            csr_mcountinhibit[15:3] <= 13'd0;
 
-            // no counters at all --
-            if ((CPU_EXTENSION_RISCV_Zicntr == 0) && (CPU_EXTENSION_RISCV_Zihpm == 0))
-                csr_mcounteren <= 1'b0;
+            csr_mcounteren <= 1'b0;
 
             // no user mode --
             if (CPU_EXTENSION_RISCV_U == 0) begin
@@ -1679,7 +1670,7 @@ module rv32_cpu_control #(
                 tcsr_rdata[6] = 1'b0;                                // reserved
                 tcsr_rdata[7] = (CPU_EXTENSION_RISCV_Zicntr == 1);   // Zicntr: base counters
                 tcsr_rdata[8] = (PMP_EN == 1);                       // PMP: physical memory protection (Smpmp)
-                tcsr_rdata[9] = (CPU_EXTENSION_RISCV_Zihpm == 1);    // Zihpm: hardware performance monitors
+                tcsr_rdata[9] = 1'b0;    // Zihpm: hardware performance monitors
                 tcsr_rdata[10] = (CPU_EXTENSION_RISCV_Sdext == 1);   // Sdext: RISC-V (external) debug mode
                 tcsr_rdata[11] = (CPU_EXTENSION_RISCV_Sdtrig == 1);  // Sdtrig: trigger module
                 // tuning options --

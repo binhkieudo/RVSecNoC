@@ -52,8 +52,11 @@ module rv32_cpu_cp_shifter_barrel #(
         else
             for (i = 0; i < XLEN; i = i + 1) begin
                 bs_level[5][i] = i_rs1[XLEN-i-1];
-                rv_result[i]   = bs_result[XLEN-1-i];
             end
+            
+        for (i = 0; i < XLEN; i = i + 1) begin
+            rv_result[i]   = bs_result[XLEN-1-i];
+        end
         // Shifter
         if (i_shamt[4]) begin
             bs_level[4][XLEN-1:16] = {16{bs_level[5][XLEN-1] & i_shift_arth}};
