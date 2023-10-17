@@ -94,7 +94,7 @@ module rv32_cpu_control #(
     output wire             o_bus_req_re,   // read request
     output wire             o_bus_req_src,  // access source (1=instruction fetch, 0=data access)
     output wire             o_bus_req_priv, // set if privileged (machine-mode) access
-    output wire              o_bus_req_rvso, // set if reservation set operation (atomic LR/SC)
+    output wire             o_bus_req_rvso, // set if reservation set operation (atomic LR/SC)
     input wire  [XLEN-1:0]  i_bus_rsp_data, // read data
     input wire              i_bus_rsp_ack,  // access acknowledge
     input wire              i_bus_rsp_err,  // access error

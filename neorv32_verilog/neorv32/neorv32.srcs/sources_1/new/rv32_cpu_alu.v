@@ -34,7 +34,7 @@ module rv32_cpu_alu #(
     // Data output
     output wire            o_cmp_eq,                // comparator equal result
     output wire            o_cmp_lt,                // comparator less result
-    output wire [XLEN-1:0] o_res,                   // ALU result
+    output reg  [XLEN-1:0] o_res,                   // ALU result
     output wire [XLEN-1:0] o_addr,                  // address computation result
     // Status
     output wire            o_cp_done                // co-processor operation done
@@ -83,19 +83,23 @@ module rv32_cpu_alu #(
     assign opb = i_ctrl_imm_sel? i_imm: i_rs2;
 
     // Add/Sub Core
-    assign opa_x = {opa[XLEN-1] & !i_ctrl_alu_unsigned, opa};
-    assign opb_x = {opb[XLEN-1] & !i_ctrl_alu_unsigned, opb}; 
+    assign opa_x = {i_rs1[XLEN-1] & !i_ctrl_alu_unsigned, i_rs1};
+    assign opb_x = {i_rs2[XLEN-1] & !i_ctrl_alu_unsigned, i_rs2}; 
 
     assign addsub_res = opa_x + ((i_ctrl_alu_op[0])? opb_x: -opb_x);
-    assign o_addr     = addsub_res[XLEN-1:0];
+//    assign addsub_res = i_ctrl_alu_op[0]? opa - opb: opa + opb;
+    assign o_addr     = i_pc + i_imm;
 
     // AlU output select
-    assign o_res      = (i_ctrl_alu_op == ALU_OP_CP)? cp_res:
+    always @ (posedge i_clk) begin
+        o_res      <= (i_ctrl_alu_op == ALU_OP_CP)? cp_res:
                         (i_ctrl_alu_op == ALU_OP_SLT)? {31'd0, addsub_res[XLEN]}:
                         (i_ctrl_alu_op == ALU_OP_MOVB)? opb:
                         (i_ctrl_alu_op == ALU_OP_XOR)? i_rs1 ^ opb:
                         (i_ctrl_alu_op == ALU_OP_OR)? i_rs1 | opb:
-                        (i_ctrl_alu_op == ALU_OP_AND)? i_rs1 & opb: addsub_res[XLEN-1:0];
+                        (i_ctrl_alu_op == ALU_OP_AND)? i_rs1 & opb: addsub_res;
+   end
+//                        (i_ctrl_alu_op == ALU_OP_SUB)? opa_x - opb: opa + opb;
 
 //====================================================
 //  ALU Co-Processors

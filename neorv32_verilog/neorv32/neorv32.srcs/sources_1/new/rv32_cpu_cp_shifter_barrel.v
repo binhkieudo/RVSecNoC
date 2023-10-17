@@ -89,7 +89,7 @@ module rv32_cpu_cp_shifter_barrel #(
         else bs_level[0] = bs_level[1];
     end
 
-    always @(*) begin
+    always @(posedge i_clk) begin
         bs_result = bs_level[0];
     end
 

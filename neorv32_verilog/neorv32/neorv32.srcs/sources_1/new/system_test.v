@@ -21,11 +21,12 @@
 
 
 module system_test(
-        input wire i_clk,
-        input wire i_rstn,
-        input  wire [31:0] i_adr,
-        output wire [31:0] o_rdata
+        input wire  i_clk
     );
+
+    wire        i_rstn;
+    wire [31:0] i_adr;
+    wire [31:0] o_rdata;
     
     localparam XLEN = 32;
     
@@ -53,7 +54,14 @@ module system_test(
     wire [XLEN-1:0]  dbus_resp_data;
     wire             dbus_resp_ack;
     wire             dbus_resp_err;
-        
+    
+    vio_0 vio_0(
+        .clk        (i_clk   ),
+        .probe_in0  (o_rdata ),
+        .probe_out0 (i_adr   ),
+        .probe_out1 (i_rstn  )
+    );
+
     rv32_cpu # (
         .CPU_EXTENSION_RISCV_A        (0),
         .CPU_EXTENSION_RISCV_C        (0),
@@ -67,8 +75,8 @@ module system_test(
         .CPU_EXTENSION_RISCV_Zxcfu    (0),
         .CPU_EXTENSION_RISCV_Sdext    (0),
         .CPU_EXTENSION_RISCV_Sdtrig   (0),
-        .FAST_MUL_EN                  (1),
-        .FAST_SHIFT_EN                (1),
+        .FAST_MUL_EN                  (0),
+        .FAST_SHIFT_EN                (0),
         .PMP_NUM_REGIONS              (0),
         .RS3_EN                       (0),
         .RS4_EN                       (0),
