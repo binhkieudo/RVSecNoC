@@ -91,6 +91,7 @@ module rv32_cpu_regfile #(
 
                 if (RS3_EN == 1) ro_rs3 = regfile[opc_addr];
                 else ro_rs3 = 0;
+                
                 if (RS4_EN == 1) ro_rs4 = regfile[opd_addr];
                 else ro_rs4 = 0;
             end
@@ -103,6 +104,7 @@ module rv32_cpu_regfile #(
 
                 if (RS3_EN == 1) ro_rs3 <= regfile[opc_addr];
                 else ro_rs3 <= 0;
+                
                 if (RS4_EN == 1) ro_rs4 <= regfile[opd_addr];
                 else ro_rs4 <= 0;
             end
@@ -111,7 +113,7 @@ module rv32_cpu_regfile #(
     
     assign o_rs1 = ro_rs1;
     assign o_rs2 = ro_rs2;
-    assign o_rs3 = ro_rs3;
-    assign o_rs4 = ro_rs4;
+    assign o_rs3 = (RS3_EN == 1)? ro_rs3: 32'd0;
+    assign o_rs4 = (RS4_EN == 1)? ro_rs4: 32'd0;
     
 endmodule

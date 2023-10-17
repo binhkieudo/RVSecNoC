@@ -7,37 +7,37 @@ module rv32_cpu_alu #(
 )
 (
     // Global control
-    input wire i_clk, // global clock, rising edge
-    input wire i_rstn, // global reset, active low, async
+    input  wire            i_clk,                   // global clock, rising edge
+    input  wire            i_rstn,                  // global reset, active low, async
     // Control signals
-    input wire i_ctrl_trap,
-    input wire i_ctrl_alu_unsigned, // is unsigned ALU operation
-    input wire [2:0] i_ctrl_alu_op,       // ALU operation
-    input wire i_ctrl_alu_shift_right,    // 0:shift left, 1: shift right
-    input wire i_ctrl_alu_shift_arth,  // 0: shift logical, 1: shift arithmetic
-    input wire i_ctrl_ir_funct3,
-    input wire [4:0] i_ctrl_cp_en, // active co processor signals
-    input wire i_ctrl_pc_sel,       // 0:rs1, 1:pc
-    input wire i_ctrl_imm_sel,      // 0:rs2, 1:imm
+    input  wire            i_ctrl_trap,
+    input  wire            i_ctrl_alu_unsigned,     // is unsigned ALU operation
+    input  wire [2:0]      i_ctrl_alu_op,           // ALU operation
+    input  wire            i_ctrl_alu_shift_right,  // 0:shift left, 1: shift right
+    input  wire            i_ctrl_alu_shift_arth,   // 0: shift logical, 1: shift arithmetic
+    input  wire [2:0]      i_ctrl_ir_funct3,        // funct3
+    input  wire [4:0]      i_ctrl_cp_en,            // active co processor signals
+    input  wire            i_ctrl_pc_sel,           // 0:rs1, 1:pc
+    input  wire            i_ctrl_imm_sel,          // 0:rs2, 1:imm
     // CSR interface
-    input wire i_csr_we, // csr write enable
-    input wire [11:0] i_csr_addr, // csr address
-    input wire [XLEN-1:0] i_csr_wdata, // csr write data
-    output wire [XLEN-1:0] o_csr_rdata, // csr read data
+    input  wire            i_csr_we,                // csr write enable
+    input  wire [11:0]     i_csr_addr,              // csr address
+    input  wire [XLEN-1:0] i_csr_wdata,             // csr write data
+    output wire [XLEN-1:0] o_csr_rdata,             // csr read data
     // Data input
-    input wire [XLEN-1:0] i_rs1,    // rf source 1
-    input wire [XLEN-1:0] i_rs2,    // rf source 2
-    input wire [XLEN-1:0] i_rs3,    // rf source 3
-    input wire [XLEN-1:0] i_rs4,    // rf source 4
-    input wire [XLEN-1:0] i_pc,     // program counter
-    input wire [XLEN-1:0] i_imm,    // immediate
+    input  wire [XLEN-1:0] i_rs1,                   // rf source 1
+    input  wire [XLEN-1:0] i_rs2,                   // rf source 2
+    input  wire [XLEN-1:0] i_rs3,                   // rf source 3
+    input  wire [XLEN-1:0] i_rs4,                   // rf source 4
+    input  wire [XLEN-1:0] i_pc,                    // program counter
+    input  wire [XLEN-1:0] i_imm,                   // immediate
     // Data output
-    output wire o_cmp_eq,  // comparator equal result
-    output wire o_cmp_lt,  // comparator less result
-    output wire [XLEN-1:0] o_res,   // ALU result
-    output wire [XLEN-1:0] o_addr,  // address computation result
+    output wire            o_cmp_eq,                // comparator equal result
+    output wire            o_cmp_lt,                // comparator less result
+    output wire [XLEN-1:0] o_res,                   // ALU result
+    output wire [XLEN-1:0] o_addr,                  // address computation result
     // Status
-    output wire o_cp_done // co-processor operation done
+    output wire            o_cp_done                // co-processor operation done
 );
 
     localparam ALU_OP_ADD  = 3'b000, // A + B

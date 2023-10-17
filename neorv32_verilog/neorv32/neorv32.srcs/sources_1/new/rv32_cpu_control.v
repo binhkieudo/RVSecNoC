@@ -18,8 +18,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
-
 `include "rv32_package.vh"
 
 module rv32_cpu_control #(
@@ -48,10 +46,7 @@ module rv32_cpu_control #(
     parameter FAST_MUL_EN                   = 1,  // 1=dsp, 0=double&add
     parameter FAST_SHIFT_EN                 = 1,  // 1=barrel, 0=serial
     // Physical memory protection (PMP)
-    parameter PMP_EN                        = 1,  // Enable physical memory protection
-    // Hardware Performance Monitors (HPM)
-    parameter HPM_NUM_CNTS                  = 0,  // Number of hardware performance counter (max 13)
-    parameter HPM_CNT_WIDTH                 = 64  // Size of HPM counters
+    parameter PMP_EN                        = 1  // Enable physical memory protection
 )
 (
 

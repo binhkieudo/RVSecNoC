@@ -2,58 +2,121 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Oct 16 23:24:46 2023
-# Process ID: 10298
+# Start of session at: Tue Oct 17 11:25:57 2023
+# Process ID: 88853
 # Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32
-# Command line: vivado neorv32.xpr
+# Command line: vivado ./neorv32.xpr
 # Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.log
 # Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
-# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1700.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
 #-----------------------------------------------------------
 start_gui
-open_project neorv32.xpr
+open_project ./neorv32.xpr
 update_compile_order -fileset sources_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 open_run synth_1 -name synth_1
 report_utilization -name utilization_1
 close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+export_ip_user_files -of_objects  [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_shifter_fpga.v] -no_script -reset -force -quiet
+remove_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_shifter_fpga.v
+file delete -force /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_cp_shifter_fpga.v
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_pmp.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_pmp.v
+update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top rv32_cpu_alu [current_fileset]
+set_property top rv32_cpu_pmp [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
 set_property top rv32_cpu [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 open_run synth_1 -name synth_1
 report_utilization -name utilization_1
-synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_ram.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_ram.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_mux.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_mux.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_mux.v] -no_script -reset -force -quiet
+remove_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_mux.v
+file delete -force /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_mux.v
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_dbus.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_dbus.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/system_test.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/system_test.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_dpram.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/wb_dpram.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top system_test [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1

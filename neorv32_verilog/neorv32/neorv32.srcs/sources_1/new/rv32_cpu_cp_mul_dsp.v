@@ -62,7 +62,7 @@ module rv32_cpu_cp_mul_dsp #(
             end
         end
         else begin
-            always @(i_start) begin: gen_seq
+            always @(*) begin: gen_seq
                 dsp_x = {i_rs1[XLEN-1] & rs1_is_signed, i_rs1};
                 dsp_y = {i_rs2[XLEN-1] & rs2_is_signed, i_rs2};    
             end

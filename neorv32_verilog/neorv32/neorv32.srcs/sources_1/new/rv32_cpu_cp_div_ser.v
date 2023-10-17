@@ -35,7 +35,7 @@ module rv32_cpu_cp_div_ser #(
     input  wire [XLEN-1:0]   i_rs1,
     input  wire [XLEN-1:0]   i_rs2,
     // Output data
-    output wire [2*XLEN-1:0] o_res,
+    output wire [XLEN-1:0]   o_res,
     output wire              o_valid
 );
 

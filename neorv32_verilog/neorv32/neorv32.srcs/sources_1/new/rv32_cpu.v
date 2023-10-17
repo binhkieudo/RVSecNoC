@@ -21,9 +21,38 @@
 
 
 module rv32_cpu #(
-    parameter XLEN = 32
-)
-(
+    parameter XLEN                          = 32,
+    parameter HART_ID                       = 0,  // hardware thread ID (HART)
+    parameter VENDOR_ID                     = 0,  // vendor's JEDEC ID
+    parameter CPU_BOOT_ADR                  = 0,  // cpu boot address
+    parameter HW_VERSION                    = 32'h01080906,
+    parameter CPU_DEBUG_PARK_ADDR           = 0,  // cpu debug mode parking loop entry address
+    parameter CPU_DEBUG_EXC_ADDR            = 0,  // cpu debug mode exception entry address
+    parameter INSTR_BUFFER_DEPTH            = 4,  // instruction prefetch buffer depth
+    // Extensions
+    parameter CPU_EXTENSION_RISCV_A         = 1,  // Atomic
+    parameter CPU_EXTENSION_RISCV_C         = 1,  // Compress
+    parameter CPU_EXTENSION_RISCV_M         = 0,  // Mul/div
+    parameter CPU_EXTENSION_RISCV_U         = 0,  // User mode
+    parameter CPU_EXTENSION_RISCV_F         = 1,  // Single-precision
+    parameter CPU_EXTENSION_RISCV_D         = 1,  // Double-precision
+    parameter CPU_EXTENSION_RISCV_Zicntr    = 0,  // Base counter
+    parameter CPU_EXTENSION_RISCV_Zifencei  = 1,  // Insctruction sync
+    parameter CPU_EXTENSION_RISCV_Zmmul     = 1,  // Only mul (override by M extension)
+    parameter CPU_EXTENSION_RISCV_Zxcfu     = 1,  // Custrom instruction
+    parameter CPU_EXTENSION_RISCV_Sdext     = 0,  // External debug
+    parameter CPU_EXTENSION_RISCV_Sdtrig    = 0,  // Trigger module 
+    // Tuning Options
+    parameter FAST_MUL_EN                   = 0,  // 1=dsp, 0=double&add
+    parameter FAST_SHIFT_EN                 = 0,  // 1=barrel, 0=serial
+    // Physical memory protection (PMP)
+    parameter PMP_NUM_REGIONS               = 1, // number of regions (0..16)
+    parameter PMP_MIN_GRANULARITY           = 32, // minimal region granularity in bytes, has to be a power of 2, min 4 bytes
+    // Register files
+    parameter RS3_EN                        = 0,
+    parameter RS4_EN                        = 0,
+    parameter RF_LATCH                      = 0
+) (
         // Global control
         input  wire             i_clk,
         input  wire             i_rstn,
@@ -63,6 +92,8 @@ module rv32_cpu #(
         input  wire             i_dbus_resp_ack,
         input  wire             i_dbus_resp_err
     );
+    
+    localparam PMP_EN = (PMP_NUM_REGIONS > 0) && (PMP_NUM_REGIONS < 17);
     
     // Local signals
     wire        ctrl_rf_wb_en;      // write back enable
@@ -114,19 +145,43 @@ module rv32_cpu #(
     wire [XLEN-1:0] curr_pc;
     wire [XLEN-1:0] next_pc;
     
-    wire            pmp_ex_fault = 1'b0;
-    wire            pmp_rd_fault = 1'b0;
-    wire            pmp_wr_fault = 1'b0;
+    wire            pmp_ex_fault;
+    wire            pmp_rd_fault;
+    wire            pmp_wr_fault;
 
     // External CSR interface
     wire            xcsr_we;
     wire [11:0]     xcsr_addr;
     wire [XLEN-1:0] xcsr_wdata;
-    wire [XLEN-1:0] xcsr_rdata_pmp = 32'd0;
+    wire [XLEN-1:0] xcsr_rdata_pmp;
     wire [XLEN-1:0] xcsr_rdata_alu;
     wire [XLEN-1:0] xcsr_rdata_res;
 
-    rv32_cpu_control controller (
+    rv32_cpu_control #(
+        .XLEN                           (XLEN                           ),
+        .HART_ID                        (HART_ID                        ),
+        .VENDOR_ID                      (VENDOR_ID                      ),
+        .CPU_BOOT_ADR                   (CPU_BOOT_ADR                   ),
+        .HW_VERSION                     (HW_VERSION                     ),
+        .CPU_DEBUG_PARK_ADDR            (CPU_DEBUG_PARK_ADDR            ),
+        .CPU_DEBUG_EXC_ADDR             (CPU_DEBUG_EXC_ADDR             ),
+        .INSTR_BUFFER_DEPTH             (INSTR_BUFFER_DEPTH             ),
+        .CPU_EXTENSION_RISCV_A          (CPU_EXTENSION_RISCV_A          ),
+        .CPU_EXTENSION_RISCV_C          (CPU_EXTENSION_RISCV_C          ),
+        .CPU_EXTENSION_RISCV_M          (CPU_EXTENSION_RISCV_M          ),
+        .CPU_EXTENSION_RISCV_U          (CPU_EXTENSION_RISCV_U          ),
+        .CPU_EXTENSION_RISCV_F          (CPU_EXTENSION_RISCV_F          ),
+        .CPU_EXTENSION_RISCV_D          (CPU_EXTENSION_RISCV_D          ),
+        .CPU_EXTENSION_RISCV_Zicntr     (CPU_EXTENSION_RISCV_Zicntr     ),
+        .CPU_EXTENSION_RISCV_Zifencei   (CPU_EXTENSION_RISCV_Zifencei   ),
+        .CPU_EXTENSION_RISCV_Zmmul      (CPU_EXTENSION_RISCV_Zmmul      ),
+        .CPU_EXTENSION_RISCV_Zxcfu      (CPU_EXTENSION_RISCV_Zxcfu      ),
+        .CPU_EXTENSION_RISCV_Sdext      (CPU_EXTENSION_RISCV_Sdext      ),
+        .CPU_EXTENSION_RISCV_Sdtrig     (CPU_EXTENSION_RISCV_Sdtrig     ),
+        .FAST_MUL_EN                    (FAST_MUL_EN                    ),
+        .FAST_SHIFT_EN                  (FAST_SHIFT_EN                  ),
+        .PMP_EN                         (PMP_EN                         )
+    ) controller (
         // Global control
         .i_clk               (i_clk             ),
         .i_rstn              (i_rstn            ),
@@ -220,9 +275,10 @@ module rv32_cpu #(
     assign o_dfence = ctrl_lsu_fence;
 
     rv32_cpu_regfile #(
-        .RF_LATCH   (0),      
-        .RS3_EN     (0), // enable 3rd read port
-        .RS4_EN     (0)  // enable 4th read port
+        .XLEN       (XLEN       ),
+        .RF_LATCH   (RF_LATCH   ),      
+        .RS3_EN     (RS3_EN     ), // enable 3rd read port
+        .RS4_EN     (RS4_EN     )  // enable 4th read port
     ) regfile (
     // Global control signals
         .i_clk          (i_clk           ),
@@ -246,10 +302,10 @@ module rv32_cpu #(
     );
 
     rv32_cpu_alu #(
-        .FAST_SHIFT                (1),
-        .FAST_MUL                  (1),
-        .CPU_EXTENSION_RISCV_M     (1),
-        .CPU_EXTENSION_RISCV_Zmmul (0)
+        .FAST_SHIFT                (FAST_SHIFT_EN            ),
+        .FAST_MUL                  (FAST_MUL_EN              ),
+        .CPU_EXTENSION_RISCV_M     (CPU_EXTENSION_RISCV_M    ),
+        .CPU_EXTENSION_RISCV_Zmmul (CPU_EXTENSION_RISCV_Zmmul)
     ) alu (
         // Global control
         .i_clk                  (i_clk                  ), // global clock, rising edge
@@ -287,7 +343,8 @@ module rv32_cpu #(
     
     
     rv32_cpu_lsu #(
-        .AMO_LRSC(1)
+        .XLEN       (XLEN                   ),
+        .AMO_LRSC   (CPU_EXTENSION_RISCV_A  )
     ) lsu (
     // Global control
         .i_clk              (i_clk              ),
@@ -326,4 +383,38 @@ module rv32_cpu #(
         .i_bus_rsp_err      (i_dbus_resp_err    )   // access error
     );
     
+    generate
+        if (PMP_EN) begin
+            rv32_cpu_pmp #(
+                .XLEN        (XLEN                          ),
+                .NUM_REGIONS (PMP_NUM_REGIONS               ),
+                .GRANULARITY (PMP_MIN_GRANULARITY           ),
+                .LOG2GRAN    ($clog2(PMP_MIN_GRANULARITY)   )
+            ) pmp (
+                .i_clk              (i_clk          ),
+                .i_rstn             (i_rstn         ), 
+                .i_ctrl_cpu_priv    (ctrl_cpu_priv  ),
+                .i_ctrl_lsu_priv    (ctrl_lsu_priv  ),
+                .i_ctrl_lsu_rw      (ctrl_lsu_rw    ),
+                .i_ctrl_cpu_debug   (ctrl_cpu_debug ),
+                .i_csr_we           (xcsr_we        ),
+                .i_csr_addr         (xcsr_addr      ),
+                .i_csr_wdata        (xcsr_wdata     ),
+                .o_csr_rdata        (xcsr_rdata_pmp ),
+                .i_addr_if          (fetch_pc       ),
+                .i_addr_ls          (alu_addr       ),
+                .o_fault_ex         (pmp_ex_fault   ),
+                .o_fault_rd         (pmp_rd_fault   ),
+                .o_fault_wr         (pmp_wr_fault   )
+            );
+        end
+        else begin
+            assign xcsr_rdata_pmp   = 32'd0;
+            assign pmp_ex_fault     = 1'b0;
+            assign pmp_rd_fault     = 1'b0;
+            assign pmp_wr_fault     = 1'b0;
+        end
+    endgenerate
+    
 endmodule
+
