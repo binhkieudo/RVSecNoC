@@ -1,19 +1,39 @@
 QuestaSim-64 vopt 2021.2_1 Compiler 2021.05 May 15 2021
-Start time: 14:24:28 on Oct 11,2023
-vopt "+acc=npr" -suppress 10016 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.tb_fifo xil_defaultlib.glbl -o tb_fifo_opt 
+Start time: 11:56:45 on Oct 18,2023
+vopt "+acc=npr" -suppress 10016 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm -work xil_defaultlib xil_defaultlib.tb xil_defaultlib.glbl -o tb_opt 
 
 Top level modules:
-	tb_fifo
+	tb
 	glbl
 
 Analyzing design...
--- Loading module tb_fifo
+-- Loading module tb
 -- Loading module glbl
+-- Loading module system_test
+-- Loading module rv32_cpu
+-- Loading module rv32_cpu_control
 -- Loading module ip_fifo
-Optimizing 3 design-units (inlining 0/3 module instances):
+-- Loading module rv32_cpu_regfile
+-- Loading module rv32_cpu_alu
+-- Loading module rv32_cpu_lsu
+-- Loading module wb_ram
+-- Loading module wb_dpram
+-- Loading module rv32_cpu_cp_shifter_ser
+-- Loading module rv32_cpu_cp_mul_ser
+Optimizing 13 design-units (inlining 0/14 module instances):
+-- Optimizing module rv32_cpu_control(fast)
+-- Optimizing module rv32_cpu(fast)
 -- Optimizing module ip_fifo(fast)
+-- Optimizing module rv32_cpu_lsu(fast)
+-- Optimizing module rv32_cpu_alu(fast)
+-- Optimizing module rv32_cpu_regfile(fast)
+-- Optimizing module rv32_cpu_cp_mul_ser(fast)
+-- Optimizing module wb_dpram(fast)
+-- Optimizing module wb_ram(fast)
+-- Optimizing module system_test(fast)
+-- Optimizing module rv32_cpu_cp_shifter_ser(fast)
 -- Optimizing module glbl(fast)
--- Optimizing module tb_fifo(fast)
-Optimized design name is tb_fifo_opt
-End time: 14:24:28 on Oct 11,2023, Elapsed time: 0:00:00
+-- Optimizing module tb(fast)
+Optimized design name is tb_opt
+End time: 11:56:45 on Oct 18,2023, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

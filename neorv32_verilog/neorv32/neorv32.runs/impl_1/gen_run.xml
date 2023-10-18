@@ -1,84 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1697564178">
-  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="system_test_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS" Name="system_test_routed.rqs"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="RDI-RDI" Name="system_test.vdi"/>
-  <File Type="BG-DRC" Name="system_test.drc"/>
-  <File Type="BG-BGN" Name="system_test.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="system_test.sysdef"/>
+  <File Type="RCFI_FILE" Name="system_test.rcfi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="system_test_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="system_test_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="system_test_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="system_test_methodology_drc_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="system_test_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="system_test_postroute_physopt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="system_test_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="system_test_postplace_pwropt.dcp"/>
+  <File Type="PWROPT-DCP" Name="system_test_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="system_test_placed.dcp"/>
+  <File Type="OPT-DCP" Name="system_test_opt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="system_test_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="system_test_clock_utilization_routed.rpt"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="system_test.ltx"/>
-  <File Type="RBD_FILE" Name="system_test.rbd"/>
-  <File Type="NPI_FILE" Name="system_test.npi"/>
-  <File Type="RNPI_FILE" Name="system_test.rnpi"/>
-  <File Type="CFI_FILE" Name="system_test.cfi"/>
-  <File Type="RCFI_FILE" Name="system_test.rcfi"/>
-  <File Type="PDI-FILE" Name="system_test.pdi"/>
+  <File Type="BITSTR-SYSDEF" Name="system_test.sysdef"/>
   <File Type="BITSTR-MMI" Name="system_test.mmi"/>
   <File Type="BITSTR-BMM" Name="system_test_bd.bmm"/>
   <File Type="BITSTR-NKY" Name="system_test.nky"/>
   <File Type="BITSTR-RBT" Name="system_test.rbt"/>
-  <File Type="BITSTR-MSK" Name="system_test.msk"/>
-  <File Type="BG-BIN" Name="system_test.bin"/>
-  <File Type="BG-BIT" Name="system_test.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="system_test_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="system_test_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="system_test_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="system_test_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="system_test_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="system_test_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="system_test_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="system_test_postroute_physopt.dcp"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="system_test_bus_skew_routed.rpx"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="system_test_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW" Name="system_test_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="system_test_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="system_test_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="system_test_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="system_test_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="system_test_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="system_test_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="system_test_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="system_test_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="system_test_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="system_test_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="system_test_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="system_test_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="system_test_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="system_test_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="system_test_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="system_test_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="system_test_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="system_test_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="system_test_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="system_test_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="system_test_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="system_test_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="system_test_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="system_test_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="system_test_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="system_test_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="system_test_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="system_test_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="system_test_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="system_test_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="system_test_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="system_test_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="system_test_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="system_test_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="system_test_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="system_test_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="system_test_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="system_test.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="system_test_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="system_test_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="system_test_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="system_test_timing_summary_init.rpt"/>
   <File Type="REPORTS-TCL" Name="system_test_reports.tcl"/>
+  <File Type="ROUTE-TIMING-RPX" Name="system_test_timing_summary_routed.rpx"/>
+  <File Type="OPT-HWDEF" Name="system_test.hwdef"/>
+  <File Type="RBD_FILE" Name="system_test.rbd"/>
+  <File Type="BITSTR-MSK" Name="system_test.msk"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="system_test_bus_skew_routed.pb"/>
   <File Type="PA-TCL" Name="system_test.tcl"/>
+  <File Type="ROUTE-TIMING-PB" Name="system_test_timing_summary_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="RDI-RDI" Name="system_test.vdi"/>
+  <File Type="OPT-DRC" Name="system_test_drc_opted.rpt"/>
+  <File Type="NPI_FILE" Name="system_test.npi"/>
+  <File Type="BG-BIN" Name="system_test.bin"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="system_test_timing_summary_routed.rpt"/>
+  <File Type="CFI_FILE" Name="system_test.cfi"/>
+  <File Type="BG-DRC" Name="system_test.drc"/>
+  <File Type="ROUTE-ERROR-DCP" Name="system_test_routed_error.dcp"/>
+  <File Type="RNPI_FILE" Name="system_test.rnpi"/>
+  <File Type="BG-BGN" Name="system_test.bgn"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="system_test_routed_bb.dcp"/>
+  <File Type="PDI-FILE" Name="system_test.pdi"/>
+  <File Type="BG-BIT" Name="system_test.bit"/>
+  <File Type="ROUTE-STATUS-PB" Name="system_test_route_status.pb"/>
+  <File Type="PLACE-IO" Name="system_test_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="system_test_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="system_test_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="system_test_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="system_test_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DRC" Name="system_test_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="system_test_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="system_test_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="system_test_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="system_test_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="system_test_route_status.rpt"/>
+  <File Type="ROUTE-DCP" Name="system_test_routed.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ip_fifo.v">
@@ -241,9 +223,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -253,6 +233,7 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="vio_0"/>
 </GenRun>

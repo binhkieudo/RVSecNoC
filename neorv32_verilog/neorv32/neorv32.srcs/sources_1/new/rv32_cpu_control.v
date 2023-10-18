@@ -145,6 +145,12 @@ module rv32_cpu_control #(
     wire [1:0]                ipb_we;           // write enable
     wire [1:0]                ipb_re;           // read enable
 
+    wire [1:0]                ibp1_free;         // free entry
+    wire [IPB_DATA_WIDTH-1:0] ipb1_rdata [0:1];  // read data
+    wire [1:0]                ibp1_avail;        // data available
+    wire [1:0]                ipb1_we;           // write enable
+    wire [1:0]                ipb1_re;           // read enable
+    
     // Instruction issue (is)
     reg               is_align;
     reg               is_align_set;
@@ -156,14 +162,22 @@ module rv32_cpu_control #(
     wire [31:0]       is_ci_i32;
 
     // Instruction fetch
-    localparam IF_RESTART = 2'b00,
-              IF_REQUEST = 2'b01,
-              IF_PENDING = 2'b10;
+//    localparam IF_RESTART = 2'b00,
+//              IF_REQUEST = 2'b01,
+//              IF_PENDING = 2'b10;
 
+    localparam IF_RESTART = 2'b00,
+              IF_REQ0PEND1 = 2'b01,
+              IF_REQ1PEND0 = 2'b10,
+              IF_PEND0PEND1 = 2'b11;
+              
     reg [1:0]       if_state;
+    reg [1:0]       if_prevstate;
     reg             if_restart;
     reg             if_unaligned;    
     reg [XLEN-1:2]  if_pc;
+    reg             if_unaligned1;    
+    reg [XLEN-1:2]  if_pc1;
     wire            if_reset;
     wire            if_resp;    // bus response
     wire            if_a_err;   // alignment error
@@ -210,7 +224,7 @@ module rv32_cpu_control #(
     wire            trap_ctrl_exc_fire;      // set if there is a valid source in the exception buffer
     reg  [20:0]     trap_ctrl_irq_pnd;       // pending interrupt
     reg  [20:0]     trap_ctrl_irq_buf;       // asynchronous exception/interrupt buffer (one bit per interrupt source)
-    wire             trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
+    wire            trap_ctrl_irq_fire;      // set if an interrupt is actually kicking in
     reg  [6:0]      trap_ctrl_cause;         // trap ID for mcause CSR & debug-mode entry identifier 
     wire [XLEN-1:0] trap_ctrl_epc;           // exception program counter
     reg             trap_ctrl_env_pending;   // start of trap environment if pending
@@ -364,49 +378,116 @@ module rv32_cpu_control #(
 //=================================================================================================================
 // Instruction Fetch (always fetch 32-bit-aligned 32-bit chunks of data)
 //================================================================================================================= 
+//    always @(posedge i_clk, negedge i_rstn) begin
+//        if (!i_rstn) begin
+//            if_state        <= IF_RESTART;
+//            if_restart      <= 1'b1; // set to reset IPB
+//            if_unaligned    <= 1'b0; // always start at aligned address after reset
+//            if_pc           <= {XLEN{1'b0}};
+//        end
+//        else begin
+//            if (if_state == IF_RESTART) if_restart <= 1'b0;
+//            else if_restart <= if_restart || if_reset;
+
+//            case (if_state)
+//                IF_RESTART: begin // set new fetch start address
+//                    if_pc        <= ie_pc[XLEN-1:2]; // initialize with logical PC, word aligned
+//                    if_unaligned <= ie_pc[1];
+//                    if_state     <= IF_REQUEST;
+//                end
+//                IF_REQUEST: begin // request new 32-bit-aligned instruction word request
+//                    if (ibp_free == 2'b11) if_state <= IF_PENDING;
+//                end
+//                IF_PENDING: begin // wait for bus response and write instruction 
+//                    if (if_resp) begin // wait for bus response
+//                        if_pc <= if_pc + 1'b1;
+//                        if_unaligned <= 1'b0;
+
+//                        if (if_restart || if_reset) // restart request (fast) due to branch
+//                            if_state <= IF_RESTART;
+//                        else
+//                            if_state <= IF_REQUEST;
+//                    end
+//                end
+//                default: if_state <= IF_RESTART;
+//            endcase
+//        end
+//    end
+
+//              IF_REQ0PEND1 = 2'b01,
+//              IF_REQ1PEND0 = 2'b10,
+//              IF_PEND0PEND1 = 2'b11;
+              
     always @(posedge i_clk, negedge i_rstn) begin
         if (!i_rstn) begin
-            if_state        <= IF_RESTART;
+            if_state        <= IF_PEND0PEND1;
+            if_prevstate    <= IF_REQ0PEND1;
             if_restart      <= 1'b1; // set to reset IPB
             if_unaligned    <= 1'b0; // always start at aligned address after reset
             if_pc           <= {XLEN{1'b0}};
+            if_unaligned1   <= 1'b0; // always start at aligned address after reset
+            if_pc1          <= {XLEN{1'b0}};            
         end
         else begin
             if (if_state == IF_RESTART) if_restart <= 1'b0;
             else if_restart <= if_restart || if_reset;
-
-            case (if_state)
-                IF_RESTART: begin // set new fetch start address
-                    if_pc        <= ie_pc[XLEN-1:2]; // initialize with logical PC, word aligned
-                    if_unaligned <= ie_pc[1];
-                    if_state     <= IF_REQUEST;
-                end
-                IF_REQUEST: begin // request new 32-bit-aligned instruction word
-                    if (ibp_free == 2'b11) if_state <= IF_PENDING;
-                end
-                IF_PENDING: begin // wait for bus response and write instruction data to prefetch buffer
-                    if (if_resp) begin // wait for bus response
-                        if_pc <= if_pc + 1'b1;
-                        if_unaligned <= 1'b0;
-
-                        if (if_restart || if_reset) // restart request (fast) due to branch
-                            if_state <= IF_RESTART;
-                        else
-                            if_state <= IF_REQUEST;
+            
+            if (if_restart || if_reset) begin
+                if_pc        <= ie_pc[XLEN-1:2]; // initialize with logical PC, word aligned
+                if_unaligned <= ie_pc[1];
+                if_state     <= IF_PEND0PEND1;
+                if_prevstate <= IF_REQ0PEND1;           
+            end
+            else
+                if_prevstate <= if_state;
+                
+                case (if_state)
+                    IF_REQ0PEND1: begin // request new 32-bit-aligned instruction word request
+                        if (ibp1_free == 2'b11) begin
+                            if_state      <= IF_REQ1PEND0;
+                            if_pc1        <= if_pc1 + 1'b1;
+                            if_unaligned1 <= 1'b0;                             
+                        end
+                        else if_state <= IF_PEND0PEND1;
                     end
-                end
-                default: if_state <= IF_RESTART;
-            endcase
+                    IF_REQ1PEND0: begin
+                        if (ibp_free == 2'b11) begin
+                            if_state     <= IF_REQ0PEND1;
+                            if_pc        <= if_pc + 1'b1;
+                            if_unaligned <= 1'b0;
+                        end
+                        else if_state <= IF_PEND0PEND1;
+                    end
+                    IF_PEND0PEND1: begin
+                        if (ibp_free == 2'b11) begin
+                            if_state      <= IF_REQ0PEND1;
+                            if_pc         <= if_pc + 1'b1;
+                            if_unaligned  <= 1'b0;                            
+                        end
+                        else if (ibp1_free == 2'b11) begin
+                            if_state      <= IF_REQ1PEND0;
+                            if_pc1        <= if_pc + 1'b1;
+                            if_unaligned1 <= 1'b0; 
+                        end
+                    end
+                    default: if_state <= IF_PEND0PEND1;
+                endcase
         end
     end
-
+    
     // PC output for instruction fetch
-    assign o_bus_req_addr   = {if_pc, 2'b00};
-    assign o_fetch_pc       = {if_pc, 2'b00};
+//    assign o_bus_req_addr   = {if_pc, 2'b00};
+//    assign o_fetch_pc       = {if_pc, 2'b00};
 
+    assign o_bus_req_addr   = {(if_state == IF_REQ1PEND0)? if_pc1: if_pc, 2'b00};
+    assign o_fetch_pc       = {(if_state == IF_REQ1PEND0)? if_pc1: if_pc, 2'b00};
+    
     // Instruction fetch (read) request if IPB not full
-    assign o_bus_req_re     = (if_state == IF_REQUEST) && (ibp_free == 2'b11);
-
+    // assign o_bus_req_re     = (if_state == IF_REQUEST) && (ibp_free == 2'b11);
+    // assign o_bus_req_re     = ((if_state == IF_REQUEST) || (if_state == IF_PENDING)) && (ibp_free == 2'b11);
+    assign o_bus_req_re     = ((if_state == IF_REQ0PEND1) && (ibp_free == 2'b11)) ||
+                              ((if_state == IF_REQ1PEND0) && (ibp1_free == 2'b11));
+    
     // Unaligned access error (no alignment exceptions possible when using C-extension)
     assign if_a_err = if_unaligned && (CPU_EXTENSION_RISCV_C == 0);
 
@@ -420,10 +501,14 @@ module rv32_cpu_control #(
     assign ipb_wdata[1] = {i_bus_rsp_err || i_pmp_fault, if_a_err, i_bus_rsp_data[31:16]};
 
     // IPB write enable
-    assign ipb_we[0] = (if_state == IF_PENDING) && if_resp &&
+    assign ipb_we[0] = ((if_state == IF_REQ1PEND0) || (if_state == IF_PEND0PEND1)) && if_resp &&
                        (!if_unaligned || (CPU_EXTENSION_RISCV_C == 0));
-    assign ipb_we[1] = (if_state == IF_PENDING) && if_resp;
-
+    assign ipb_we[1] = ((if_state == IF_REQ1PEND0) || (if_state == IF_PEND0PEND1)) && if_resp;
+    
+    assign ipb1_we[0] = ((if_state == IF_REQ0PEND1) || (if_state == IF_PEND0PEND1)) && if_resp &&
+                        (!if_unaligned || (CPU_EXTENSION_RISCV_C == 0));
+    assign ipb1_we[1] = ((if_state == IF_REQ0PEND1) || (if_state == IF_PEND0PEND1)) && if_resp;
+    
     // Bus access type
     assign o_bus_req_priv = 1'b0;
     assign o_bus_req_data = {XLEN{1'b0}}; // read only
@@ -440,7 +525,7 @@ module rv32_cpu_control #(
         .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
         .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
         .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available  -- -------------------------------------------------------------------------------------------
-    ) prefetch_buffer0 
+    ) prefetch_buffer0L 
     (
         // Global control
         .i_clk      ( i_clk        ),   // global clock, rising edge
@@ -463,7 +548,7 @@ module rv32_cpu_control #(
         .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
         .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
         .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available
-    ) prefetch_buffer1 
+    ) prefetch_buffer0H 
     (
         // Global control
         .i_clk      ( i_clk        ),   // global clock, rising edge
@@ -484,6 +569,55 @@ module rv32_cpu_control #(
     assign ipb_re[0] = is_valid[0] && is_ack;
     assign ipb_re[1] = is_valid[1] && is_ack;
 
+    ip_fifo #(
+        .FIFO_DEPTH (INSTR_BUFFER_DEPTH ), // number of fifo entries; has to be a power of two; min 1
+        .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
+        .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
+        .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available  -- -------------------------------------------------------------------------------------------
+    ) prefetch_buffer1L 
+    (
+        // Global control
+        .i_clk      ( i_clk        ),   // global clock, rising edge
+        .i_rstn     ( i_rstn       ),  // global reset, low-active, async
+        // Control signal
+        .i_clear    ( if_restart   ), // sync reset, high-active
+        .o_half     (              ),  // FIFO is half full
+        // Write port
+        .i_wdata    ( ipb_wdata[0] ), // write data
+        .i_we       ( ipb1_we[0]    ),    // write enable
+        .o_free     ( ibp1_free[0]  ),  // at least one entry is free when set
+        // Read port
+        .i_re       ( ipb1_re[0]    ),    // read enable
+        .o_rdata    ( ipb1_rdata[0] ), // read data
+        .o_avail    ( ibp1_avail[0] )  // data available when set
+    );
+
+    ip_fifo #(
+        .FIFO_DEPTH (INSTR_BUFFER_DEPTH ), // number of fifo entries; has to be a power of two; min 1
+        .FIFO_WIDTH (IPB_DATA_WIDTH     ), // size of data elements in fifo
+        .FIFO_RSYNC (0                  ), // 0 = async read; 1 = sync read
+        .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available
+    ) prefetch_buffer1H 
+    (
+        // Global control
+        .i_clk      ( i_clk        ),   // global clock, rising edge
+        .i_rstn     ( i_rstn       ),  // global reset, low-active, async
+        // Control signal
+        .i_clear    ( if_restart   ), // sync reset, high-active
+        .o_half     (              ),  // FIFO is half full
+        // Write port
+        .i_wdata    ( ipb_wdata[1] ), // write data
+        .i_we       ( ipb1_we[1]    ),    // write enable
+        .o_free     ( ibp1_free[1]  ),  // at least one entry is free when set
+        // Read port
+        .i_re       ( ipb1_re[1]    ),    // read enable
+        .o_rdata    ( ipb1_rdata[1] ), // read data
+        .o_avail    ( ibp1_avail[1] )  // data available when set
+    );
+
+    assign ipb_re[0] = is_valid[0] && is_ack;
+    assign ipb_re[1] = is_valid[1] && is_ack;
+    
 //=================================================================================================================
 // Instruction Issue (decompress 16-bit instructions and assemble a 32-bit instruction word)
 //=================================================================================================================
@@ -545,7 +679,7 @@ module rv32_cpu_control #(
         end
     endgenerate 
 
-    assign is_ack    = (ie_state == IE_DISPATCH) &&
+    assign is_ack    = ((ie_state == IE_DISPATCH) || (ie_state == IE_EXECUTE)) &&
                        (is_valid[0] || is_valid[1]) &&
                        (!trap_ctrl_env_pending && !trap_ctrl_exc_fire);
 
@@ -645,15 +779,19 @@ module rv32_cpu_control #(
                             ie_next = IE_ALU_WAIT;
                         else if ((FAST_SHIFT_EN == 0) && ((ir_funct3 == `FUNCT3_SLL) || (ir_funct3 == `FUNCT3_SR))) // SLL/SRL
                             ie_next = IE_ALU_WAIT;
-                        else ie_next = IE_DISPATCH;
+                        // else ie_next = IE_DISPATCH;
+                        else ie_next = IE_EXECUTE;
                     `OP_ALUI:
                         if ((id_is_mul || id_is_div) && ir_opcode[5] && (FAST_MUL_EN == 0)) // MUL/DIV
                             ie_next = IE_ALU_WAIT;
                         else if ((FAST_SHIFT_EN == 0) && ((ir_funct3 == `FUNCT3_SLL) || (ir_funct3 == `FUNCT3_SR))) // SLL/SRL
                             ie_next = IE_ALU_WAIT;
-                        else ie_next = IE_DISPATCH;
-                    `OP_LUI     : ie_next = IE_DISPATCH;
-                    `OP_AUIPC   : ie_next = IE_DISPATCH;
+                        //else ie_next = IE_DISPATCH;
+                        else ie_next = IE_EXECUTE;
+//                    `OP_LUI     : ie_next = IE_DISPATCH;
+//                    `OP_AUIPC   : ie_next = IE_DISPATCH;
+                    `OP_LUI     : ie_next = IE_EXECUTE;
+                    `OP_AUIPC   : ie_next = IE_EXECUTE;
                     `OP_STORE   : ie_next = IE_MEM_REQ; 
                     `OP_LOAD    : ie_next = IE_MEM_REQ;
                     `OP_AMO     : ie_next = IE_MEM_REQ;

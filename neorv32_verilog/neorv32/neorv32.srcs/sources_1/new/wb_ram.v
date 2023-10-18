@@ -46,6 +46,14 @@ module wb_ram #(
    initial begin
     for (i = 0; i < depth/4; i = i + 1)
         mem[i] = 32'd0; 
+    mem[0] = 32'h00628433; // add x8, x5, x6
+    mem[1] = 32'h008384b3; // add x9, x7, x8
+    mem[2] = 32'h00628433; // add x8, x5, x6
+    mem[3] = 32'h008384b3; // add x9, x7, x8
+    mem[4] = 32'h008384b3; // add x9, x7, x8
+    mem[5] = 32'h00628433; // add x8, x5, x6
+    mem[6] = 32'h008384b3; // add x9, x7, x8
+    mem[7] = 32'h00628433; // add x8, x5, x6
    end
    
 
@@ -53,7 +61,7 @@ module wb_ram #(
      if (!i_wb_rstn)
        o_wb_ack <= 1'b0;
      else
-       o_wb_ack <= i_wb_cyc & !o_wb_ack;
+       o_wb_ack <= i_wb_cyc;
 
    always @(posedge i_wb_clk) begin
       if (we[0]) mem[addr][7:0]   <= i_wb_dat[7:0];
