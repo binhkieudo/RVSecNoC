@@ -112,7 +112,7 @@ module rv32_cpu_control #(
     // input  wire             i_be_store       // bus error store data access   
 );
 
-    localparam THREAD_NUM = 4;
+    localparam THREAD_NUM = 8;
 
     // Instruction prefetch buffer (FIFO)
     localparam IPB_DATA_WIDTH       = 2 + 16;   // {bus_error, align_error, 16-bit instruciton}
@@ -128,16 +128,20 @@ module rv32_cpu_control #(
     wire [1:0]                ipb_re        [THREAD_NUM-1:0];  // read enable
 
     // Instruction fetch
-    localparam IF_RESTART = 3'b000,
-              IF_PEND = 2'b001,
-              IF_REQ0 = 3'b100,
-              IF_REQ1 = 3'b101,
-              IF_REQ2 = 3'b110,
-              IF_REQ3 = 3'b111;
+    localparam IF_RESTART = 4'b0000,
+              IF_PEND = 4'b0001,
+              IF_REQ0 = 4'b1000,
+              IF_REQ1 = 4'b1001,
+              IF_REQ2 = 4'b1010,
+              IF_REQ3 = 4'b1011,
+              IF_REQ4 = 4'b1100,
+              IF_REQ5 = 4'b1101,
+              IF_REQ6 = 4'b1110,
+              IF_REQ7 = 4'b1111;
               
-    reg [2:0]             if_state;
-    reg [2:0]             if_nstate;
-    // reg [2:0]             if_prevstate;
+    reg [3:0]             if_state;
+    reg [3:0]             if_nstate;
+    reg [3:0]             if_prevstate;
     reg                   if_restart;
     reg [THREAD_NUM-1:0]  if_unaligned;    
     reg [XLEN-1:0]        if_pc [THREAD_NUM-1:0];
@@ -152,6 +156,8 @@ module rv32_cpu_control #(
     always @(posedge i_clk, negedge i_rstn) begin
         if (!i_rstn) if_state <= IF_RESTART;
         else if_state <= if_nstate;
+
+        if_prevstate <= if_state;
     end
     
     always @(*) begin
@@ -160,7 +166,10 @@ module rv32_cpu_control #(
             IF_PEND:    if_nstate = (&if_avail[0])? IF_REQ0:
                                     (&if_avail[1])? IF_REQ1:
                                     (&if_avail[2])? IF_REQ2:
-                                    (&if_avail[3])? IF_REQ3: IF_PEND;
+                                    (&if_avail[3])? IF_REQ3:
+                                    (&if_avail[4])? IF_REQ4:
+                                    (&if_avail[5])? IF_REQ5:
+                                    (&if_avail[6])? IF_REQ6: IF_REQ7;
             IF_REQ0:    if_nstate = (&if_avail[1])? IF_REQ1:
                                     (&if_avail[2])? IF_REQ2:
                                     (&if_avail[3])? IF_REQ3:

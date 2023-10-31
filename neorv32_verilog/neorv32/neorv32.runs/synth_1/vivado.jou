@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed Oct 25 11:25:23 2023
-# Process ID: 92982
+# Start of session at: Wed Nov  1 00:16:02 2023
+# Process ID: 85613
 # Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1
-# Command line: vivado -log rv32_cpu_control.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_control.tcl
-# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/rv32_cpu_control.vds
+# Command line: vivado -log rv32_cpu_regfile.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_regfile.tcl
+# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/rv32_cpu_regfile.vds
 # Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/vivado.jou
-# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
+# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
 #-----------------------------------------------------------
-source rv32_cpu_control.tcl -notrace
+source rv32_cpu_regfile.tcl -notrace

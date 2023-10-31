@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/rv32_cpu_control.tcl"
+  variable script "/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/rv32_cpu_regfile.tcl"
   variable category "vivado_synth"
 }
 
@@ -86,12 +86,7 @@ set_property ip_output_repo /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_package.vh
-read_verilog -library xil_defaultlib {
-  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/ip_fifo.v
-  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_decompressor.v
-  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_control.v
-}
+read_verilog -library xil_defaultlib /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/sources_1/new/rv32_cpu_regfile.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -110,7 +105,7 @@ read_checkpoint -auto_incremental -incremental /home/binhkieudo/Workspace/RVSecN
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top rv32_cpu_control -part xc7a100tcsg324-1
+synth_design -top rv32_cpu_regfile -part xc7a100tcsg324-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -120,10 +115,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef rv32_cpu_control.dcp
+write_checkpoint -force -noxdef rv32_cpu_regfile.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file rv32_cpu_control_utilization_synth.rpt -pb rv32_cpu_control_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file rv32_cpu_regfile_utilization_synth.rpt -pb rv32_cpu_regfile_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

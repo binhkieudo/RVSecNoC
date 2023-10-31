@@ -1,0 +1,286 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Oct 31 20:59:24 2023
+# Process ID: 48534
+# Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread
+# Command line: vivado
+# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/vivado.log
+# Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/vivado.jou
+# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+create_project project . -part xc7vx485tffg1761-2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2022.2/data/ip'.
+set_property board_part xilinx.com:vc707:part0:1.4 [current_project]
+file mkdir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_package.vh w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_package.vh
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 16
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:46:23 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:48:30 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_alu.dcp to /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1 -jobs 16
+[Tue Oct 31 22:51:02 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_alu.dcp
+launch_runs synth_1 -jobs 16
+[Tue Oct 31 22:57:16 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_alu.dcp
+launch_runs synth_1 -jobs 16
+[Tue Oct 31 23:03:39 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v
+update_compile_order -fileset sources_1
+set_property top rv32_cpu_regfile [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_alu.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:07:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:08:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1761-2
+Top: rv32_cpu_regfile
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/opt/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 8577.598 ; gain = 361.828 ; free physical = 10864 ; free virtual = 84302
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'rv32_cpu_regfile' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_cpu_regfile' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8644.566 ; gain = 428.797 ; free physical = 10952 ; free virtual = 84390
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8662.379 ; gain = 446.609 ; free physical = 10950 ; free virtual = 84388
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8662.379 ; gain = 446.609 ; free physical = 10950 ; free virtual = 84388
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 8662.379 ; gain = 0.000 ; free physical = 10946 ; free virtual = 84384
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8817.098 ; gain = 0.000 ; free physical = 10863 ; free virtual = 84300
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 8992.031 ; gain = 776.262 ; free physical = 10768 ; free virtual = 84216
+6 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:18 . Memory (MB): peak = 8992.031 ; gain = 1131.281 ; free physical = 10768 ; free virtual = 84216
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:14:00 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:15:42 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:20:30 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:23:20 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:24:39 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 00:25:40 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:17:10 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:19:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+set_property top rv32_cpu_control [current_fileset]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_regfile.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:21:03 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:25:26 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:26:14 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:28:07 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:29:34 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:31:58 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:32:49 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:33:44 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:35:01 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:35:53 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:37:19 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:38:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:42:55 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:54:17 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:55:57 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 02:58:01 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 03:00:01 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 03:03:05 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 03:04:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 03:06:35 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp
+launch_runs synth_1 -jobs 16
+[Wed Nov  1 03:08:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  1 03:09:11 2023...
