@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.tcl"
+  variable script "/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,28 +71,39 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
+set_param chipscope.maxJobs 5
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7vx485tffg1761-2
+create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/wt [current_project]
 set_property parent.project_path /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part xilinx.com:vc707:part0:1.4 [current_project]
+set_property board_part_repo_paths {/home/binhkieudo/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
+set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
 set_property ip_output_repo /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_package.vh
 read_verilog -library xil_defaultlib {
+  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v
   /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v
+  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v
   /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v
+  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_imem.v
+  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v
 }
+read_ip -quiet /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci
+set_property used_in_implementation false [get_files -all /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.gen/sources_1/ip/vio_0/vio_0.xdc]
+set_property used_in_implementation false [get_files -all /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.gen/sources_1/ip/vio_0/vio_0_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -102,13 +113,16 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc
+set_property used_in_implementation false [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top rv32_cpu_control -part xc7vx485tffg1761-2
+synth_design -top rv32_cpu -part xc7a100tcsg324-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -118,10 +132,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef rv32_cpu_control.dcp
+write_checkpoint -force -noxdef rv32_cpu.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file rv32_cpu_control_utilization_synth.rpt -pb rv32_cpu_control_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file rv32_cpu_utilization_synth.rpt -pb rv32_cpu_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

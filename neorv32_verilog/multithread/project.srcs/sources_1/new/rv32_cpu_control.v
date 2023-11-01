@@ -49,7 +49,6 @@ module rv32_cpu_control #(
     parameter PMP_EN                        = 1  // Enable physical memory protection
 )
 (
-
     // Global control
     input wire              i_clk,
     input wire              i_rstn,
@@ -75,18 +74,9 @@ module rv32_cpu_control #(
     output wire [THREAD_COUNT-1:0]      o_bus_req_re,   // read request
     input  wire [THREAD_COUNT*XLEN-1:0] i_bus_rsp_data, // read data
     input  wire [THREAD_COUNT-1:0]      i_bus_rsp_ack,  // access acknowledge
-    // Status input
-//    input wire  [THREAD_COUNT-1:0]      i_cmp_eq,        // comparator equal
-//    input wire  [THREAD_COUNT-1:0]      i_cmp_lt,        // comparator less than
-    // Data input
-//    input wire  [THREAD_COUNT*XLEN-1:0] i_alu_addr,      // ALU address result,
-//    input wire  [THREAD_COUNT*XLEN-1:0] i_rs1,           // rf source 1
     // Data output
-    output wire [THREAD_COUNT*XLEN-1:0] o_imm           // immediate
-//    output wire [THREAD_COUNT*XLEN-1:0] o_fetch_pc,      // instruction fetch
-//    output wire [THREAD_COUNT*XLEN-1:0] o_curr_pc,       // current pc
-//    output wire [THREAD_COUNT*XLEN-1:0] o_next_pc,       // next pc
-//    output wire [THREAD_COUNT*XLEN-1:0] o_csr_rdata      // csr read data
+    output wire [THREAD_COUNT*XLEN-1:0] o_imm,           // immediate
+    output wire [THREAD_COUNT*XLEN-1:0] o_pc             // pc
 );
     
     // Instruction fetch
@@ -285,8 +275,8 @@ module rv32_cpu_control #(
             assign o_ctrl_alu_unsigned[thread_idx] = ro_ctrl_alu_unsigned;
             
             // Other
-            assign o_imm[(thread_idx+1)*32-1 -: 32] = ir_imm20[thread_idx];
-            
+            assign o_imm[(thread_idx+1)*32-1 -: 32] = {{12{ir_imm20[thread_idx][19]}}, ir_imm20[thread_idx]};
+            assign o_pc[(thread_idx+1)*32-1 -: 32]  = if_pc[thread_idx];
         end
     endgenerate
     

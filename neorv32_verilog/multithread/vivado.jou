@@ -2,152 +2,109 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Oct 31 20:59:24 2023
-# Process ID: 48534
+# Start of session at: Wed Nov  1 13:06:27 2023
+# Process ID: 542703
 # Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread
-# Command line: vivado
+# Command line: vivado project.xpr
 # Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/vivado.log
 # Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/vivado.jou
-# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
 #-----------------------------------------------------------
 start_gui
-create_project project . -part xc7vx485tffg1761-2
-set_property board_part xilinx.com:vc707:part0:1.4 [current_project]
-file mkdir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new
-close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v w ]
-add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v
+open_project project.xpr
 update_compile_order -fileset sources_1
-close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_package.vh w ]
-add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_package.vh
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ibus_abitrator.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ibus_abitrator.v
 update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ibus_abitrator.v] -no_script -reset -force -quiet
+remove_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ibus_abitrator.v
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v
 update_compile_order -fileset sources_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v w ]
-add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_imem.v w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_imem.v
 update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top rv32_cpu_regfile [current_fileset]
+set_property top rv32_imem [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
 synth_design -rtl -rtl_skip_mlo -name rtl_1
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_0
+set_property -dict [list \
+  CONFIG.C_NUM_PROBE_IN {0} \
+  CONFIG.C_NUM_PROBE_OUT {3} \
+  CONFIG.C_PROBE_OUT0_WIDTH {256} \
+  CONFIG.C_PROBE_OUT2_WIDTH {256} \
+] [get_ips vio_0]
+generate_target {instantiation_template} [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+generate_target all [get_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+launch_runs vio_0_synth_1 -jobs 20
+wait_on_run vio_0_synth_1
+export_simulation -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -directory /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/sim_scripts -ip_user_files_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files -ipstatic_source_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/modelsim} {questa=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/questa} {xcelium=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/xcelium} {vcs=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/vcs} {riviera=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 close_design
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v w ]
-add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v
-update_compile_order -fileset sources_1
-close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v w ]
-add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v
-update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top rv32_cpu_control [current_fileset]
+set_property top rv32_cpu [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
 update_compile_order -fileset sources_1
+set_property -dict [list \
+  CONFIG.C_NUM_PROBE_IN {1} \
+  CONFIG.C_PROBE_IN0_WIDTH {32} \
+] [get_ips vio_0]
+generate_target all [get_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+reset_run vio_0_synth_1
+launch_runs vio_0_synth_1 -jobs 20
+wait_on_run vio_0_synth_1
+export_simulation -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -directory /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/sim_scripts -ip_user_files_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files -ipstatic_source_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/modelsim} {questa=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/questa} {xcelium=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/xcelium} {vcs=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/vcs} {riviera=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_utilization -name utilization_1
+close_design
+set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
+set_property dataflow_viewer_settings "min_width=16"   [current_fileset]
+upgrade_ip -srcset vio_0 -vlnv xilinx.com:ip:vio:3.0 [get_ips  vio_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips vio_0] -no_script -sync -force -quiet
+set_property CONFIG.C_PROBE_OUT1_WIDTH {8} [get_ips vio_0]
+generate_target all [get_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci]
+launch_runs vio_0_synth_1 -jobs 20
+wait_on_run vio_0_synth_1
+export_simulation -of_objects [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/ip/vio_0/vio_0.xci] -directory /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/sim_scripts -ip_user_files_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files -ipstatic_source_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/modelsim} {questa=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/questa} {xcelium=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/xcelium} {vcs=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/vcs} {riviera=/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc w ]
+add_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc
+set_property file_type Verilog [get_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc] -no_script -reset -force -quiet
+remove_files  /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc
+file delete -force /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/arty.xdc
+file mkdir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1
+file mkdir /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new
+close [ open /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc w ]
+add_files -fileset constrs_1 /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc
 reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
+launch_runs impl_1 -jobs 20
+wait_on_run impl_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
+launch_runs impl_1 -jobs 20
+wait_on_run impl_1
 reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
+launch_runs synth_1 -jobs 20
 wait_on_run synth_1

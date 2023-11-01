@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log rv32_cpu_control.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_control.tcl
+    with args -log rv32_cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu.tcl
 
 
 ****** Vivado v2022.2 (64-bit)
@@ -8,25 +8,27 @@
   **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
-source rv32_cpu_control.tcl -notrace
+source rv32_cpu.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/utils_1/imports/synth_1/rv32_cpu_alu.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top rv32_cpu_control -part xc7vx485tffg1761-2
+Command: synth_design -top rv32_cpu -part xc7a100tcsg324-1
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 137627
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/opt/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 671916
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2431.348 ; gain = 380.645 ; free physical = 9842 ; free virtual = 83606
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1788.419; parent = 1602.574; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3434.207; parent = 2431.352; children = 1002.855
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2760.188 ; gain = 388.707 ; free physical = 96156 ; free virtual = 115789
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3735.977; parent = 2763.160; children = 972.816
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'rv32_cpu' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:23]
 INFO: [Synth 8-6157] synthesizing module 'rv32_cpu_control' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ip_fifo' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v:23]
 	Parameter FIFO_DEPTH bound to: 8 - type: integer 
@@ -35,134 +37,190 @@ INFO: [Synth 8-6157] synthesizing module 'ip_fifo' [/home/binhkieudo/Workspace/R
 	Parameter FIFO_SAFE bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'ip_fifo' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/ip_fifo.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'rv32_cpu_control' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:23]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[0].if_prevstate_reg[0] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[1].if_prevstate_reg[1] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[2].if_prevstate_reg[2] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[3].if_prevstate_reg[3] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[4].if_prevstate_reg[4] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[5].if_prevstate_reg[5] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[6].if_prevstate_reg[6] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-6014] Unused sequential element thread_gen[7].if_prevstate_reg[7] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:146]
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[7] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[6] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[5] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[4] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[3] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[2] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[1] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_wb_en[0] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[15] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[14] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[13] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[12] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[11] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[10] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[9] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[8] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[7] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[6] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[5] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[4] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[3] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[2] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[1] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_mux[0] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[7] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[6] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[5] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[4] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[3] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[2] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[1] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_rf_zero_we[0] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[50] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[49] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[43] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[42] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[36] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[35] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[29] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[28] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[22] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[21] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[15] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[14] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[8] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[7] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[1] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_ctrl_ir_opcode[0] driven by constant 1
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[255] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[254] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[223] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[222] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[191] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[190] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[159] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[158] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[127] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[126] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[95] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[94] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[63] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[62] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[31] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_bus_req_addr[30] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[255] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[254] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[253] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[252] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[251] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[250] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[249] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[248] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[247] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[246] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[245] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[244] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[223] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[222] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[221] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[220] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[219] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[218] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[217] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[216] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[215] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[214] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[213] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[212] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[191] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[190] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[189] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[188] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[187] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[186] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[185] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[184] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[183] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[182] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[181] driven by constant 0
-WARNING: [Synth 8-3917] design rv32_cpu_control has port o_imm[180] driven by constant 0
-INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6157] synthesizing module 'rv32_cpu_regfile' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_cpu_regfile' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/cpu_rv32_regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'rv32_cpu_alu' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_cpu_alu' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_alu.v:23]
+INFO: [Synth 8-6157] synthesizing module 'vio_0' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/.Xil/Vivado-671877-binhkieudo/realtime/vio_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'vio_0' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/.Xil/Vivado-671877-binhkieudo/realtime/vio_0_stub.v:5]
+WARNING: [Synth 8-689] width (256) of port connection 'probe_in0' does not match port width (32) of module 'vio_0' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:159]
+INFO: [Synth 8-6157] synthesizing module 'rv32_imem' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_imem.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_imem' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_imem.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_cpu' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:23]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[0].if_prevstate_reg[0] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[1].if_prevstate_reg[1] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[2].if_prevstate_reg[2] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[3].if_prevstate_reg[3] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[4].if_prevstate_reg[4] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[5].if_prevstate_reg[5] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[6].if_prevstate_reg[6] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+WARNING: [Synth 8-6014] Unused sequential element thread_gen[7].if_prevstate_reg[7] was removed.  [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu_control.v:136]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio'. This will prevent further optimization [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:157]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'imem'. This will prevent further optimization [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:165]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'alu'. This will prevent further optimization [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:131]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'regfile'. This will prevent further optimization [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cpu.v:112]
+WARNING: [Synth 8-7129] Port i_rstn in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[255] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[254] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[253] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[252] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[251] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[250] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[249] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[248] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[247] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[246] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[245] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[244] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[243] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[242] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[241] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[240] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[239] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[238] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[237] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[236] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[235] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[234] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[223] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[222] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[221] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[220] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[219] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[218] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[217] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[216] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[215] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[214] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[213] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[212] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[211] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[210] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[209] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[208] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[207] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[206] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[205] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[204] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[203] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[202] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[191] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[190] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[189] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[188] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[187] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[186] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[185] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[184] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[183] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[182] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[181] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[180] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[179] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[178] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[177] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[176] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[175] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[174] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[173] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[172] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[171] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[170] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[159] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[158] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[157] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[156] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[155] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[154] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[153] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[152] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[151] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[150] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[149] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[148] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[147] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[146] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[145] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[144] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[143] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[142] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[141] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[140] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[139] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[138] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[127] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[126] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[125] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[124] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[123] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[122] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[121] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[120] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[119] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[118] in module rv32_imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_bus_req_addr[117] in module rv32_imem is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2510.316 ; gain = 459.613 ; free physical = 9924 ; free virtual = 83688
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1788.419; parent = 1602.574; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3513.176; parent = 2510.320; children = 1002.855
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2839.125 ; gain = 467.645 ; free physical = 96229 ; free virtual = 115863
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3811.945; parent = 2839.129; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2528.129 ; gain = 477.426 ; free physical = 9912 ; free virtual = 83677
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1788.419; parent = 1602.574; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3530.988; parent = 2528.133; children = 1002.855
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2856.938 ; gain = 485.457 ; free physical = 96229 ; free virtual = 115863
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3829.758; parent = 2856.941; children = 972.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2856.938 ; gain = 485.457 ; free physical = 96229 ; free virtual = 115862
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3829.758; parent = 2856.941; children = 972.816
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2856.938 ; gain = 0.000 ; free physical = 96227 ; free virtual = 115860
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio'
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio'
+Parsing XDC File [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.srcs/constrs_1/new/arty.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/rv32_cpu_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/rv32_cpu_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3014.688 ; gain = 0.000 ; free physical = 96137 ; free virtual = 115771
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3014.688 ; gain = 0.000 ; free physical = 96137 ; free virtual = 115771
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96207 ; free virtual = 115842
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7vx485tffg1761-2
-INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2536.133 ; gain = 485.430 ; free physical = 9911 ; free virtual = 83675
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1788.419; parent = 1602.574; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3538.992; parent = 2536.137; children = 1002.855
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96194 ; free virtual = 115833
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for vio. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96181 ; free virtual = 115823
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'thread_gen[0].if_state_reg[0]' in module 'rv32_cpu_control'
 INFO: [Synth 8-802] inferred FSM for state register 'thread_gen[1].if_state_reg[1]' in module 'rv32_cpu_control'
@@ -237,30 +295,41 @@ INFO: [Synth 8-3354] encoded FSM with state register 'thread_gen[6].if_state_reg
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'thread_gen[7].if_state_reg[7]' using encoding 'sequential' in module 'rv32_cpu_control'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2545.039 ; gain = 494.336 ; free physical = 9844 ; free virtual = 83609
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1793.914; parent = 1608.130; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3547.898; parent = 2545.043; children = 1002.855
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96165 ; free virtual = 115808
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   3 Input   33 Bit       Adders := 8     
 	   2 Input    4 Bit       Adders := 32    
 	   3 Input    3 Bit       Adders := 16    
++---XORs : 
+	   2 Input     32 Bit         XORs := 8     
+	   2 Input      1 Bit         XORs := 8     
 +---Registers : 
+	               32 Bit    Registers := 24    
 	                4 Bit    Registers := 32    
 	                3 Bit    Registers := 8     
-	                1 Bit    Registers := 24    
+	                1 Bit    Registers := 32    
++---RAMs : 
+	              32K Bit	(1024 X 32 bit)          RAMs := 8     
+	             1024 Bit	(32 X 32 bit)          RAMs := 8     
 +---Muxes : 
+	   2 Input   33 Bit        Muxes := 8     
+	   4 Input   32 Bit        Muxes := 8     
+	   2 Input   32 Bit        Muxes := 16    
+	   2 Input    5 Bit        Muxes := 8     
 	   2 Input    4 Bit        Muxes := 32    
 	   2 Input    3 Bit        Muxes := 8     
 	   3 Input    3 Bit        Muxes := 8     
 	   6 Input    3 Bit        Muxes := 8     
 	   2 Input    2 Bit        Muxes := 32    
 	   3 Input    2 Bit        Muxes := 8     
-	   2 Input    1 Bit        Muxes := 64    
+	   2 Input    1 Bit        Muxes := 72    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -268,85 +337,138 @@ Finished RTL Component Statistics
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
 Part Resources:
-DSPs: 2800 (col length:140)
-BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9469 ; free virtual = 83233
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2163.102; parent = 1977.347; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96135 ; free virtual = 115784
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2121.541; parent = 1935.722; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
+Block RAM: Preliminary Mapping Report (see note below)
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|regfile     | thread[0].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[1].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[2].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[3].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[4].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[5].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[6].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[7].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[0].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[1].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[2].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[3].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[4].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[5].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[6].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[7].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
 Distributed RAM: Preliminary Mapping Report (see note below)
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
-|Module Name      | RTL Object                                              | Inference | Size (Depth x Width) | Primitives  | 
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
-|rv32_cpu_control | thread_gen[0].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[0].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[1].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[1].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[2].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[2].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[3].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[3].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[4].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[4].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[5].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[5].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[6].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[6].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[7].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[7].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                                                         | Inference | Size (Depth x Width) | Primitives  | 
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
+|rv32_cpu    | controller/thread_gen[0].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[0].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[1].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[1].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[2].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[2].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[3].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[3].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[4].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[4].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[5].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[5].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[6].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[6].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[7].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[7].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96024 ; free virtual = 115674
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2228.903; parent = 2043.347; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9469 ; free virtual = 83233
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2164.811; parent = 1979.057; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96017 ; free virtual = 115666
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2235.965; parent = 2050.409; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
+Block RAM: Final Mapping Report
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|regfile     | thread[0].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[1].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[2].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[3].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[4].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[5].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[6].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|regfile     | thread[7].gen_rf_ff.regfile_reg | 32 x 32(READ_FIRST)    | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[0].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[1].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[2].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[3].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[4].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[5].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[6].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|imem        | thread[7].bank_reg              | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
 Distributed RAM: Final Mapping Report
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
-|Module Name      | RTL Object                                              | Inference | Size (Depth x Width) | Primitives  | 
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
-|rv32_cpu_control | thread_gen[0].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[0].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[1].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[1].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[2].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[2].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[3].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[3].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[4].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[4].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[5].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[5].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[6].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[6].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[7].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-|rv32_cpu_control | thread_gen[7].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
-+-----------------+---------------------------------------------------------+-----------+----------------------+-------------+
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                                                         | Inference | Size (Depth x Width) | Primitives  | 
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
+|rv32_cpu    | controller/thread_gen[0].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[0].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[1].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[1].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[2].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[2].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[3].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[3].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[4].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[4].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[5].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[5].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[6].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[6].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[7].prefetch_bufferL/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
+|rv32_cpu    | controller/thread_gen[7].prefetch_bufferH/gen_fifo_access.data_reg | Implied   | 8 x 16               | RAM32M x 3  | 
++------------+--------------------------------------------------------------------+-----------+----------------------+-------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -354,10 +476,34 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[0].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[0].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[1].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[1].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[2].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[2].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[3].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[3].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[4].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[4].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[5].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[5].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[6].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[6].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[7].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance regfile/thread[7].gen_rf_ff.regfile_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[0].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[1].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[2].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[3].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[4].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[5].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[6].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance imem/thread[7].bank_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9465 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2164.811; parent = 1979.057; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96016 ; free virtual = 115665
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.074; parent = 2050.519; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -375,125 +521,104 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.141; parent = 1979.387; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96023 ; free virtual = 115671
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.580; parent = 2051.024; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.141; parent = 1979.387; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96024 ; free virtual = 115672
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.625; parent = 2051.069; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.203; parent = 1979.449; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96051 ; free virtual = 115694
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.746; parent = 2051.190; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.203; parent = 1979.449; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96051 ; free virtual = 115692
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.746; parent = 2051.190; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.203; parent = 1979.449; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96051 ; free virtual = 115692
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.746; parent = 2051.190; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.203; parent = 1979.449; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96051 ; free virtual = 115692
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.746; parent = 2051.190; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |vio_0         |         1|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |    64|
-|3     |LUT1   |    41|
-|4     |LUT2   |    64|
-|5     |LUT3   |    49|
-|6     |LUT4   |    41|
-|7     |LUT5   |    32|
-|8     |LUT6   |    48|
-|9     |RAM32M |    48|
-|10    |FDCE   |   128|
-|11    |FDRE   |   320|
-|12    |IBUF   |   266|
-|13    |OBUF   |   896|
-+------+-------+------+
-
-Report Instance Areas: 
-+------+-----------------------------------+-----------+------+
-|      |Instance                           |Module     |Cells |
-+------+-----------------------------------+-----------+------+
-|1     |top                                |           |  1998|
-|2     |  \thread_gen[0].prefetch_bufferH  |ip_fifo    |    23|
-|3     |  \thread_gen[0].prefetch_bufferL  |ip_fifo_0  |    31|
-|4     |  \thread_gen[1].prefetch_bufferH  |ip_fifo_1  |    23|
-|5     |  \thread_gen[1].prefetch_bufferL  |ip_fifo_2  |    31|
-|6     |  \thread_gen[2].prefetch_bufferH  |ip_fifo_3  |    23|
-|7     |  \thread_gen[2].prefetch_bufferL  |ip_fifo_4  |    31|
-|8     |  \thread_gen[3].prefetch_bufferH  |ip_fifo_5  |    23|
-|9     |  \thread_gen[3].prefetch_bufferL  |ip_fifo_6  |    31|
-|10    |  \thread_gen[4].prefetch_bufferH  |ip_fifo_7  |    23|
-|11    |  \thread_gen[4].prefetch_bufferL  |ip_fifo_8  |    31|
-|12    |  \thread_gen[5].prefetch_bufferH  |ip_fifo_9  |    25|
-|13    |  \thread_gen[5].prefetch_bufferL  |ip_fifo_10 |    31|
-|14    |  \thread_gen[6].prefetch_bufferH  |ip_fifo_11 |    23|
-|15    |  \thread_gen[6].prefetch_bufferL  |ip_fifo_12 |    31|
-|16    |  \thread_gen[7].prefetch_bufferH  |ip_fifo_13 |    24|
-|17    |  \thread_gen[7].prefetch_bufferL  |ip_fifo_14 |    31|
-+------+-----------------------------------+-----------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |vio      |     1|
+|2     |BUFG     |     1|
+|3     |CARRY4   |   136|
+|4     |LUT1     |    48|
+|5     |LUT2     |    56|
+|6     |LUT3     |   615|
+|7     |LUT4     |    44|
+|8     |LUT5     |   551|
+|9     |LUT6     |   344|
+|10    |RAM32M   |    48|
+|11    |RAMB36E1 |    16|
+|12    |FDCE     |   128|
+|13    |FDRE     |   328|
+|14    |IBUF     |     2|
++------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9464 ; free virtual = 83229
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2165.271; parent = 1979.517; children = 185.845
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3821.305; parent = 2818.449; children = 1002.855
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96051 ; free virtual = 115692
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2236.746; parent = 2051.190; children = 185.819
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3955.492; parent = 2982.676; children = 972.816
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 329 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.445 ; gain = 767.742 ; free physical = 9470 ; free virtual = 83234
-Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2818.453 ; gain = 767.742 ; free physical = 9470 ; free virtual = 83234
+Synthesis finished with 0 errors, 0 critical warnings and 356 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 3014.688 ; gain = 485.457 ; free physical = 96100 ; free virtual = 115742
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 3014.688 ; gain = 643.207 ; free physical = 96100 ; free virtual = 115742
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2832.320 ; gain = 0.000 ; free physical = 9575 ; free virtual = 83339
-INFO: [Netlist 29-17] Analyzing 112 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3014.688 ; gain = 0.000 ; free physical = 96211 ; free virtual = 115852
+INFO: [Netlist 29-17] Analyzing 200 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2970.875 ; gain = 0.000 ; free physical = 9476 ; free virtual = 83241
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3014.688 ; gain = 0.000 ; free physical = 96155 ; free virtual = 115796
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 48 instances were transformed.
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 48 instances
 
-Synth Design complete, checksum: 5f49e990
+Synth Design complete, checksum: 36d0d04c
 INFO: [Common 17-83] Releasing license: Synthesis
-38 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
+82 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:23 . Memory (MB): peak = 2970.875 ; gain = 946.020 ; free physical = 9682 ; free virtual = 83447
-INFO: [Common 17-1381] The checkpoint '/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu_control.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file rv32_cpu_control_utilization_synth.rpt -pb rv32_cpu_control_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov  1 03:08:48 2023...
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:32 . Memory (MB): peak = 3014.688 ; gain = 969.277 ; free physical = 96367 ; free virtual = 116008
+INFO: [Common 17-1381] The checkpoint '/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1/rv32_cpu.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file rv32_cpu_utilization_synth.rpt -pb rv32_cpu_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  1 17:56:24 2023...

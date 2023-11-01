@@ -31,10 +31,12 @@ module rv32_cpu_regfile #(
     input wire  [THREAD_COUNT*2-1:0]    i_ctrl_wb_sel,  // write back data select
     input wire  [THREAD_COUNT-1:0]      i_ctrl_wb_en,   // write back enable
     input wire  [THREAD_COUNT-1:0]      i_ctrl_zero_we, // allow writting to $zero
+    // Input data
     input wire  [XLEN-1:0]              i_mem,          // Memory results
     input wire  [THREAD_COUNT*XLEN-1:0] i_alu,          // ALU results
     input wire  [THREAD_COUNT*XLEN-1:0] i_csr,          // CSR results,
     input wire  [THREAD_COUNT*XLEN-1:0] i_npc,          // next pc
+    // Regfile access
     input wire  [THREAD_COUNT*5-1:0]    i_rf_rd,        // destination address
     input wire  [THREAD_COUNT*5-1:0]    i_rf_rs1,       // rs1 address
     input wire  [THREAD_COUNT*5-1:0]    i_rf_rs2,       // rs2 address
