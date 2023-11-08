@@ -1,0 +1,2 @@
+Time resolution is 1 ps
+$stop called at time : 1639 ns : File "/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.srcs/sim_1/new/tb.sv" Line 847

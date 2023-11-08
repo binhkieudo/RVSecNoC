@@ -1,0 +1,359 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Nov  7 14:17:32 2023
+# Process ID: 1305541
+# Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.runs/synth_1
+# Command line: vivado -log rv32_lsu2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_lsu2.tcl
+# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.runs/synth_1/rv32_lsu2.vds
+# Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.runs/synth_1/vivado.jou
+# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
+#-----------------------------------------------------------
+source rv32_lsu2.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.srcs/utils_1/imports/synth_1/rv32_lsu.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.srcs/utils_1/imports/synth_1/rv32_lsu.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top rv32_lsu2 -part xc7vx485tffg1761-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1305560
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2430.410 ; gain = 379.707 ; free physical = 97845 ; free virtual = 119128
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1864.304; parent = 1655.233; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3406.195; parent = 2433.383; children = 972.812
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'rv32_lsu2' [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.srcs/sources_1/new/rv32_lsu2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_lsu2' (0#1) [/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.srcs/sources_1/new/rv32_lsu2.v:23]
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[15] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[14] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[13] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[11] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[10] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[9] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[7] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[6] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[5] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[3] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[2] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[1] driven by constant 0
+WARNING: [Synth 8-7129] Port i_wadr[255] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[254] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[253] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[252] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[251] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[250] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[249] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[248] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[247] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[246] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[245] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[244] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[243] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[242] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[241] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[240] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[239] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[238] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[237] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[236] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[223] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[222] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[221] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[220] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[219] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[218] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[217] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[216] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[215] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[214] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[213] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[212] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[211] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[210] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[209] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[208] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[207] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[206] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[205] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[204] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[191] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[190] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[189] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[188] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[187] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[186] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[185] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[184] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[183] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[182] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[181] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[180] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[179] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[178] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[177] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[176] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[175] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[174] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[173] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[172] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[159] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[158] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[157] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[156] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[155] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[154] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[153] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[152] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[151] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[150] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[149] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[148] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[147] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[146] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[145] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[144] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[143] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[142] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[141] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[140] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[127] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[126] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[125] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[124] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[123] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[122] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[121] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[120] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[119] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[118] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[117] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[116] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[115] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[114] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[113] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[112] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[111] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[110] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[109] in module rv32_lsu2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_wadr[108] in module rv32_lsu2 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2515.348 ; gain = 464.645 ; free physical = 97938 ; free virtual = 119223
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1864.304; parent = 1655.233; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3488.164; parent = 2515.352; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2533.160 ; gain = 482.457 ; free physical = 97930 ; free virtual = 119217
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1864.304; parent = 1655.233; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3505.977; parent = 2533.164; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1761-2
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2541.164 ; gain = 490.461 ; free physical = 97921 ; free virtual = 119207
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1864.304; parent = 1655.233; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3513.980; parent = 2541.168; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2569.320 ; gain = 518.617 ; free physical = 97820 ; free virtual = 119107
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1915.903; parent = 1706.899; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3542.137; parent = 2569.324; children = 972.812
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 16    
++---Muxes : 
+	   4 Input   32 Bit        Muxes := 8     
+	   2 Input   32 Bit        Muxes := 64    
+	   2 Input   16 Bit        Muxes := 8     
+	   2 Input   10 Bit        Muxes := 32    
+	   4 Input   10 Bit        Muxes := 16    
+	   4 Input    8 Bit        Muxes := 8     
+	   4 Input    1 Bit        Muxes := 8     
+	   2 Input    1 Bit        Muxes := 32    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[15] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[14] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[13] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[11] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[10] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[9] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[7] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[6] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[5] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[3] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[2] driven by constant 0
+WARNING: [Synth 8-3917] design rv32_lsu2 has port o_mem_ben[1] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97450 ; free virtual = 118740
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2271.654; parent = 2062.702; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97448 ; free virtual = 118738
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    48|
+|3     |LUT1   |    56|
+|4     |LUT2   |    51|
+|5     |LUT3   |   242|
+|6     |LUT4   |   181|
+|7     |LUT5   |   640|
+|8     |LUT6   |  1316|
+|9     |MUXF7  |    11|
+|10    |FDRE   |    16|
+|11    |IBUF   |   626|
+|12    |OBUF   |   504|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |  3692|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97446 ; free virtual = 118736
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2272.244; parent = 2063.321; children = 209.070
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.324; parent = 2970.512; children = 972.812
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 665 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.508 ; gain = 919.805 ; free physical = 97458 ; free virtual = 118748
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2970.516 ; gain = 919.805 ; free physical = 97458 ; free virtual = 118748
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2970.516 ; gain = 0.000 ; free physical = 97565 ; free virtual = 118855
+INFO: [Netlist 29-17] Analyzing 59 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'rv32_lsu2' is not ideal for floorplanning, since the cellview 'rv32_lsu2' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3018.531 ; gain = 0.000 ; free physical = 97479 ; free virtual = 118769
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 706ce08
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 126 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:29 . Memory (MB): peak = 3018.531 ; gain = 993.676 ; free physical = 97688 ; free virtual = 118978
+INFO: [Common 17-1381] The checkpoint '/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.runs/synth_1/rv32_lsu2.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file rv32_lsu2_utilization_synth.rpt -pb rv32_lsu2_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  7 14:18:10 2023...
