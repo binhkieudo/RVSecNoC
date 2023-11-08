@@ -68,8 +68,8 @@ module rv32_dmem #(
             reg [7:0] bank_2 [BANK_DEPTH/4-1:0];
             reg [7:0] bank_3 [BANK_DEPTH/4-1:0];
             
-            reg [7:0] data_forward [3:0];
-            reg [3:0] byte_forward;
+//            reg [7:0] data_forward [3:0];
+//            reg [3:0] byte_forward;
             
 
             
@@ -91,27 +91,27 @@ module rv32_dmem #(
                 if (!i_rstn) begin
                     ro_mem_rack <= 1'b0;
                     ro_mem_wack <= 1'b0;
-                    byte_forward <= 4'b0000;               
+//                    byte_forward <= 4'b0000;               
                 end
                 else begin
                     ro_mem_rack <= mem_re;
                     ro_mem_wack <= mem_we;
-                    byte_forward[0] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[0];
-                    byte_forward[1] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[1];
-                    byte_forward[2] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[2];
-                    byte_forward[3] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[3];
-                    data_forward[0] <= mem_wdata[7:0];
-                    data_forward[1] <= mem_wdata[15:8];
-                    data_forward[2] <= mem_wdata[23:16];
-                    data_forward[3] <= mem_wdata[31:24];                   
+//                    byte_forward[0] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[0];
+//                    byte_forward[1] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[1];
+//                    byte_forward[2] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[2];
+//                    byte_forward[3] <= (mem_wadr == mem_radr) && (mem_we && mem_re) && mem_ben[3];
+//                    data_forward[0] <= mem_wdata[7:0];
+//                    data_forward[1] <= mem_wdata[15:8];
+//                    data_forward[2] <= mem_wdata[23:16];
+//                    data_forward[3] <= mem_wdata[31:24];                   
                 end  
             end
             
             assign o_mem_wack[channel_idx] = ro_mem_wack;
-            assign o_mem_rdata[(channel_idx+1)*XLEN-1-:XLEN] = {byte_forward[3]? data_forward[3]: ro_mem_rdata[3], 
-                                                                byte_forward[2]? data_forward[2]: ro_mem_rdata[2],
-                                                                byte_forward[1]? data_forward[1]: ro_mem_rdata[1],
-                                                                byte_forward[0]? data_forward[0]: ro_mem_rdata[0]};
+//            assign o_mem_rdata[(channel_idx+1)*XLEN-1-:XLEN] = {byte_forward[3]? data_forward[3]: ro_mem_rdata[3], 
+//                                                                byte_forward[2]? data_forward[2]: ro_mem_rdata[2],
+//                                                                byte_forward[1]? data_forward[1]: ro_mem_rdata[1],
+            assign o_mem_rdata[(channel_idx+1)*XLEN-1-:XLEN] = {ro_mem_rdata[3], ro_mem_rdata[2], ro_mem_rdata[1], ro_mem_rdata[0]};
             assign o_mem_rack[channel_idx] = ro_mem_rack;
         end
     endgenerate
