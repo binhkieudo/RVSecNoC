@@ -1,6 +1,6 @@
 QuestaSim-64 vopt 2021.2_1 Compiler 2021.05 May 15 2021
-Start time: 15:34:47 on Nov 08,2023
-vopt "+acc=npr" -suppress 10016 -debugdb -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.tb -o tb_opt 
+Start time: 13:46:37 on Nov 09,2023
+vopt "+acc=npr" -suppress 10016 -debugdb -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm -work xil_defaultlib xil_defaultlib.tb -o tb_opt 
 
 Top level modules:
 	tb
@@ -9,16 +9,20 @@ Analyzing design...
 -- Loading module tb
 -- Loading module top
 -- Loading module rv32_lsu2
+-- Loading module rv32_dcache
 -- Loading module rv32_dmem
-Optimizing 4 design-units (inlining 0/4 module instances):
--- Optimizing module rv32_lsu2(fast)
--- Processing module rv32_lsu2(fast) for debug
--- Optimizing module rv32_dmem(fast)
--- Processing module rv32_dmem(fast) for debug
--- Optimizing module tb(fast)
--- Processing module tb(fast) for debug
+Incremental compilation check found 2 design-units (out of 5) may be reused.
+Optimizing 3 design-units (inlining 0/8 module instances):
+-- Optimizing module rv32_dcache(fast)
+-- Processing module rv32_dcache(fast) for debug
 -- Optimizing module top(fast)
 -- Processing module top(fast) for debug
+-- Optimizing module rv32_dmem(fast)
+-- Processing module rv32_dmem(fast) for debug
+** Note: (vopt-4301) Memory core inferred for signal 'bank_3' width=8, depth=256, type=RAM at location ../../../../lsu.srcs/sources_1/new/rv32_dmem.v:44
+** Note: (vopt-4301) Memory core inferred for signal 'bank_2' width=8, depth=256, type=RAM at location ../../../../lsu.srcs/sources_1/new/rv32_dmem.v:43
+** Note: (vopt-4301) Memory core inferred for signal 'bank_1' width=8, depth=256, type=RAM at location ../../../../lsu.srcs/sources_1/new/rv32_dmem.v:42
+** Note: (vopt-4301) Memory core inferred for signal 'bank_0' width=8, depth=256, type=RAM at location ../../../../lsu.srcs/sources_1/new/rv32_dmem.v:41
 Optimized design name is tb_opt
-End time: 15:34:49 on Nov 08,2023, Elapsed time: 0:00:02
+End time: 13:46:37 on Nov 09,2023, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

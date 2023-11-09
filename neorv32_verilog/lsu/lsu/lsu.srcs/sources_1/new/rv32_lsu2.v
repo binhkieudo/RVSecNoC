@@ -130,7 +130,7 @@ module rv32_lsu2 #(
                         
                 for (cnt4 = 0; cnt4 < 4; cnt4 = cnt4 + 1) begin
                     for (cnt4_t = 0; cnt4_t < THREAD_COUNT; cnt4_t = cnt4_t + 1)
-                        r2_ben[cidx][cnt4*THREAD_COUNT+cnt4_t] = r1_wdata[cidx][cnt4_t*XLEN+cnt4];
+                        r2_ben[cidx][cnt4*THREAD_COUNT+cnt4_t] = r1_ben[cidx][cnt4_t*4+cnt4];
                     r_ben[cidx][cnt4] = |r2_ben[cidx][(cnt4+1)*THREAD_COUNT-1-:THREAD_COUNT]; 
                 end
                 
@@ -213,7 +213,7 @@ module rv32_lsu2 #(
             
             r_resp_data[tidx_0] <= i_mem_rdata[(req_rchannel[tidx_0]+1)*XLEN-1-:XLEN];
             r_rdresp_ack[tidx_0] <= i_mem_rack[req_rchannel[tidx_0]] && r_rdreq_pend[tidx_0];
-            r_wrresp_ack[tidx_0] <= i_mem_wack[req_wchannel[tidx_0]] && r_wrreq_pend[tidx_0];        
+                   
         end
     end
     
@@ -247,6 +247,8 @@ module rv32_lsu2 #(
                 default: // word
                     ro_resp_data[tidx_1] = r_resp_data[tidx_1];
             endcase
+            
+            r_wrresp_ack[tidx_1] = i_mem_wack[req_wchannel[tidx_1]] && r_wrreq_pend[tidx_1]; 
             
             o_rdata[(tidx_1+1)*XLEN-1-:XLEN] = ro_resp_data[tidx_1];
             o_rack[tidx_1] = r_rdresp_ack[tidx_1];

@@ -94,14 +94,14 @@ module top #(
         .i_mem_rack (dmem_mem_rack  )
     );
 
-    rv32_dmem #(
+    rv32_dcache #(
         .XLEN         (XLEN         ),
         .CHANNEL      (CHANNEL      ),
         .LOG2_CHANNEL (LOG2_CHANNEL ),
         .BANK_DEPTH   (BANK_DEPTH   ),
         .LOG2_DEPTH   (LOG2_DEPTH   )
     ) 
-    dmem_inst0 (
+    dcache_inst0 (
         // Global control
         .i_clk       (i_clk         ),
         .i_rstn      (i_rstn        ),

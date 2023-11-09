@@ -14,68 +14,6 @@ R0
 R0
 R0
 R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
-R0
 !s11f vlog 2021.2_1 2021.05, May 15 2021
 13
 !s112 1.1
@@ -83,128 +21,129 @@ R0
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 d/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/lsu/lsu/lsu.sim/sim_1/behav/questa
-vglbl
-!s110 1699424544
+Z1 d/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.sim/sim_1/behav/questa
+vrv32_dcache
+!s10a 1699505752
+!s110 1699507464
 !i10b 1
-!s100 ZHmTNm_h3dd`6mIQLzSUN3
-IhdBVXCILC99TF;U<AK;MM2
+!s100 eUh_]^7a;g6BQDbWGf9[B0
+IaMoUe7Ya?e0_M4_cd7KAj2
 R1
-w1665704903
-8glbl.v
-Fglbl.v
-!i122 62
-L0 6 78
+w1699505752
+8../../../../lsu.srcs/sources_1/new/rv32_dcache.v
+F../../../../lsu.srcs/sources_1/new/rv32_dcache.v
+!i122 3
+L0 23 93
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 OL;L;2021.2_1;73
 r1
 !s85 0
 31
-!s108 1699424544.000000
-!s107 glbl.v|
-!s90 -reportprogress|300|-work|xil_defaultlib|glbl.v|
+!s108 1699507464.000000
+Z4 !s107 ../../../../lsu.srcs/sources_1/new/top.v|../../../../lsu.srcs/sources_1/new/rv32_lsu2.v|../../../../lsu.srcs/sources_1/new/rv32_dmem.v|../../../../lsu.srcs/sources_1/new/rv32_dcache.v|
+Z5 !s90 -reportprogress|300|-64|-incr|-mfcu|-work|xil_defaultlib|../../../../lsu.srcs/sources_1/new/rv32_dcache.v|../../../../lsu.srcs/sources_1/new/rv32_dmem.v|../../../../lsu.srcs/sources_1/new/rv32_lsu2.v|../../../../lsu.srcs/sources_1/new/top.v|
 !i113 0
-o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z4 tCvgOpt 0
+Z6 o-64 -mfcu -work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
 vrv32_dmem
-!s10a 1699423139
-!s110 1699423154
+!s10a 1699504312
+Z8 !s110 1699505197
 !i10b 1
-!s100 3go2R5n`TkV6LQ2Yn90KL3
-Ikg0S9<d7NbZiIh>bE?3Bd1
+!s100 6^4[^h_Yl5BV[mB]XUeDg2
+IlIJ@<]1fBjYZ:5R`4h`HH3
 R1
-w1699423139
+w1699504312
 8../../../../lsu.srcs/sources_1/new/rv32_dmem.v
 F../../../../lsu.srcs/sources_1/new/rv32_dmem.v
-!i122 54
-L0 23 97
+!i122 2
+L0 23 42
 R2
 R3
 r1
 !s85 0
 31
-!s108 1699423154.000000
-Z5 !s107 ../../../../lsu.srcs/sources_1/new/top.v|../../../../lsu.srcs/sources_1/new/rv32_lsu2.v|../../../../lsu.srcs/sources_1/new/rv32_dmem.v|
-Z6 !s90 -reportprogress|300|-64|-incr|-mfcu|-work|xil_defaultlib|../../../../lsu.srcs/sources_1/new/rv32_dmem.v|../../../../lsu.srcs/sources_1/new/rv32_lsu2.v|../../../../lsu.srcs/sources_1/new/top.v|
-!i113 0
-Z7 o-64 -mfcu -work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 !s108 1699505196.000000
 R4
+Z10 !s90 -64|-incr|-mfcu|-work|xil_defaultlib|../../../../lsu.srcs/sources_1/new/rv32_dcache.v|../../../../lsu.srcs/sources_1/new/rv32_dmem.v|../../../../lsu.srcs/sources_1/new/rv32_lsu2.v|../../../../lsu.srcs/sources_1/new/top.v|
+!i113 0
+R6
+R7
 vrv32_lsu2
-Z8 !s110 1699432162
+Z11 !s110 1699510192
 !i10b 1
-!s100 l5ZKOEO0`[UcT=5>hmlj<3
-IiaF3cRo<^_07l3f1?:dA@2
+!s100 Rh1WhnH]hdbi]OYR@kQcM1
+IMLOWEjTTD18AGD>@>g[UI1
 R1
-w1699432156
+w1699510187
 8../../../../lsu.srcs/sources_1/new/rv32_lsu2.v
 F../../../../lsu.srcs/sources_1/new/rv32_lsu2.v
-!i122 88
-L0 23 239
+!i122 6
+L0 23 238
 R2
 R3
 r1
 !s85 0
 31
-!s108 1699432162.000000
-R5
-R6
-!i113 0
-R7
+!s108 1699510192.000000
 R4
+R5
+!i113 0
+R6
+R7
 vtb
-!s10a 1699423299
+!s10a 1699497355
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1699423308
+!s110 1699497359
 !i10b 1
-!s100 bU0O::D<<2A=0N>3^mTTz1
-IZ@]J?mn7_T]HbX^RZAC;X0
+!s100 ;:M5d[9d`>HDGX;o_7E<P3
+IGH3L;X32ZgJkbJVKBWjo=1
 S1
 R1
-w1699423299
+w1699497355
 8../../../../lsu.srcs/sim_1/new/tb.sv
 F../../../../lsu.srcs/sim_1/new/tb.sv
-!i122 56
+!i122 1
 L0 23 216
 R2
 R3
 r1
 !s85 0
 31
-!s108 1699423308.000000
+!s108 1699497359.000000
 !s107 ../../../../lsu.srcs/sim_1/new/tb.sv|
-!s90 -reportprogress|300|-64|-incr|-mfcu|-sv|-work|xil_defaultlib|../../../../lsu.srcs/sim_1/new/tb.sv|
+!s90 -64|-incr|-mfcu|-sv|-work|xil_defaultlib|../../../../lsu.srcs/sim_1/new/tb.sv|
 !i113 0
 o-64 -mfcu -sv -work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R4
+R7
 Ttb_opt
-R8
-V6QgY0WY6FSKK3?BL][[lI0
+R11
+ViIcNnX91SbQl5^`gM=g<Y0
 04 2 4 work tb fast 0
 !s124 OEM100
-o-suppress 10016 +acc=npr -debugdb -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib
-R4
+o-suppress 10016 +acc=npr -debugdb -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm -work xil_defaultlib
+R7
 ntb_opt
 OL;O;2021.2_1;73
 vtop
-!s10a 1699419146
-!s110 1699419188
+!s10a 1699504738
+R8
 !i10b 1
-!s100 _cKgL6]:n]W?SUaogaAkh0
-IE?TXbcl8z86OKREEBDMjJ0
+!s100 WX4EUa0IOSQLnjaiagbYT3
+IiJHH3oZLH?HG5:mzYh_Cl0
 R1
-w1699419146
+w1699504738
 8../../../../lsu.srcs/sources_1/new/top.v
 F../../../../lsu.srcs/sources_1/new/top.v
-!i122 29
+!i122 2
 L0 23 99
 R2
 R3
 r1
 !s85 0
 31
-!s108 1699419188.000000
-R5
-R6
-!i113 0
-R7
+R9
 R4
+R10
+!i113 0
+R6
+R7

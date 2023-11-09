@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log vtop.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source vtop.tcl
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 
 
 ****** Vivado v2022.2 (64-bit)
@@ -8,11 +8,11 @@
   **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
-source vtop.tcl -notrace
+source top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/utils_1/imports/synth_1/rv32_lsu.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/utils_1/imports/synth_1/rv32_lsu.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top vtop -part xc7vx485tffg1761-2
+Command: synth_design -top top -part xc7vx485tffg1761-2
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
@@ -21,14 +21,13 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 163214
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/opt/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 1448874
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2901.375 ; gain = 382.707 ; free physical = 12621 ; free virtual = 85518
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2329.101; parent = 2118.604; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3898.230; parent = 2901.379; children = 996.852
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2887.723 ; gain = 378.770 ; free physical = 96419 ; free virtual = 117753
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2314.627; parent = 2104.560; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3863.512; parent = 2890.695; children = 972.816
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'vtop' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/vtop.v:23]
 INFO: [Synth 8-6157] synthesizing module 'top' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/top.v:23]
 INFO: [Synth 8-6157] synthesizing module 'rv32_lsu2' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_lsu2.v:23]
 	Parameter XLEN bound to: 32 - type: integer 
@@ -38,190 +37,183 @@ INFO: [Synth 8-6157] synthesizing module 'rv32_lsu2' [/home/binhkieudo/Workspace
 	Parameter BANK_DEPTH bound to: 1024 - type: integer 
 	Parameter LOG2_DEPTH bound to: 10 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'rv32_lsu2' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_lsu2.v:23]
-INFO: [Synth 8-6157] synthesizing module 'rv32_dmem' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_dmem.v:23]
+INFO: [Synth 8-6157] synthesizing module 'rv32_dcache' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_dcache.v:23]
 	Parameter XLEN bound to: 32 - type: integer 
 	Parameter CHANNEL bound to: 4 - type: integer 
 	Parameter LOG2_CHANNEL bound to: 2 - type: integer 
 	Parameter BANK_DEPTH bound to: 1024 - type: integer 
 	Parameter LOG2_DEPTH bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'rv32_dmem' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_dmem.v:23]
+	Parameter XLEN bound to: 32 - type: integer 
+	Parameter BANK_DEPTH bound to: 256 - type: integer 
+	Parameter LOG2_DEPTH bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'rv32_dmem' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_dmem.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rv32_dcache' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/rv32_dcache.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/top.v:23]
-INFO: [Synth 8-6157] synthesizing module 'vio_0' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/.Xil/Vivado-163169-binhkieudo-hotswap/realtime/vio_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'vio_0' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/.Xil/Vivado-163169-binhkieudo-hotswap/realtime/vio_0_stub.v:5]
-WARNING: [Synth 8-689] width (24) of port connection 'probe_out1' does not match port width (21) of module 'vio_0' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/vtop.v:69]
-INFO: [Synth 8-6155] done synthesizing module 'vtop' (0#1) [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/vtop.v:23]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio_0'. This will prevent further optimization [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/vtop.v:63]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u0'. This will prevent further optimization [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sources_1/new/vtop.v:49]
-WARNING: [Synth 8-7129] Port i_mem_wadr[127] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[126] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[125] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[124] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[123] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[122] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[121] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[120] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[119] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[118] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[117] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[116] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[115] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[114] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[113] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[112] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[111] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[110] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[109] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[108] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[107] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[106] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[97] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[96] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[95] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[94] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[93] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[92] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[91] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[90] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[89] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[88] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[87] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[86] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[85] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[84] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[83] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[82] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[81] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[80] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[79] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[78] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[77] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[76] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[75] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[74] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[65] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[64] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[63] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[62] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[61] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[60] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[59] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[58] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[57] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[56] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[55] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[54] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[53] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[52] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[51] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[50] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[49] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[48] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[47] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[46] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[45] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[44] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[43] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[42] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[33] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[32] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[31] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[30] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[29] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[28] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[27] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[26] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[25] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[24] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[23] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[22] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[21] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[20] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[19] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[18] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[17] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[16] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[15] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[14] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[13] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[12] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[11] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[10] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[1] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_wadr[0] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_radr[127] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_radr[126] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_radr[125] in module rv32_dmem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_mem_radr[124] in module rv32_dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[127] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[126] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[125] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[124] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[123] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[122] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[121] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[120] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[119] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[118] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[117] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[116] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[115] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[114] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[113] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[112] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[111] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[110] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[109] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[108] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[107] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[106] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[97] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[96] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[95] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[94] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[93] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[92] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[91] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[90] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[89] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[88] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[87] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[86] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[85] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[84] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[83] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[82] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[81] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[80] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[79] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[78] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[77] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[76] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[75] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[74] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[65] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[64] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[63] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[62] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[61] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[60] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[59] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[58] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[57] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[56] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[55] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[54] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[53] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[52] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[51] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[50] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[49] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[48] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[47] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[46] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[45] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[44] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[43] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[42] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[33] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[32] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[31] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[30] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[29] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[28] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[27] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[26] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[25] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[24] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[23] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[22] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[21] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[20] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[19] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[18] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[17] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[16] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[15] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[14] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[13] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[12] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[11] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[10] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[1] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_wadr[0] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_radr[127] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_radr[126] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_radr[125] in module rv32_dcache is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_mem_radr[124] in module rv32_dcache is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2993.344 ; gain = 474.676 ; free physical = 12677 ; free virtual = 85575
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2329.101; parent = 2118.604; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3990.199; parent = 2993.348; children = 996.852
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2981.660 ; gain = 472.707 ; free physical = 96495 ; free virtual = 117832
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2314.627; parent = 2104.560; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3954.480; parent = 2981.664; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 3011.156 ; gain = 492.488 ; free physical = 12677 ; free virtual = 85575
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2329.101; parent = 2118.604; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4008.012; parent = 3011.160; children = 996.852
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2999.473 ; gain = 490.520 ; free physical = 96496 ; free virtual = 117830
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2314.627; parent = 2104.560; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3972.293; parent = 2999.477; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 3011.156 ; gain = 492.488 ; free physical = 12677 ; free virtual = 85575
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2329.101; parent = 2118.604; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4008.012; parent = 3011.160; children = 996.852
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2999.473 ; gain = 490.520 ; free physical = 96495 ; free virtual = 117830
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2314.627; parent = 2104.560; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3972.293; parent = 2999.477; children = 972.816
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3017.094 ; gain = 0.000 ; free physical = 12672 ; free virtual = 85570
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2999.473 ; gain = 0.000 ; free physical = 96491 ; free virtual = 117825
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio_0'
-Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.gen/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'vio_0'
 Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/constrs_1/new/constr.xdc]
 Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/constrs_1/new/constr.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/constrs_1/new/constr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vtop_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/vtop_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/constrs_1/new/constr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3173.875 ; gain = 0.000 ; free physical = 12582 ; free virtual = 85480
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3160.191 ; gain = 0.000 ; free physical = 96415 ; free virtual = 117746
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3173.875 ; gain = 0.000 ; free physical = 12582 ; free virtual = 85480
-WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'vio_0' at clock pin 'clk' is different from the actual clock period '4.000', this can lead to different synthesis results.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3160.191 ; gain = 0.000 ; free physical = 96415 ; free virtual = 117746
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/opt/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12677 ; free virtual = 85575
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2377.546; parent = 2167.421; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96541 ; free virtual = 117873
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2326.510; parent = 2116.831; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1761-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12677 ; free virtual = 85575
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2377.546; parent = 2167.421; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96541 ; free virtual = 117873
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2326.510; parent = 2116.831; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for vio_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12676 ; free virtual = 85574
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2377.546; parent = 2167.421; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96541 ; free virtual = 117873
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2326.510; parent = 2116.831; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12670 ; free virtual = 85569
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2377.546; parent = 2167.421; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96536 ; free virtual = 117867
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2326.510; parent = 2116.831; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -232,10 +224,10 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 24    
 	               16 Bit    Registers := 1     
 	                8 Bit    Registers := 16    
-	                4 Bit    Registers := 2     
+	                4 Bit    Registers := 4     
 	                3 Bit    Registers := 8     
 	                2 Bit    Registers := 16    
-	                1 Bit    Registers := 56    
+	                1 Bit    Registers := 48    
 +---RAMs : 
 	               2K Bit	(256 X 8 bit)          RAMs := 16    
 +---Muxes : 
@@ -262,35 +254,35 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12633 ; free virtual = 85539
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2377.546; parent = 2167.421; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96402 ; free virtual = 117732
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2373.360; parent = 2163.959; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Preliminary Mapping Report (see note below)
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|u0          | dmem_inst0/channel[0].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|top         | dcache_inst0/dmem_inst[3]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 ---------------------------------------------------------------------------------
@@ -300,43 +292,43 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12491 ; free virtual = 85403
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2460.397; parent = 2250.456; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96299 ; free virtual = 117629
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2449.169; parent = 2239.783; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12041 ; free virtual = 85032
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2509.135; parent = 2299.201; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96238 ; free virtual = 117580
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2501.036; parent = 2291.650; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Final Mapping Report
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|u0          | dmem_inst0/channel[0].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[0].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[1].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[2].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|u0          | dmem_inst0/channel[3].bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-+------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|top         | dcache_inst0/dmem_inst[3]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[3]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[2]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[1]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_0_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_1_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_2_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top         | dcache_inst0/dmem_inst[0]/bank_3_reg | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -344,26 +336,26 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[0].bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[0].bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[0].bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[0].bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[1].bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[1].bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[1].bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[1].bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[2].bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[2].bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[2].bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[2].bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[3].bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[3].bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[3].bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance u0/dmem_inst0/channel[3].bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[3]/bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[3]/bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[3]/bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[3]/bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[2]/bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[2]/bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[2]/bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[2]/bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[1]/bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[1]/bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[1]/bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[1]/bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[0]/bank_0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[0]/bank_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[0]/bank_2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dcache_inst0/dmem_inst[0]/bank_3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12043 ; free virtual = 85033
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.460; parent = 2303.525; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96233 ; free virtual = 117572
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2502.981; parent = 2293.596; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -381,103 +373,101 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85037
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.460; parent = 2303.525; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96238 ; free virtual = 117574
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2502.981; parent = 2293.596; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85037
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.460; parent = 2303.525; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96244 ; free virtual = 117583
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2502.981; parent = 2293.596; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.460; parent = 2303.525; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96233 ; free virtual = 117575
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2502.981; parent = 2293.596; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.460; parent = 2303.525; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96233 ; free virtual = 117575
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2502.981; parent = 2293.596; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.854; parent = 2303.920; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96234 ; free virtual = 117575
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2503.118; parent = 2293.732; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.854; parent = 2303.920; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96234 ; free virtual = 117575
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2503.118; parent = 2293.732; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |vio_0         |         1|
-+------+--------------+----------+
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
 
 Report Cell Usage: 
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |vio      |     1|
-|2     |BUFG     |     1|
-|3     |CARRY4   |   135|
-|4     |LUT1     |     4|
-|5     |LUT2     |   180|
-|6     |LUT3     |   101|
-|7     |LUT4     |    81|
-|8     |LUT5     |   447|
-|9     |LUT6     |  2111|
-|10    |RAMB18E1 |    16|
-|11    |FDCE     |     8|
-|12    |FDRE     |  1280|
-|13    |IBUF     |     1|
+|1     |BUFG     |     1|
+|2     |CARRY4   |   132|
+|3     |LUT1     |     1|
+|4     |LUT2     |   132|
+|5     |LUT3     |   165|
+|6     |LUT4     |   173|
+|7     |LUT5     |   281|
+|8     |LUT6     |  2116|
+|9     |RAMB18E1 |    16|
+|10    |FDCE     |     8|
+|11    |FDRE     |  1264|
+|12    |IBUF     |   810|
+|13    |OBUF     |   272|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12051 ; free virtual = 85036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2513.917; parent = 2303.982; children = 210.497
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4170.730; parent = 3173.879; children = 996.852
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96233 ; free virtual = 117574
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2503.134; parent = 2293.748; children = 210.067
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4100.996; parent = 3128.180; children = 972.816
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 3173.875 ; gain = 492.488 ; free physical = 12109 ; free virtual = 85094
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 3173.875 ; gain = 655.207 ; free physical = 12109 ; free virtual = 85095
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 3160.191 ; gain = 490.520 ; free physical = 96292 ; free virtual = 117633
+Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 3160.191 ; gain = 651.238 ; free physical = 96292 ; free virtual = 117633
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3173.875 ; gain = 0.000 ; free physical = 12220 ; free virtual = 85206
-INFO: [Netlist 29-17] Analyzing 151 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3160.191 ; gain = 0.000 ; free physical = 96399 ; free virtual = 117740
+INFO: [Netlist 29-17] Analyzing 148 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-WARNING: [Netlist 29-101] Netlist 'vtop' is not ideal for floorplanning, since the cellview 'rv32_lsu2' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3173.875 ; gain = 0.000 ; free physical = 12159 ; free virtual = 85144
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3161.094 ; gain = 0.000 ; free physical = 96320 ; free virtual = 117657
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 8a2aee8c
+Synth Design complete, checksum: be88d31f
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
+48 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:00 . Memory (MB): peak = 3173.875 ; gain = 1132.766 ; free physical = 12401 ; free virtual = 85386
-INFO: [Common 17-1381] The checkpoint '/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/vtop.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file vtop_utilization_synth.rpt -pb vtop_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  9 03:23:57 2023...
+synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 3161.094 ; gain = 1135.699 ; free physical = 96557 ; free virtual = 117895
+INFO: [Common 17-1381] The checkpoint '/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov  9 13:40:28 2023...
