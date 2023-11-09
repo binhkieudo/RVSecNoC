@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="166.801 ns"></ZoomEndTime>
-      <Cursor1Time time="1,047.983 ns"></Cursor1Time>
+      <ZoomStartTime time="37.216 ns"></ZoomStartTime>
+      <ZoomEndTime time="98.217 ns"></ZoomEndTime>
+      <Cursor1Time time="1,075.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="250"></NameColumnWidth>
-      <ValueColumnWidth column_width="105"></ValueColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="21" />
    <wvobject type="logic" fp_name="/tb/i_clk">
@@ -109,6 +109,7 @@
    <wvobject type="group" fp_name="group182">
       <obj_property name="label">channel_1</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/tb/udt/dcache_inst0/\dmem_inst[1] /i_mem_wadr">
          <obj_property name="ElementShortName">i_mem_wadr[7:0]</obj_property>
          <obj_property name="ObjectShortName">i_mem_wadr[7:0]</obj_property>
@@ -341,6 +342,7 @@
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="CustomSignalColor">#FFFF00</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_mem_wadr[31]">
                <obj_property name="ElementShortName">[31]</obj_property>
                <obj_property name="ObjectShortName">[31]</obj_property>
@@ -659,140 +661,6 @@
          <wvobject type="group" fp_name="group1740">
             <obj_property name="label">wdata_ctrl</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="vbus" fp_name="vbus1210">
-               <obj_property name="label">r1_wdata[0][31:0]</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][31]">
-                  <obj_property name="ElementShortName">[31]</obj_property>
-                  <obj_property name="ObjectShortName">[31]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][30]">
-                  <obj_property name="ElementShortName">[30]</obj_property>
-                  <obj_property name="ObjectShortName">[30]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][29]">
-                  <obj_property name="ElementShortName">[29]</obj_property>
-                  <obj_property name="ObjectShortName">[29]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][28]">
-                  <obj_property name="ElementShortName">[28]</obj_property>
-                  <obj_property name="ObjectShortName">[28]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][27]">
-                  <obj_property name="ElementShortName">[27]</obj_property>
-                  <obj_property name="ObjectShortName">[27]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][26]">
-                  <obj_property name="ElementShortName">[26]</obj_property>
-                  <obj_property name="ObjectShortName">[26]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][25]">
-                  <obj_property name="ElementShortName">[25]</obj_property>
-                  <obj_property name="ObjectShortName">[25]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][24]">
-                  <obj_property name="ElementShortName">[24]</obj_property>
-                  <obj_property name="ObjectShortName">[24]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][23]">
-                  <obj_property name="ElementShortName">[23]</obj_property>
-                  <obj_property name="ObjectShortName">[23]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][22]">
-                  <obj_property name="ElementShortName">[22]</obj_property>
-                  <obj_property name="ObjectShortName">[22]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][21]">
-                  <obj_property name="ElementShortName">[21]</obj_property>
-                  <obj_property name="ObjectShortName">[21]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][20]">
-                  <obj_property name="ElementShortName">[20]</obj_property>
-                  <obj_property name="ObjectShortName">[20]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][19]">
-                  <obj_property name="ElementShortName">[19]</obj_property>
-                  <obj_property name="ObjectShortName">[19]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][18]">
-                  <obj_property name="ElementShortName">[18]</obj_property>
-                  <obj_property name="ObjectShortName">[18]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][17]">
-                  <obj_property name="ElementShortName">[17]</obj_property>
-                  <obj_property name="ObjectShortName">[17]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][16]">
-                  <obj_property name="ElementShortName">[16]</obj_property>
-                  <obj_property name="ObjectShortName">[16]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][15]">
-                  <obj_property name="ElementShortName">[15]</obj_property>
-                  <obj_property name="ObjectShortName">[15]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][14]">
-                  <obj_property name="ElementShortName">[14]</obj_property>
-                  <obj_property name="ObjectShortName">[14]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][13]">
-                  <obj_property name="ElementShortName">[13]</obj_property>
-                  <obj_property name="ObjectShortName">[13]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][12]">
-                  <obj_property name="ElementShortName">[12]</obj_property>
-                  <obj_property name="ObjectShortName">[12]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][11]">
-                  <obj_property name="ElementShortName">[11]</obj_property>
-                  <obj_property name="ObjectShortName">[11]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][10]">
-                  <obj_property name="ElementShortName">[10]</obj_property>
-                  <obj_property name="ObjectShortName">[10]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][9]">
-                  <obj_property name="ElementShortName">[9]</obj_property>
-                  <obj_property name="ObjectShortName">[9]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][8]">
-                  <obj_property name="ElementShortName">[8]</obj_property>
-                  <obj_property name="ObjectShortName">[8]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][7]">
-                  <obj_property name="ElementShortName">[7]</obj_property>
-                  <obj_property name="ObjectShortName">[7]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][6]">
-                  <obj_property name="ElementShortName">[6]</obj_property>
-                  <obj_property name="ObjectShortName">[6]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][5]">
-                  <obj_property name="ElementShortName">[5]</obj_property>
-                  <obj_property name="ObjectShortName">[5]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][4]">
-                  <obj_property name="ElementShortName">[4]</obj_property>
-                  <obj_property name="ObjectShortName">[4]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][3]">
-                  <obj_property name="ElementShortName">[3]</obj_property>
-                  <obj_property name="ObjectShortName">[3]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][2]">
-                  <obj_property name="ElementShortName">[2]</obj_property>
-                  <obj_property name="ObjectShortName">[2]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][1]">
-                  <obj_property name="ElementShortName">[1]</obj_property>
-                  <obj_property name="ObjectShortName">[1]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][0]">
-                  <obj_property name="ElementShortName">[0]</obj_property>
-                  <obj_property name="ObjectShortName">[0]</obj_property>
-               </wvobject>
-            </wvobject>
             <wvobject type="vbus" fp_name="vbus1442">
                <obj_property name="label">r1_wdata[0][255:224]</obj_property>
                <obj_property name="DisplayName">label</obj_property>
@@ -1731,6 +1599,140 @@
                   <obj_property name="ObjectShortName">[32]</obj_property>
                </wvobject>
             </wvobject>
+            <wvobject type="vbus" fp_name="vbus1210">
+               <obj_property name="label">r1_wdata[0][31:0]</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][31]">
+                  <obj_property name="ElementShortName">[31]</obj_property>
+                  <obj_property name="ObjectShortName">[31]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][30]">
+                  <obj_property name="ElementShortName">[30]</obj_property>
+                  <obj_property name="ObjectShortName">[30]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][29]">
+                  <obj_property name="ElementShortName">[29]</obj_property>
+                  <obj_property name="ObjectShortName">[29]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][28]">
+                  <obj_property name="ElementShortName">[28]</obj_property>
+                  <obj_property name="ObjectShortName">[28]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][27]">
+                  <obj_property name="ElementShortName">[27]</obj_property>
+                  <obj_property name="ObjectShortName">[27]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][26]">
+                  <obj_property name="ElementShortName">[26]</obj_property>
+                  <obj_property name="ObjectShortName">[26]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][25]">
+                  <obj_property name="ElementShortName">[25]</obj_property>
+                  <obj_property name="ObjectShortName">[25]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][24]">
+                  <obj_property name="ElementShortName">[24]</obj_property>
+                  <obj_property name="ObjectShortName">[24]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][23]">
+                  <obj_property name="ElementShortName">[23]</obj_property>
+                  <obj_property name="ObjectShortName">[23]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][22]">
+                  <obj_property name="ElementShortName">[22]</obj_property>
+                  <obj_property name="ObjectShortName">[22]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][21]">
+                  <obj_property name="ElementShortName">[21]</obj_property>
+                  <obj_property name="ObjectShortName">[21]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][20]">
+                  <obj_property name="ElementShortName">[20]</obj_property>
+                  <obj_property name="ObjectShortName">[20]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][19]">
+                  <obj_property name="ElementShortName">[19]</obj_property>
+                  <obj_property name="ObjectShortName">[19]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][18]">
+                  <obj_property name="ElementShortName">[18]</obj_property>
+                  <obj_property name="ObjectShortName">[18]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][17]">
+                  <obj_property name="ElementShortName">[17]</obj_property>
+                  <obj_property name="ObjectShortName">[17]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][16]">
+                  <obj_property name="ElementShortName">[16]</obj_property>
+                  <obj_property name="ObjectShortName">[16]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][15]">
+                  <obj_property name="ElementShortName">[15]</obj_property>
+                  <obj_property name="ObjectShortName">[15]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][14]">
+                  <obj_property name="ElementShortName">[14]</obj_property>
+                  <obj_property name="ObjectShortName">[14]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][13]">
+                  <obj_property name="ElementShortName">[13]</obj_property>
+                  <obj_property name="ObjectShortName">[13]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][12]">
+                  <obj_property name="ElementShortName">[12]</obj_property>
+                  <obj_property name="ObjectShortName">[12]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][11]">
+                  <obj_property name="ElementShortName">[11]</obj_property>
+                  <obj_property name="ObjectShortName">[11]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][10]">
+                  <obj_property name="ElementShortName">[10]</obj_property>
+                  <obj_property name="ObjectShortName">[10]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][9]">
+                  <obj_property name="ElementShortName">[9]</obj_property>
+                  <obj_property name="ObjectShortName">[9]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][8]">
+                  <obj_property name="ElementShortName">[8]</obj_property>
+                  <obj_property name="ObjectShortName">[8]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][7]">
+                  <obj_property name="ElementShortName">[7]</obj_property>
+                  <obj_property name="ObjectShortName">[7]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][6]">
+                  <obj_property name="ElementShortName">[6]</obj_property>
+                  <obj_property name="ObjectShortName">[6]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][5]">
+                  <obj_property name="ElementShortName">[5]</obj_property>
+                  <obj_property name="ObjectShortName">[5]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][4]">
+                  <obj_property name="ElementShortName">[4]</obj_property>
+                  <obj_property name="ObjectShortName">[4]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][3]">
+                  <obj_property name="ElementShortName">[3]</obj_property>
+                  <obj_property name="ObjectShortName">[3]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][2]">
+                  <obj_property name="ElementShortName">[2]</obj_property>
+                  <obj_property name="ObjectShortName">[2]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][1]">
+                  <obj_property name="ElementShortName">[1]</obj_property>
+                  <obj_property name="ObjectShortName">[1]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r1_wdata[0][0]">
+                  <obj_property name="ElementShortName">[0]</obj_property>
+                  <obj_property name="ObjectShortName">[0]</obj_property>
+               </wvobject>
+            </wvobject>
          </wvobject>
          <wvobject type="array" fp_name="/tb/udt/lsu_inst0/r_ben[0]">
             <obj_property name="DisplayName">label</obj_property>
@@ -1923,7 +1925,6 @@
       <wvobject type="group" fp_name="group874">
          <obj_property name="label">read</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject type="vbus" fp_name="vbus398">
             <obj_property name="label">o_mem_radr[0]</obj_property>
             <obj_property name="DisplayName">label</obj_property>
@@ -2085,6 +2086,7 @@
    <wvobject type="group" fp_name="group624">
       <obj_property name="label">channel[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_clk">
          <obj_property name="ElementShortName">i_clk</obj_property>
          <obj_property name="ObjectShortName">i_clk</obj_property>
@@ -2094,6 +2096,7 @@
       <wvobject type="group" fp_name="group875">
          <obj_property name="label">write</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject type="vbus" fp_name="vbus621">
             <obj_property name="label">o_mem_wadr[1]</obj_property>
             <obj_property name="DisplayName">label</obj_property>
@@ -2604,6 +2607,7 @@
       <wvobject type="group" fp_name="group877">
          <obj_property name="label">write</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject type="vbus" fp_name="vbus622">
             <obj_property name="label">o_mem_wadr[2]</obj_property>
             <obj_property name="DisplayName">label</obj_property>
@@ -3113,6 +3117,7 @@
       <wvobject type="group" fp_name="group879">
          <obj_property name="label">write</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject type="vbus" fp_name="vbus623">
             <obj_property name="label">o_mem_wadr[3]</obj_property>
             <obj_property name="DisplayName">label</obj_property>
@@ -3618,7 +3623,6 @@
    <wvobject type="group" fp_name="group1785">
       <obj_property name="label">thread[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="vbus" fp_name="vbus1776">
          <obj_property name="label">i_funct3[0]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
@@ -4289,10 +4293,13 @@
    <wvobject type="group" fp_name="group1784">
       <obj_property name="label">thread[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="vbus" fp_name="vbus1775">
          <obj_property name="label">i_funct3[1]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[5]">
             <obj_property name="ElementShortName">[5]</obj_property>
             <obj_property name="ObjectShortName">[5]</obj_property>
@@ -4306,10 +4313,20 @@
             <obj_property name="ObjectShortName">[3]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][2:0]</obj_property>
+         <obj_property name="label">funct3[1][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2043">
          <obj_property name="label">i_wadr[1]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[63]">
             <obj_property name="ElementShortName">[63]</obj_property>
             <obj_property name="ObjectShortName">[63]</obj_property>
@@ -4444,10 +4461,14 @@
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">i_we[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2315">
          <obj_property name="label">i_wdata[1]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[63]">
             <obj_property name="ElementShortName">[63]</obj_property>
             <obj_property name="ObjectShortName">[63]</obj_property>
@@ -4582,10 +4603,46 @@
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">o_wack[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[1][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+         <obj_property name="label">req_wadr[1][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="label">r_we0[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="label">r_wrreq_pend[1]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[1]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="label">r_wrresp_ack[1]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2587">
          <obj_property name="label">i_radr[1]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[63]">
             <obj_property name="ElementShortName">[63]</obj_property>
             <obj_property name="ObjectShortName">[63]</obj_property>
@@ -4720,10 +4777,14 @@
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">i_re[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2859">
          <obj_property name="label">o_rdata[1]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[63]">
             <obj_property name="ElementShortName">[63]</obj_property>
             <obj_property name="ObjectShortName">[63]</obj_property>
@@ -4858,6 +4919,8 @@
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">o_rack[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[1]">
          <obj_property name="DisplayName">label</obj_property>
@@ -4866,13 +4929,6 @@
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[1][1:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[1][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[1]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[1][31:0]</obj_property>
@@ -4880,42 +4936,17 @@
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          <obj_property name="label">req_radr[1][31:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-         <obj_property name="label">req_wadr[1][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_re0[1]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">r_re0[1]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="label">r_we0[1]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][2:0]</obj_property>
-         <obj_property name="label">funct3[1][2:0]</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[1]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">r_rdreq_pend[1]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="label">r_wrreq_pend[1]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/r_resp_data[1]">
          <obj_property name="DisplayName">label</obj_property>
@@ -4928,12 +4959,6 @@
          <obj_property name="ElementShortName">[1]</obj_property>
          <obj_property name="ObjectShortName">[1]</obj_property>
          <obj_property name="label">r_rdresp_ack[1]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[1]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-         <obj_property name="label">r_wrresp_ack[1]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1783">
@@ -4960,10 +4985,20 @@
             </wvobject>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][2:0]</obj_property>
+         <obj_property name="label">funct3[2][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2044">
          <obj_property name="label">i_wadr[2]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[95]">
             <obj_property name="ElementShortName">[95]</obj_property>
             <obj_property name="ObjectShortName">[95]</obj_property>
@@ -5098,10 +5133,14 @@
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">i_we[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2316">
          <obj_property name="label">i_wdata[2]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[95]">
             <obj_property name="ElementShortName">[95]</obj_property>
             <obj_property name="ObjectShortName">[95]</obj_property>
@@ -5236,10 +5275,46 @@
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">o_wack[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[2][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+         <obj_property name="label">req_wadr[2][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="label">r_we0[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="label">r_wrreq_pend[2]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="label">r_wrresp_ack[2]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2588">
          <obj_property name="label">i_radr[2]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[95]">
             <obj_property name="ElementShortName">[95]</obj_property>
             <obj_property name="ObjectShortName">[95]</obj_property>
@@ -5374,10 +5449,14 @@
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">i_re[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2860">
          <obj_property name="label">o_rdata[2]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[95]">
             <obj_property name="ElementShortName">[95]</obj_property>
             <obj_property name="ObjectShortName">[95]</obj_property>
@@ -5512,6 +5591,8 @@
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">o_rack[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[2]">
          <obj_property name="DisplayName">label</obj_property>
@@ -5520,13 +5601,6 @@
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[2][1:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[2][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[2]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[2][31:0]</obj_property>
@@ -5534,42 +5608,17 @@
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          <obj_property name="label">req_radr[2][31:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-         <obj_property name="label">req_wadr[2][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_re0[2]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">r_re0[2]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-         <obj_property name="label">r_we0[2]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][2:0]</obj_property>
-         <obj_property name="label">funct3[2][2:0]</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[2]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[2]</obj_property>
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">r_rdreq_pend[2]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-         <obj_property name="label">r_wrreq_pend[2]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/r_resp_data[2]">
          <obj_property name="DisplayName">label</obj_property>
@@ -5583,12 +5632,6 @@
          <obj_property name="ObjectShortName">[2]</obj_property>
          <obj_property name="label">r_rdresp_ack[2]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[2]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-         <obj_property name="label">r_wrresp_ack[2]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1781">
       <obj_property name="label">thread[3]</obj_property>
@@ -5597,6 +5640,8 @@
          <obj_property name="label">i_funct3[3]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[11]">
             <obj_property name="ElementShortName">[11]</obj_property>
             <obj_property name="ObjectShortName">[11]</obj_property>
@@ -5610,10 +5655,20 @@
             <obj_property name="ObjectShortName">[9]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][2:0]</obj_property>
+         <obj_property name="label">funct3[3][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2045">
          <obj_property name="label">i_wadr[3]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[127]">
             <obj_property name="ElementShortName">[127]</obj_property>
             <obj_property name="ObjectShortName">[127]</obj_property>
@@ -5748,10 +5803,14 @@
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">i_we[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2317">
          <obj_property name="label">i_wdata[3]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[127]">
             <obj_property name="ElementShortName">[127]</obj_property>
             <obj_property name="ObjectShortName">[127]</obj_property>
@@ -5886,10 +5945,46 @@
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">o_wack[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[3][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="label">r_we0[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="label">r_wrreq_pend[3]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="label">r_wrresp_ack[3]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[3]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+         <obj_property name="label">req_wadr[3][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2589">
          <obj_property name="label">i_radr[3]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[127]">
             <obj_property name="ElementShortName">[127]</obj_property>
             <obj_property name="ObjectShortName">[127]</obj_property>
@@ -6024,10 +6119,14 @@
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">i_re[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2861">
          <obj_property name="label">o_rdata[3]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[127]">
             <obj_property name="ElementShortName">[127]</obj_property>
             <obj_property name="ObjectShortName">[127]</obj_property>
@@ -6162,6 +6261,8 @@
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">o_rack[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[3]">
          <obj_property name="DisplayName">label</obj_property>
@@ -6169,13 +6270,6 @@
          <obj_property name="ObjectShortName">[3][1:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[3][1:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[3][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[3]">
          <obj_property name="DisplayName">label</obj_property>
@@ -6190,29 +6284,11 @@
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">r_re0[3]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-         <obj_property name="label">r_we0[3]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][2:0]</obj_property>
-         <obj_property name="label">funct3[3][2:0]</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[3]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[3]</obj_property>
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">r_rdreq_pend[3]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-         <obj_property name="label">r_wrreq_pend[3]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/r_resp_data[3]">
          <obj_property name="DisplayName">label</obj_property>
@@ -6226,19 +6302,6 @@
          <obj_property name="ObjectShortName">[3]</obj_property>
          <obj_property name="label">r_rdresp_ack[3]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-         <obj_property name="label">r_wrresp_ack[3]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[3]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="label">req_wadr[3][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1780">
       <obj_property name="label">thread[4]</obj_property>
@@ -6247,6 +6310,8 @@
          <obj_property name="label">i_funct3[4]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[14]">
             <obj_property name="ElementShortName">[14]</obj_property>
             <obj_property name="ObjectShortName">[14]</obj_property>
@@ -6260,10 +6325,20 @@
             <obj_property name="ObjectShortName">[12]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][2:0]</obj_property>
+         <obj_property name="label">funct3[4][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2046">
          <obj_property name="label">i_wadr[4]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[159]">
             <obj_property name="ElementShortName">[159]</obj_property>
             <obj_property name="ObjectShortName">[159]</obj_property>
@@ -6398,10 +6473,14 @@
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">i_we[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2318">
          <obj_property name="label">i_wdata[4]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[159]">
             <obj_property name="ElementShortName">[159]</obj_property>
             <obj_property name="ObjectShortName">[159]</obj_property>
@@ -6536,10 +6615,46 @@
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">o_wack[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[4][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+         <obj_property name="label">req_wadr[4][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="label">r_we0[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="label">r_wrreq_pend[4]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="label">r_wrresp_ack[4]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2590">
          <obj_property name="label">i_radr[4]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[159]">
             <obj_property name="ElementShortName">[159]</obj_property>
             <obj_property name="ObjectShortName">[159]</obj_property>
@@ -6674,10 +6789,14 @@
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">i_re[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2862">
          <obj_property name="label">o_rdata[4]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[159]">
             <obj_property name="ElementShortName">[159]</obj_property>
             <obj_property name="ObjectShortName">[159]</obj_property>
@@ -6812,6 +6931,8 @@
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">o_rack[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[4]">
          <obj_property name="DisplayName">label</obj_property>
@@ -6820,13 +6941,6 @@
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[4][1:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[4][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[4]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[4][31:0]</obj_property>
@@ -6834,42 +6948,17 @@
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          <obj_property name="label">req_radr[4][31:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-         <obj_property name="label">req_wadr[4][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_re0[4]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">r_re0[4]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-         <obj_property name="label">r_we0[4]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][2:0]</obj_property>
-         <obj_property name="label">funct3[4][2:0]</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[4]">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">[4]</obj_property>
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">r_rdreq_pend[4]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-         <obj_property name="label">r_wrreq_pend[4]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/r_resp_data[4]">
          <obj_property name="DisplayName">label</obj_property>
@@ -6883,12 +6972,6 @@
          <obj_property name="ObjectShortName">[4]</obj_property>
          <obj_property name="label">r_rdresp_ack[4]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[4]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-         <obj_property name="label">r_wrresp_ack[4]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1779">
       <obj_property name="label">thread[5]</obj_property>
@@ -6897,6 +6980,8 @@
          <obj_property name="label">i_funct3[5]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[17]">
             <obj_property name="ElementShortName">[17]</obj_property>
             <obj_property name="ObjectShortName">[17]</obj_property>
@@ -6910,10 +6995,20 @@
             <obj_property name="ObjectShortName">[15]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][2:0]</obj_property>
+         <obj_property name="label">funct3[5][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2047">
          <obj_property name="label">i_wadr[5]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[191]">
             <obj_property name="ElementShortName">[191]</obj_property>
             <obj_property name="ObjectShortName">[191]</obj_property>
@@ -7048,10 +7143,14 @@
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">i_we[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2319">
          <obj_property name="label">i_wdata[5]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[191]">
             <obj_property name="ElementShortName">[191]</obj_property>
             <obj_property name="ObjectShortName">[191]</obj_property>
@@ -7186,10 +7285,46 @@
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">o_wack[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[5][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+         <obj_property name="label">r_wrresp_ack[5]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="label">req_wadr[5][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+         <obj_property name="label">r_we0[5]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[5]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+         <obj_property name="label">r_wrreq_pend[5]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2591">
          <obj_property name="label">i_radr[5]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[191]">
             <obj_property name="ElementShortName">[191]</obj_property>
             <obj_property name="ObjectShortName">[191]</obj_property>
@@ -7324,10 +7459,14 @@
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">i_re[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2863">
          <obj_property name="label">o_rdata[5]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[191]">
             <obj_property name="ElementShortName">[191]</obj_property>
             <obj_property name="ObjectShortName">[191]</obj_property>
@@ -7462,6 +7601,8 @@
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">o_rack[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[5]">
          <obj_property name="DisplayName">label</obj_property>
@@ -7469,13 +7610,6 @@
          <obj_property name="ObjectShortName">[5][1:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[5][1:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[5][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[5]">
          <obj_property name="DisplayName">label</obj_property>
@@ -7489,12 +7623,6 @@
          <obj_property name="ElementShortName">[5]</obj_property>
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">r_re0[5]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][2:0]</obj_property>
-         <obj_property name="label">funct3[5][2:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[5]">
          <obj_property name="DisplayName">label</obj_property>
@@ -7514,31 +7642,6 @@
          <obj_property name="ObjectShortName">[5]</obj_property>
          <obj_property name="label">r_rdresp_ack[5]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-         <obj_property name="label">r_wrresp_ack[5]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-         <obj_property name="label">req_wadr[5][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-         <obj_property name="label">r_we0[5]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[5]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-         <obj_property name="label">r_wrreq_pend[5]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1778">
       <obj_property name="label">thread[6]</obj_property>
@@ -7547,6 +7650,8 @@
          <obj_property name="label">i_funct3[6]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[20]">
             <obj_property name="ElementShortName">[20]</obj_property>
             <obj_property name="ObjectShortName">[20]</obj_property>
@@ -7560,10 +7665,20 @@
             <obj_property name="ObjectShortName">[18]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][2:0]</obj_property>
+         <obj_property name="label">funct3[6][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2048">
          <obj_property name="label">i_wadr[6]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[223]">
             <obj_property name="ElementShortName">[223]</obj_property>
             <obj_property name="ObjectShortName">[223]</obj_property>
@@ -7698,10 +7813,14 @@
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">i_we[6]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2320">
          <obj_property name="label">i_wdata[6]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[223]">
             <obj_property name="ElementShortName">[223]</obj_property>
             <obj_property name="ObjectShortName">[223]</obj_property>
@@ -7836,10 +7955,46 @@
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">o_wack[6]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[6][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="label">req_wadr[6][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+         <obj_property name="label">r_we0[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+         <obj_property name="label">r_wrreq_pend[6]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[6]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+         <obj_property name="label">r_wrresp_ack[6]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2592">
          <obj_property name="label">i_radr[6]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[223]">
             <obj_property name="ElementShortName">[223]</obj_property>
             <obj_property name="ObjectShortName">[223]</obj_property>
@@ -7974,10 +8129,14 @@
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">i_re[6]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2865">
          <obj_property name="label">o_rdata[6]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[223]">
             <obj_property name="ElementShortName">[223]</obj_property>
             <obj_property name="ObjectShortName">[223]</obj_property>
@@ -8112,6 +8271,8 @@
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">o_rack[6]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[6]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8119,13 +8280,6 @@
          <obj_property name="ObjectShortName">[6][1:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[6][1:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[6][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[6]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8139,12 +8293,6 @@
          <obj_property name="ElementShortName">[6]</obj_property>
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">r_re0[6]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][2:0]</obj_property>
-         <obj_property name="label">funct3[6][2:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[6]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8164,31 +8312,6 @@
          <obj_property name="ObjectShortName">[6]</obj_property>
          <obj_property name="label">r_rdresp_ack[6]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-         <obj_property name="label">req_wadr[6][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-         <obj_property name="label">r_we0[6]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-         <obj_property name="label">r_wrreq_pend[6]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[6]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-         <obj_property name="label">r_wrresp_ack[6]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group1777">
       <obj_property name="label">thread[7]</obj_property>
@@ -8197,6 +8320,8 @@
          <obj_property name="label">i_funct3[7]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_funct3[23]">
             <obj_property name="ElementShortName">[23]</obj_property>
             <obj_property name="ObjectShortName">[23]</obj_property>
@@ -8210,10 +8335,20 @@
             <obj_property name="ObjectShortName">[21]</obj_property>
          </wvobject>
       </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][2:0]</obj_property>
+         <obj_property name="label">funct3[7][2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject type="vbus" fp_name="vbus2049">
          <obj_property name="label">i_wadr[7]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wadr[255]">
             <obj_property name="ElementShortName">[255]</obj_property>
             <obj_property name="ObjectShortName">[255]</obj_property>
@@ -8348,10 +8483,14 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">i_we[7]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2321">
          <obj_property name="label">i_wdata[7]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_wdata[255]">
             <obj_property name="ElementShortName">[255]</obj_property>
             <obj_property name="ObjectShortName">[255]</obj_property>
@@ -8486,10 +8625,46 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">o_wack[7]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7][1:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][1:0]</obj_property>
+         <obj_property name="label">req_wchannel[7][1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="label">req_wadr[7][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+         <obj_property name="label">r_we0[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+         <obj_property name="label">r_wrreq_pend[7]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[7]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+         <obj_property name="label">r_wrresp_ack[7]</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2593">
          <obj_property name="label">i_radr[7]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/i_radr[255]">
             <obj_property name="ElementShortName">[255]</obj_property>
             <obj_property name="ObjectShortName">[255]</obj_property>
@@ -8624,10 +8799,14 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">i_re[7]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="vbus" fp_name="vbus2866">
          <obj_property name="label">o_rdata[7]</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
          <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/o_rdata[255]">
             <obj_property name="ElementShortName">[255]</obj_property>
             <obj_property name="ObjectShortName">[255]</obj_property>
@@ -8762,6 +8941,8 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">o_rack[7]</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_rchannel[7]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8769,13 +8950,6 @@
          <obj_property name="ObjectShortName">[7][1:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="label">req_rchannel[7][1:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wchannel[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][1:0]</obj_property>
-         <obj_property name="label">req_wchannel[7][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_radr[7]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8789,12 +8963,6 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">r_re0[7]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/funct3[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7][2:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][2:0]</obj_property>
-         <obj_property name="label">funct3[7][2:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_rdreq_pend[7]">
          <obj_property name="DisplayName">label</obj_property>
@@ -8813,31 +8981,6 @@
          <obj_property name="ElementShortName">[7]</obj_property>
          <obj_property name="ObjectShortName">[7]</obj_property>
          <obj_property name="label">r_rdresp_ack[7]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb/udt/lsu_inst0/req_wadr[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-         <obj_property name="label">req_wadr[7][31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_we0[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-         <obj_property name="label">r_we0[7]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrreq_pend[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-         <obj_property name="label">r_wrreq_pend[7]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb/udt/lsu_inst0/r_wrresp_ack[7]">
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-         <obj_property name="label">r_wrresp_ack[7]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

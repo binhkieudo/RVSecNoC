@@ -57,6 +57,8 @@ module rv32_lsu2 #(
     input  wire [CHANNEL-1:0]            i_mem_rack
 );
     
+    localparam XLEN_MINUS2 = XLEN - 2;
+    
 //==============================================================
 // Channel controller
 //==============================================================    
@@ -74,89 +76,155 @@ module rv32_lsu2 #(
     reg [4*THREAD_COUNT-1:0]    r2_ben       [0:CHANNEL-1];
             
     integer cidx, tidx;
-    integer cnt32, cnt32_t, cnt4, cnt4_t;
+    
     always @(*) begin
         // Channel   
         for (cidx = 0; cidx < CHANNEL; cidx = cidx + 1) begin
+            r_sel_wadr[cidx] = i_wadr[XLEN-1:0];
+            r_sel_radr[cidx] = i_radr[XLEN-1:0];
             for (tidx = 0; tidx < THREAD_COUNT; tidx = tidx + 1) begin
                 // Write control signals
                 if (i_we[tidx] && (i_wadr[tidx*XLEN+LOG2_DEPTH+LOG2_CHANNEL-1-:LOG2_CHANNEL] == cidx[LOG2_CHANNEL-1:0]))
                     r_we[cidx][tidx] = 1'b1;
                 else r_we[cidx][tidx] = 1'b0;
                 
-                r_sel_wadr[cidx] = i_wadr[XLEN-1:0];
+//                r_sel_wadr[cidx] = i_wadr[XLEN-1:0];
                 if (r_we[cidx][tidx]) r_sel_wadr[cidx] = i_wadr[(tidx+1)*XLEN-1-:XLEN];
                 
-                if (i_we[tidx] && (i_wadr[(tidx+1)*XLEN-1-:XLEN] == r_sel_wadr[cidx])) begin
-                    case (i_funct3[(tidx+1)*3-2-:2])
-                        2'b00: begin // byte
-                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = {{8{i_wadr[tidx*XLEN+2-1-:2] == 2'b11}} & i_wdata[tidx*XLEN+8-1 -: 8],
-                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b10}} & i_wdata[tidx*XLEN+8-1 -: 8],
-                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b01}} & i_wdata[tidx*XLEN+8-1 -: 8],
-                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b00}} & i_wdata[tidx*XLEN+8-1 -: 8]};
-                            r1_ben[cidx][(tidx+1)*4-1-:4] = {i_wadr[tidx*XLEN+2-1-:2] == 2'b11, 
-                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b10,
-                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b01,
-                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b00}; 
-                        end
-                        2'b01: begin // half-word
-                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = {{16{i_wadr[tidx*XLEN+2-1]}}  & i_wdata[tidx*XLEN+16-1 -: 16],
-                                                                    {16{!i_wadr[tidx*XLEN+2-1]}} & i_wdata[tidx*XLEN+16-1 -: 16]};
-                            r1_ben[cidx][(tidx+1)*4-1-:4] = { i_wadr[tidx*XLEN+2-1], 
-                                                             i_wadr[tidx*XLEN+2-1],
-                                                            !i_wadr[tidx*XLEN+2-1],
-                                                            !i_wadr[tidx*XLEN+2-1]}; 
-                        end
-                        default: begin
-                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = i_wdata[(tidx+1)*XLEN-1-:XLEN];
-                            r1_ben[cidx][(tidx+1)*4-1-:4] = 4'b1111;
-                        end
-                    endcase
-                end
-                else begin
-                    r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = 32'd0;
-                    r1_ben[cidx][(tidx+1)*4-1-:4] = 4'b0000;
-                end
+//                if (i_we[tidx] && (i_wadr[(tidx+1)*XLEN-1-:XLEN_MINUS2] == r_sel_wadr[cidx][XLEN-1:2])) begin
+//                    case (i_funct3[(tidx+1)*3-2-:2])
+//                        2'b00: begin // byte
+//                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = {{8{i_wadr[tidx*XLEN+2-1-:2] == 2'b11}} & i_wdata[tidx*XLEN+8-1 -: 8],
+//                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b10}} & i_wdata[tidx*XLEN+8-1 -: 8],
+//                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b01}} & i_wdata[tidx*XLEN+8-1 -: 8],
+//                                                                    {8{i_wadr[tidx*XLEN+2-1-:2] == 2'b00}} & i_wdata[tidx*XLEN+8-1 -: 8]};
+//                            r1_ben[cidx][(tidx+1)*4-1-:4] = {i_wadr[tidx*XLEN+2-1-:2] == 2'b11, 
+//                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b10,
+//                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b01,
+//                                                            i_wadr[tidx*XLEN+2-1-:2] == 2'b00}; 
+//                        end
+//                        2'b01: begin // half-word
+//                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = {{16{i_wadr[tidx*XLEN+2-1]}}  & i_wdata[tidx*XLEN+16-1 -: 16],
+//                                                                    {16{!i_wadr[tidx*XLEN+2-1]}} & i_wdata[tidx*XLEN+16-1 -: 16]};
+//                            r1_ben[cidx][(tidx+1)*4-1-:4] = { i_wadr[tidx*XLEN+2-1], 
+//                                                             i_wadr[tidx*XLEN+2-1],
+//                                                            !i_wadr[tidx*XLEN+2-1],
+//                                                            !i_wadr[tidx*XLEN+2-1]}; 
+//                        end
+//                        default: begin
+//                            r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = i_wdata[(tidx+1)*XLEN-1-:XLEN];
+//                            r1_ben[cidx][(tidx+1)*4-1-:4] = 4'b1111;
+//                        end
+//                    endcase
+//                end
+//                else begin
+//                    r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN] = 32'd0;
+//                    r1_ben[cidx][(tidx+1)*4-1-:4] = 4'b0000;
+//                end
                 
 //                r_wdata[cidx]   = r_wdata[cidx] | r1_wdata[cidx][(tidx+1)*XLEN-1-:XLEN];
 //                r_ben[cidx]     = r_ben[cidx] | r1_ben[cidx][(tidx+1)*4-1-:4];
                 
-                for (cnt32 = 0; cnt32 < XLEN; cnt32 = cnt32 + 1) begin
-                    for (cnt32_t = 0; cnt32_t < THREAD_COUNT; cnt32_t = cnt32_t + 1)
-                        r2_wdata[cidx][cnt32*THREAD_COUNT+cnt32_t] = r1_wdata[cidx][cnt32_t*XLEN+cnt32];
-                    r_wdata[cidx][cnt32] = |r2_wdata[cidx][(cnt32+1)*THREAD_COUNT-1-:THREAD_COUNT];
+
                         
-                end
-                        
-                for (cnt4 = 0; cnt4 < 4; cnt4 = cnt4 + 1) begin
-                    for (cnt4_t = 0; cnt4_t < THREAD_COUNT; cnt4_t = cnt4_t + 1)
-                        r2_ben[cidx][cnt4*THREAD_COUNT+cnt4_t] = r1_ben[cidx][cnt4_t*4+cnt4];
-                    r_ben[cidx][cnt4] = |r2_ben[cidx][(cnt4+1)*THREAD_COUNT-1-:THREAD_COUNT]; 
-                end
+//                for (cnt4 = 0; cnt4 < 4; cnt4 = cnt4 + 1) begin
+//                    for (cnt4_t = 0; cnt4_t < THREAD_COUNT; cnt4_t = cnt4_t + 1)
+//                        r2_ben[cidx][cnt4*THREAD_COUNT+cnt4_t] = r1_ben[cidx][cnt4_t*4+cnt4];
+//                    r_ben[cidx][cnt4] = |r2_ben[cidx][(cnt4+1)*THREAD_COUNT-1-:THREAD_COUNT]; 
+//                end
                 
                 // Read control signals            
                 if (i_re[tidx] && (i_radr[tidx*XLEN+LOG2_DEPTH+LOG2_CHANNEL-1-:LOG2_CHANNEL] == cidx[LOG2_CHANNEL-1:0]))
                     r_re[cidx][tidx] = 1'b1;
                 else r_re[cidx][tidx] = 1'b0;
                 
-                r_sel_radr[cidx] = i_radr[XLEN-1:0];
                 if (r_re[cidx][tidx]) r_sel_radr[cidx] = i_radr[(tidx+1)*XLEN-1-:XLEN];
                                                
             end // end for tidx
         end // end for cidx           
     end
     
-    integer cidx_0;
-    always @(posedge i_clk) begin
-        for (cidx_0 = 0; cidx_0 < CHANNEL; cidx_0 = cidx_0 + 1) begin
-            o_mem_wadr[(cidx_0+1)*XLEN-1-:XLEN]  <= r_sel_wadr[cidx_0];
-            o_mem_we[cidx_0]                     <= |r_we[cidx_0];
-            o_mem_ben[(cidx_0+1)*4-1-:4]         <= r_ben[cidx_0];
-            o_mem_wdata[(cidx_0+1)*XLEN-1-:XLEN] <= r_wdata[cidx_0];
+    integer c, t;
+    integer cnt32, cnt32_t, cnt4, cnt4_t;
+    always @(*) begin
+        for (c = 0; c < CHANNEL; c = c + 1) begin
+            for (t = 0; t < THREAD_COUNT; t = t + 1) begin
+                if (i_we[t] && (i_wadr[(t+1)*XLEN-1-:XLEN_MINUS2] == r_sel_wadr[c][XLEN-1:2])) begin
+                    case (i_funct3[(t+1)*3-2-:2])
+                        2'b00: begin // byte
+                            r1_wdata[c][(t+1)*XLEN-1-:XLEN] = {{8{i_wadr[t*XLEN+2-1-:2] == 2'b11}} & i_wdata[t*XLEN+8-1 -: 8],
+                                                               {8{i_wadr[t*XLEN+2-1-:2] == 2'b10}} & i_wdata[t*XLEN+8-1 -: 8],
+                                                               {8{i_wadr[t*XLEN+2-1-:2] == 2'b01}} & i_wdata[t*XLEN+8-1 -: 8],
+                                                               {8{i_wadr[t*XLEN+2-1-:2] == 2'b00}} & i_wdata[t*XLEN+8-1 -: 8]};
+                            r1_ben[c][(t+1)*4-1-:4] = {i_wadr[t*XLEN+2-1-:2] == 2'b11, 
+                                                       i_wadr[t*XLEN+2-1-:2] == 2'b10,
+                                                       i_wadr[t*XLEN+2-1-:2] == 2'b01,
+                                                       i_wadr[t*XLEN+2-1-:2] == 2'b00}; 
+                        end
+                        2'b01: begin // half-word
+                            r1_wdata[c][(t+1)*XLEN-1-:XLEN] = {{16{i_wadr[t*XLEN+2-1]}}  & i_wdata[t*XLEN+16-1 -: 16],
+                                                               {16{!i_wadr[t*XLEN+2-1]}} & i_wdata[t*XLEN+16-1 -: 16]};
+                            r1_ben[c][(t+1)*4-1-:4] = { i_wadr[t*XLEN+2-1], 
+                                                        i_wadr[t*XLEN+2-1],
+                                                       !i_wadr[t*XLEN+2-1],
+                                                       !i_wadr[t*XLEN+2-1]}; 
+                        end
+                        default: begin
+                            r1_wdata[c][(t+1)*XLEN-1-:XLEN] = i_wdata[(t+1)*XLEN-1-:XLEN];
+                            r1_ben[c][(t+1)*4-1-:4] = 4'b1111;
+                        end
+                    endcase
+                end
+                else begin
+                    r1_wdata[c][(t+1)*XLEN-1-:XLEN] = 32'd0;
+                    r1_ben[c][(t+1)*4-1-:4] = 4'b0000;
+                end                
+            end 
             
-            o_mem_radr[(cidx_0+1)*XLEN-1-:XLEN]  <= r_sel_radr[cidx_0];
-            o_mem_re[cidx_0]                     <= |r_re[cidx_0];
+            for (cnt32 = 0; cnt32 < XLEN; cnt32 = cnt32 + 1) begin
+                for (cnt32_t = 0; cnt32_t < THREAD_COUNT; cnt32_t = cnt32_t + 1)
+                    r2_wdata[c][cnt32*THREAD_COUNT+cnt32_t] = r1_wdata[c][cnt32_t*XLEN+cnt32];
+                r_wdata[c][cnt32] = |r2_wdata[c][(cnt32+1)*THREAD_COUNT-1-:THREAD_COUNT];        
+            end  
+            
+            for (cnt4 = 0; cnt4 < 4; cnt4 = cnt4 + 1) begin
+                for (cnt4_t = 0; cnt4_t < THREAD_COUNT; cnt4_t = cnt4_t + 1)
+                    r2_ben[c][cnt4*THREAD_COUNT+cnt4_t] = r1_ben[c][cnt4_t*4+cnt4];
+                r_ben[c][cnt4] = |r2_ben[c][(cnt4+1)*THREAD_COUNT-1-:THREAD_COUNT]; 
+            end  
+            
+//            o_mem_wdata[(c+1)*XLEN-1-:XLEN] <= r_wdata[c];                    
+        end   
+    end
+    
+    reg  [CHANNEL*XLEN-1:0]       ro_mem_wadr;
+    reg  [CHANNEL-1:0]            ro_mem_we;
+    reg  [CHANNEL*4-1:0]          ro_mem_ben;
+    reg  [CHANNEL*XLEN-1:0]       ro_mem_wdata;
+    
+    reg  [CHANNEL*XLEN-1:0]       ro_mem_radr;
+    reg  [CHANNEL-1:0]            ro_mem_re;
+    
+    integer cidx_0;
+    always @(*) begin
+        for (cidx_0 = 0; cidx_0 < CHANNEL; cidx_0 = cidx_0 + 1) begin
+            ro_mem_wadr[(cidx_0+1)*XLEN-1-:XLEN]  = r_sel_wadr[cidx_0];
+            ro_mem_we[cidx_0]                     = |r_we[cidx_0];
+            ro_mem_ben[(cidx_0+1)*4-1-:4]         = r_ben[cidx_0];
+            ro_mem_wdata[(cidx_0+1)*XLEN-1-:XLEN] = r_wdata[cidx_0];
+            
+            ro_mem_radr[(cidx_0+1)*XLEN-1-:XLEN]  = r_sel_radr[cidx_0];
+            ro_mem_re[cidx_0]                     = |r_re[cidx_0];
         end
+    end
+    
+    always @(posedge i_clk) begin
+        o_mem_wadr <= ro_mem_wadr;
+        o_mem_we   <= ro_mem_we;
+        o_mem_ben  <= ro_mem_ben;
+        o_mem_wdata <= ro_mem_wdata;
+        o_mem_radr <= ro_mem_radr;
+        o_mem_re <= ro_mem_re;
     end
     
 //==============================================================

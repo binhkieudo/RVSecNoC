@@ -1,2 +1,2 @@
 Time resolution is 1 ps
-$stop called at time : 1115 ns : File "/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sim_1/new/tb.sv" Line 285
+$stop called at time : 1075 ns : File "/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/lsu.srcs/sim_1/new/tb.sv" Line 353
