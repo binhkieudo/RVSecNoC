@@ -1,0 +1,40 @@
++====================+===================+==================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                              |
++====================+===================+==================================================+
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[254]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[59]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[58]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[150]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[196]/D |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[7]/D                |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[92]/D  |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[0]/D                |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[93]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[32]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[82]/D  |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[102]/D              |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[6]/D                |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[145]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[146]/D |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[39]/D               |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[256]/D |
+| sys_clk_pin        | sys_clk_pin       | u0/lsu_inst0/o_mem_wdata_reg[32]/D               |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[249]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[251]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[261]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[147]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[184]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[166]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[121]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[39]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[97]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[148]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[144]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[96]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[69]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[52]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[191]/D |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[81]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[53]/D  |
+| sys_clk_pin        | sys_clk_pin       | vio_0/inst/PROBE_IN_INST/probe_in_reg_reg[190]/D |
++--------------------+-------------------+--------------------------------------------------+

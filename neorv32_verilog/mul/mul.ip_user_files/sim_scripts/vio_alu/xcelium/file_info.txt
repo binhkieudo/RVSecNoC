@@ -1,0 +1,2 @@
+vio_alu.v,verilog,xil_defaultlib,../../../../mul.gen/sources_1/ip/vio_alu/sim/vio_alu.v,incdir="../../../../mul.gen/sources_1/ip/vio_alu/hdl/verilog"incdir="../../../../mul.gen/sources_1/ip/vio_alu/hdl"
+glbl.v,Verilog,xil_defaultlib,glbl.v

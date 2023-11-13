@@ -1,0 +1,1051 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Nov 12 12:00:00 2023
+# Process ID: 7300
+# Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul
+# Command line: vivado mul.xpr
+# Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/vivado.log
+# Journal file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/vivado.jou
+# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+#-----------------------------------------------------------
+start_gui
+open_project mul.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2022.2/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:07 . Memory (MB): peak = 7352.879 ; gain = 254.477 ; free physical = 18089 ; free virtual = 88922
+update_compile_order -fileset sources_1
+set_property top dynpreaddmultadd [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 12:08:54 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/dynpreaddmultadd.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 12:14:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 12:15:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/dynpreaddmultadd.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 12:18:48 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/dynpreaddmultadd.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 12:20:40 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_alu
+set_property -dict [list \
+  CONFIG.C_NUM_PROBE_OUT {3} \
+  CONFIG.C_PROBE_IN0_WIDTH {33} \
+  CONFIG.C_PROBE_OUT0_WIDTH {16} \
+  CONFIG.C_PROBE_OUT1_WIDTH {16} \
+  CONFIG.C_PROBE_OUT2_WIDTH {16} \
+  CONFIG.Component_Name {vio_alu} \
+] [get_ips vio_alu]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'vio_alu' to 'vio_alu' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/ip/vio_alu/vio_alu.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_alu'...
+generate_target all [get_files  /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/ip/vio_alu/vio_alu.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_alu'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_alu'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_alu'...
+catch { config_ip_cache -export [get_ips -all vio_alu] }
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vio_alu
+export_ip_user_files -of_objects [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/ip/vio_alu/vio_alu.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/ip/vio_alu/vio_alu.xci]
+launch_runs vio_alu_synth_1 -jobs 16
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vio_alu
+[Sun Nov 12 12:40:04 2023] Launched vio_alu_synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/vio_alu_synth_1/runme.log
+export_simulation -of_objects [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/ip/vio_alu/vio_alu.xci] -directory /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.ip_user_files/sim_scripts -ip_user_files_dir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.ip_user_files -ipstatic_source_dir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.cache/compile_simlib/modelsim} {questa=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.cache/compile_simlib/questa} {xcelium=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.cache/compile_simlib/xcelium} {vcs=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.cache/compile_simlib/vcs} {riviera=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+set_property top top [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/dynpreaddmultadd.dcp
+launch_runs impl_1 -jobs 16
+[Sun Nov 12 12:48:32 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+[Sun Nov 12 12:48:32 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 16
+[Sun Nov 12 12:50:38 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+[Sun Nov 12 12:50:38 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 16
+[Sun Nov 12 13:01:38 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+[Sun Nov 12 13:01:38 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/impl_1/runme.log
+set_property top rv32_fastalu [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/top.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 18:57:41 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 18:59:28 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 8501.578 ; gain = 0.000 ; free physical = 16738 ; free virtual = 88097
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8606.953 ; gain = 0.000 ; free physical = 16636 ; free virtual = 87990
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:21 ; elapsed = 00:00:13 . Memory (MB): peak = 8859.156 ; gain = 681.785 ; free physical = 16518 ; free virtual = 87873
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:12:45 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 8948.168 ; gain = 0.000 ; free physical = 16448 ; free virtual = 87853
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8948.168 ; gain = 0.000 ; free physical = 16367 ; free virtual = 87772
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:16:11 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:17:27 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:26:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:28:09 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:43:01 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9344.355 ; gain = 0.000 ; free physical = 16452 ; free virtual = 87831
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9344.355 ; gain = 0.000 ; free physical = 16372 ; free virtual = 87752
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:47:23 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:48:25 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9553.461 ; gain = 0.000 ; free physical = 16396 ; free virtual = 87779
+INFO: [Netlist 29-17] Analyzing 11 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9553.461 ; gain = 0.000 ; free physical = 16326 ; free virtual = 87710
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:52:30 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:54:35 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:55:45 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:57:52 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 19:59:02 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:01:57 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:05:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:06:44 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:08:24 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:12:56 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:33:46 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9984.668 ; gain = 0.000 ; free physical = 16089 ; free virtual = 87512
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9984.668 ; gain = 0.000 ; free physical = 16018 ; free virtual = 87440
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:39:00 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:40:38 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 20:47:14 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 21:11:10 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 21:14:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 21:16:28 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10434.887 ; gain = 0.000 ; free physical = 15281 ; free virtual = 86860
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10434.887 ; gain = 0.000 ; free physical = 15212 ; free virtual = 86790
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:14:31 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:15:57 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:17:19 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10509.930 ; gain = 0.000 ; free physical = 14530 ; free virtual = 86272
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10509.930 ; gain = 0.000 ; free physical = 14462 ; free virtual = 86204
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:20:49 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10509.930 ; gain = 0.000 ; free physical = 14446 ; free virtual = 86190
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10509.930 ; gain = 0.000 ; free physical = 14383 ; free virtual = 86126
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:23:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 10599.969 ; gain = 0.000 ; free physical = 14635 ; free virtual = 86367
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10599.969 ; gain = 0.000 ; free physical = 14574 ; free virtual = 86306
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:27:34 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:32:00 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 10654.000 ; gain = 0.000 ; free physical = 14321 ; free virtual = 86122
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10654.000 ; gain = 0.000 ; free physical = 14249 ; free virtual = 86050
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:40:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close_design
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_dsp.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_dsp.v
+update_compile_order -fileset sources_1
+set_property STEPS.SYNTH_DESIGN.ARGS.MAX_DSP 1 [get_runs synth_1]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/dynpreaddmultadd.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_mul.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_fastalu.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/dynpreaddmultadd.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_mul.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_fastalu.v:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:49:26 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:56:33 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+set_property -name STEPS.SYNTH_DESIGN.ARGS.MAX_DSP -value -1 -objects [get_runs synth_1]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:58:08 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10935.766 ; gain = 0.000 ; free physical = 13999 ; free virtual = 85784
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10935.766 ; gain = 0.000 ; free physical = 13942 ; free virtual = 85726
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Sun Nov 12 23:59:54 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:01:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:02:44 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:04:00 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:05:24 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:08:48 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:09:20 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:10:12 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:11:42 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:13:08 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:14:48 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:16:52 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:21:30 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:25:54 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:27:02 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 11292.129 ; gain = 0.000 ; free physical = 14063 ; free virtual = 85868
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11292.129 ; gain = 0.000 ; free physical = 14001 ; free virtual = 85807
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11292.129 ; gain = 0.000 ; free physical = 14033 ; free virtual = 85835
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11292.129 ; gain = 0.000 ; free physical = 13975 ; free virtual = 85777
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:29:24 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 11331.152 ; gain = 0.000 ; free physical = 13963 ; free virtual = 85798
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11331.152 ; gain = 0.000 ; free physical = 13918 ; free virtual = 85754
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:37:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:38:46 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:45:22 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:47:22 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_cpu_alu.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/sources_1/new/rv32_cpu_alu.v
+update_compile_order -fileset sources_1
+set_property top rv32_cpu_alu [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 00:55:16 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_cpu_alu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:22:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+set_property top rv32_fastalu [current_fileset]
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:23:04 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11698.320 ; gain = 0.000 ; free physical = 12213 ; free virtual = 84985
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11698.320 ; gain = 0.000 ; free physical = 12188 ; free virtual = 84960
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:39:49 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11736.340 ; gain = 0.000 ; free physical = 12111 ; free virtual = 84896
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 11736.340 ; gain = 0.000 ; free physical = 12085 ; free virtual = 84870
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:45:03 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:48:01 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:49:49 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:50:58 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:52:03 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:52:23 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:53:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:54:38 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:56:07 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:57:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 01:58:55 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:00:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:01:19 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:02:32 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:04:17 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:05:36 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:06:53 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:08:11 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:09:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12228.574 ; gain = 0.000 ; free physical = 12046 ; free virtual = 84874
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12228.574 ; gain = 0.000 ; free physical = 11996 ; free virtual = 84824
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:11:35 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:12:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12266.590 ; gain = 0.000 ; free physical = 13759 ; free virtual = 86444
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12266.590 ; gain = 0.000 ; free physical = 13725 ; free virtual = 86411
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:15:45 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:17:31 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:18:37 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:19:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:21:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:22:52 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:23:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:25:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:26:49 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:27:55 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:29:07 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:30:23 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:31:37 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:33:23 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:35:11 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12627.758 ; gain = 0.000 ; free physical = 13725 ; free virtual = 86425
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 12627.758 ; gain = 0.000 ; free physical = 13681 ; free virtual = 86379
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:37:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:39:21 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:40:43 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:41:52 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:42:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:44:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:46:09 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:47:25 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:48:41 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:50:03 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:51:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:52:59 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:56:37 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 02:58:27 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+set_property strategy Flow_AreaOptimized_high [get_runs synth_1]
+set_property STEPS.SYNTH_DESIGN.ARGS.INCREMENTAL_MODE aggressive [get_runs synth_1]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 03:00:18 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 03:03:39 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 03:05:33 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 03:06:00 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_fastalu.dcp
+launch_runs synth_1 -jobs 16
+[Mon Nov 13 03:07:13 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 13051.965 ; gain = 0.000 ; free physical = 13468 ; free virtual = 86193
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+CRITICAL WARNING: [Vivado 12-4470] I/O Standard 'LVCMOS33' is not supported on 'xc7vx485tffg1761-2' part. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc:1]
+Finished Parsing XDC File [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/constrs_1/new/constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 13051.965 ; gain = 0.000 ; free physical = 13421 ; free virtual = 86146
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 13 03:08:53 2023...
