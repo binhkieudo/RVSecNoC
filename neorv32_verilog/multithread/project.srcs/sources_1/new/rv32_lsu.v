@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/07/2023 12:24:40 PM
+// Create Date: 11/13/2023 05:17:30 PM
 // Design Name: 
-// Module Name: rv32_lsu2
+// Module Name: rv32_lsu
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module rv32_lsu2 #(
+module rv32_lsu #(
     parameter XLEN         = 32,
     parameter THREAD_COUNT = 8,
     parameter CHANNEL      = 4,

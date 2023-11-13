@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/11/2023 10:13:04 PM
+// Create Date: 11/13/2023 05:36:09 PM
 // Design Name: 
-// Module Name: rv32_mul
+// Module Name: rv32_cpu_cp_mul_dsp
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,10 +19,10 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-(* use_dsp = "yes" *)
-module rv32_mul#(
-    parameter XLEN = 16,
-    parameter PIPELINE = 1
+
+module rv32_cpu_cp_mul_dsp #(
+    parameter XLEN = 32,
+    parameter PIPELINE = 0
 )
 (
     // Global control
@@ -55,13 +55,15 @@ module rv32_mul#(
     generate
         if (PIPELINE == 1) begin
             always @(posedge i_clk) begin: gen_seq
-                dsp_x <= {i_rs1[XLEN-1] & rs1_is_signed, i_rs1};
-                dsp_y <= {i_rs2[XLEN-1] & rs2_is_signed, i_rs2};
+                if (i_start) begin
+                    dsp_x <= {i_rs1[XLEN-1] & rs1_is_signed, i_rs1};
+                    dsp_y <= {i_rs2[XLEN-1] & rs2_is_signed, i_rs2};
+                end
                 ro_prod <= dsp_z[2*XLEN-1:0];
             end
         end
         else begin
-            always @(*) begin: gen_seq
+            always @(i_start) begin: gen_seq
                 dsp_x = {i_rs1[XLEN-1] & rs1_is_signed, i_rs1};
                 dsp_y = {i_rs2[XLEN-1] & rs2_is_signed, i_rs2};    
             end
@@ -73,6 +75,6 @@ module rv32_mul#(
     assign dsp_z = dsp_x * dsp_y;
 
     assign o_valid = i_start;
-    assign o_prod = (|i_mul_op[1:0])? ro_prod[2*XLEN-1-:XLEN]: ro_prod[XLEN-1-:XLEN];
+    assign o_prod = (|i_mul_op[1:0])? ro_prod[63:32]: ro_prod[31:0];
 
 endmodule

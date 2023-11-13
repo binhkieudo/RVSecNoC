@@ -1,0 +1,179 @@
+/*
+
+Xilinx Vivado v2022.2 (64-bit) [Major: 2022, Minor: 2]
+SW Build: 3671981 on Fri Oct 14 04:59:54 MDT 2022
+IP Build: 3669848 on Fri Oct 14 08:30:02 MDT 2022
+
+Process ID (PID): 32430
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Nov 13 16:23:38 JST 2023
+Time zone: 	Japan Standard Time (Asia/Tokyo)
+
+OS: Ubuntu
+OS Version: 5.15.0-87-generic
+OS Architecture: amd64
+Available processors (cores): 20
+
+Display: 0
+Screen size: 2560x1440
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/tools/Xilinx/Vivado/2022.2/tps/lnx64/jre11.0.11_9
+Java executable: 	/tools/Xilinx/Vivado/2022.2/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	binhkieudo
+User home directory: /home/binhkieudo
+User working directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2022.2
+RDI_DATADIR: /tools/Xilinx/Vivado/2022.2/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2022.2/bin
+
+Vivado preferences file: /home/binhkieudo/.Xilinx/Vivado/2022.2/vivado.xml
+Vivado preferences directory: /home/binhkieudo/.Xilinx/Vivado/2022.2/
+Vivado layouts directory: /home/binhkieudo/.Xilinx/Vivado/2022.2/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2022.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/vivado.log
+Vivado journal file: 	/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-32430-binhkieudo
+
+Xilinx Environment Variables
+----------------------------
+RDI_APPROOT: /tools/Xilinx/Vivado/2022.2
+RDI_BASEROOT: /tools/Xilinx/Vivado
+RDI_BINROOT: /tools/Xilinx/Vivado/2022.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /tools/Xilinx/Vivado/2022.2/data
+RDI_INSTALLROOT: /tools/Xilinx
+RDI_INSTALLVER: 2022.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 11.0.11_9
+RDI_LIBDIR: /tools/Xilinx/Vivado/2022.2/lib/lnx64.o/Ubuntu/20:/tools/Xilinx/Vivado/2022.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vivado/2022.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /tools/Xilinx/Vitis/2022.2/bin:/tools/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/vivado
+RDI_TPS_ROOT: /tools/Xilinx/Vivado/2022.2/tps/lnx64
+RDI_USE_JDK11: True
+XILINX: /tools/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2022.2
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2022.2
+XILINX_SDK: /tools/Xilinx/Vitis/2022.2
+XILINX_VITIS: /tools/Xilinx/Vitis/2022.2
+XILINX_VIVADO: /tools/Xilinx/Vivado/2022.2
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2022.2
+
+
+GUI allocated memory:	308 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,947 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 98 MB (+100286kb) [00:00:07]
+// [Engine Memory]: 1,839 MB (+1777039kb) [00:00:07]
+// Opening Vivado Project: lsu.xpr. Version: Vivado v2022.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project lsu.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,933 MB. GUI used memory: 66 MB. Current time: 11/13/23, 4:23:39 PM JST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 1,989 MB (+61096kb) [00:00:13]
+// [Engine Memory]: 2,101 MB (+13156kb) [00:00:14]
+// WARNING: HEventQueue.dispatchEvent() is taking  2230 ms.
+// Tcl Message: open_project lsu.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'. 
+// [GUI Memory]: 105 MB (+2211kb) [00:00:15]
+// Tcl Message: open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 7376.000 ; gain = 303.980 ; free physical = 118422 ; free virtual = 125227 
+// Project name: lsu; location: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/lsu/lsu; part: xc7vx485tffg1761-2
+dismissDialog("Open Project"); // bq
+// [GUI Memory]: 128 MB (+18349kb) [00:00:17]
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,137 MB. GUI used memory: 73 MB. Current time: 11/13/23, 4:53:39 PM JST
+// [GUI Memory]: 144 MB (+9796kb) [00:44:37]
+// Elapsed time: 3081 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v)]", 1); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v)]", 2); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), lsu_inst0 : rv32_lsu2 (rv32_lsu2.v)]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), lsu_inst0 : rv32_lsu2 (rv32_lsu2.v)]", 3, false, false, false, false, false, true); // D - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,157 MB. GUI used memory: 81 MB. Current time: 11/13/23, 5:15:09 PM JST
+// Elapsed time: 17 seconds
+selectCodeEditor("rv32_lsu2.v", 608, 693); // ac
+// Elapsed time: 11 seconds
+selectCodeEditor("rv32_lsu2.v", 306, 597); // ac
+selectCodeEditor("rv32_lsu2.v", 552, 559); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,177 MB. GUI used memory: 81 MB. Current time: 11/13/23, 5:15:49 PM JST
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v)]", 4, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v)]", 4, true, false, false, false, false, true); // D - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v), dmem_inst[3] : rv32_dmem (rv32_dmem.v)]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v), dmem_inst[3] : rv32_dmem (rv32_dmem.v)]", 5, false, false, false, false, false, true); // D - Double Click
+// Elapsed time: 22 seconds
+selectCodeEditor("rv32_dmem.v", 391, 494); // ac
+selectCodeEditor("rv32_dmem.v", 2, 421); // ac
+selectCodeEditor("rv32_dmem.v", 181, 791, true, false, false, false, false); // ac - Shift Key
+typeControlKey((HResource) null, "rv32_dmem.v", 'c'); // ac
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v)]", 4, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), dcache_inst0 : rv32_dcache (rv32_dcache.v)]", 4, true, false, false, false, false, true); // D - Double Click - Node
+selectCodeEditor("rv32_dcache.v", 151, 425); // ac
+selectCodeEditor("rv32_dcache.v", 151, 425, false, false, false, false, true); // ac - Double Click
+typeControlKey((HResource) null, "rv32_dcache.v", 'c'); // ac
+// Elapsed time: 18 seconds
+selectCodeEditor("rv32_dcache.v", 107, 795); // ac
+typeControlKey((HResource) null, "rv32_dcache.v", 'c'); // ac
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), lsu_inst0 : rv32_lsu2 (rv32_lsu2.v)]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vtop (vtop.v), u0 : top (top.v), lsu_inst0 : rv32_lsu2 (rv32_lsu2.v)]", 3, false, false, false, false, false, true); // D - Double Click
+// Elapsed time: 35 seconds
+selectCodeEditor("rv32_lsu2.v", 174, 86); // ac
+selectCodeEditor("rv32_lsu2.v", 110, 787, true, false, false, false, false); // ac - Shift Key
+typeControlKey((HResource) null, "rv32_lsu2.v", 'c'); // ac
+// HMemoryUtils.trashcanNow. Engine heap size: 2,180 MB. GUI used memory: 82 MB. Current time: 11/13/23, 5:45:49 PM JST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,181 MB. GUI used memory: 80 MB. Current time: 11/13/23, 6:15:50 PM JST

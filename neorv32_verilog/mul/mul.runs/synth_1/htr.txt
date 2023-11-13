@@ -6,4 +6,4 @@
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log rv32_fastalu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_fastalu.tcl
+vivado -log rv32_mul.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_mul.tcl

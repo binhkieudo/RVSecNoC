@@ -33,8 +33,11 @@ module rv32_cpu_alu #(
     input  wire            i_clk,                   // global clock, rising edge
     input  wire            i_rstn,                  // global reset, active low, async
     // Control signals
+    input  wire i_ctrl_trap,
     input  wire [THREAD_COUNT-1:0]          i_ctrl_alu_unsigned,     // is unsigned ALU operation
     input  wire [THREAD_COUNT*3-1:0]        i_ctrl_alu_op,           // ALU operation
+    input  wire [THREAD_COUNT*3-1:0]        i_ctrl_ir_funct3,        // function 3
+    input  wire [THREAD_COUNT*5-1:0]        i_ctrl_cp_en,            // Enable co-processor
     input  wire [THREAD_COUNT-1:0]          i_ctrl_pc_sel,           // 0:rs1, 1:pc
     input  wire [THREAD_COUNT-1:0]          i_ctrl_imm_sel,          // 0:rs2, 1:imm
     // Data input
@@ -63,9 +66,17 @@ module rv32_cpu_alu #(
     wire [XLEN:0]   addsub_res [0:THREAD_COUNT-1];
     wire [XLEN-1:0] alu_res [0:THREAD_COUNT-1];
     
+
+    
     genvar thread_idx;
     generate
         for (thread_idx = 0; thread_idx < THREAD_COUNT; thread_idx = thread_idx + 1) begin: gen_alu
+            // Co-processor interface
+            wire [XLEN-1:0] cp_res;
+            wire [XLEN-1:0] cp_result [0:4];
+            wire [4:0]      cp_start;
+            wire [4:0]      cp_valid;
+            
             // Comparator Unit (for conditionl branches)
             assign cmp_rs1[thread_idx] = {i_rs1[(thread_idx+1)*XLEN-1] & !i_ctrl_alu_unsigned[thread_idx], i_rs1[(thread_idx+1)*XLEN-1 -: 32]}; // sign-extend
             assign cmp_rs2[thread_idx] = {i_rs2[(thread_idx+1)*XLEN-1] & !i_ctrl_alu_unsigned[thread_idx], i_rs2[(thread_idx+1)*XLEN-1 -: 32]}; // sign-extend
@@ -85,13 +96,21 @@ module rv32_cpu_alu #(
             assign addsub_res[thread_idx] = opa_x[thread_idx] + (i_ctrl_alu_op[thread_idx*3]? opb_x[thread_idx]: -opb_x[thread_idx]);
             assign o_addr[(thread_idx+1)*XLEN-1 -: 32]     = addsub_res[thread_idx][XLEN-1:0];
         
-            assign alu_res[thread_idx] = (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_XOR) ? i_rs1[(thread_idx+1)*XLEN-1] ^ opb[thread_idx]:
+            assign alu_res[thread_idx] = (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_CP)  ? cp_res:
+                                         (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_XOR) ? i_rs1[(thread_idx+1)*XLEN-1] ^ opb[thread_idx]:
                                          (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_OR)  ? i_rs1[(thread_idx+1)*XLEN-1] | opb[thread_idx]:
                                          (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_AND) ? i_rs1[(thread_idx+1)*XLEN-1] & opb[thread_idx]:
                                          (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_MOVB)? opb[thread_idx]:
                                          (i_ctrl_alu_op[(thread_idx+1)*3-1 -: 3] == `ALU_OP_SLT) ? {31'd0, addsub_res[thread_idx][XLEN]}: addsub_res[thread_idx][XLEN-1:0];
         
             assign o_res[(thread_idx+1)*XLEN-1 -: 32] = alu_res[thread_idx];
+            
+            rv32_cpu_cp_mul_dsp cp_mul#(
+            
+            ) cpu_mul (
+            
+            );
+            
         end
     endgenerate
   
