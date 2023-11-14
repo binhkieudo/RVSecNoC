@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/cp_distributor/cp_distributor/cp_distributor.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/cp_distributor/cp_distributor/cp_distributor.srcs/sim_1/new/tb.sv,1699984965,systemVerilog,,,,tb,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/cp_distributor/cp_distributor/cp_distributor.srcs/sources_1/new/distributor.v,1699975390,verilog,,,,distributor,,uvm,,,,,,
+/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/cp_distributor/cp_distributor/cp_distributor.srcs/sources_1/new/rv32_cp_arbtr.v,1699984861,verilog,,,,rv32_cp_arbtr,,uvm,,,,,,
