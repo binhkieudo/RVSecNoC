@@ -1,0 +1,368 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Nov 14 13:42:37 2023
+# Process ID: 92627
+# Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter
+# Command line: vivado
+# Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/vivado.log
+# Journal file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/vivado.jou
+# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+create_project project_1 /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1 -part xc7vx485tffg1157-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+file mkdir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/shifter.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/shifter.v
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 20
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Nov 14 13:46:11 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/shifter.dcp to /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1 -jobs 20
+[Tue Nov 14 13:47:53 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/shifter.dcp
+launch_runs synth_1 -jobs 20
+[Tue Nov 14 13:48:53 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/rv32_cpu_cp_shifter_barrel.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/rv32_cpu_cp_shifter_barrel.v
+update_compile_order -fileset sources_1
+set_property top rv32_cpu_cp_shifter_barrel [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/shifter.dcp
+launch_runs synth_1 -jobs 20
+[Tue Nov 14 13:51:02 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/rv32_cpu_cp_shifter_barrel.dcp
+launch_runs synth_1 -jobs 20
+[Tue Nov 14 13:55:34 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+set_property top shifter [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/rv32_cpu_cp_shifter_barrel.dcp
+launch_runs synth_1 -jobs 20
+[Tue Nov 14 13:58:04 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/top.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/top.v
+update_compile_order -fileset sources_1
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_0
+set_property -dict [list \
+  CONFIG.C_NUM_PROBE_IN {2} \
+  CONFIG.C_NUM_PROBE_OUT {5} \
+  CONFIG.C_PROBE_IN0_WIDTH {32} \
+  CONFIG.C_PROBE_OUT3_WIDTH {32} \
+  CONFIG.C_PROBE_OUT4_WIDTH {5} \
+] [get_ips vio_0]
+generate_target {instantiation_template} [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+generate_target all [get_files  /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_0'...
+catch { config_ip_cache -export [get_ips -all vio_0] }
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vio_0
+export_ip_user_files -of_objects [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci]
+launch_runs vio_0_synth_1 -jobs 20
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vio_0
+[Tue Nov 14 14:03:25 2023] Launched vio_0_synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/vio_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci] -directory /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.ip_user_files -ipstatic_source_dir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.cache/compile_simlib/modelsim} {questa=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.cache/compile_simlib/questa} {xcelium=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.cache/compile_simlib/vcs} {riviera=/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.gen/sources_1/ip/vio_0/synth/vio_0.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/shifter.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/rv32_cpu_cp_shifter_barrel.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.gen/sources_1/ip/vio_0/synth/vio_0.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/shifter.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/rv32_cpu_cp_shifter_barrel.v:]
+set_property board_part xilinx.com:vc707:part0:1.4 [current_project]
+WARNING: [Project 1-153] The current project device 'xc7vx485tffg1157-1' does not match with the device on the 'XILINX.COM:VC707:PART0:1.4' board part. A device change to match the device on 'XILINX.COM:VC707:PART0:1.4' board part is being done. Please upgrade the IP in the project via the upgrade_ip command or by selecting Reports => Reports IP Status.
+CRITICAL WARNING: [Runs 36-291] Incremental checkpoint part, 'xc7vx485tffg1157-1', does not match run part, 'xc7vx485tffg1761-2', for run 'synth_1'.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/top.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.gen/sources_1/ip/vio_0/synth/vio_0.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/shifter.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/new/rv32_cpu_cp_shifter_barrel.v:]
+INFO: [Project 1-152] Project part set to virtex7 (xc7vx485tffg1761-2)
+set_property dataflow_viewer_settings "min_width=16"   [current_fileset]
+upgrade_ip -srcset vio_0 -vlnv xilinx.com:ip:vio:3.0 [get_ips  vio_0] -log ip_upgrade.log
+Upgrading 'vio_0'
+INFO: [Project 1-386] Moving file '/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/sources_1/ip/vio_0/vio_0.xci' from fileset 'vio_0' to fileset 'sources_1'.
+INFO: [IP_Flow 19-3420] Updated vio_0 to use current project options
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/ip_upgrade.log'.
+export_ip_user_files -of_objects [get_ips vio_0] -no_script -sync -force -quiet
+file mkdir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/constrs_1
+file mkdir /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/constrs_1/new
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/constrs_1/new/constr.xdc w ]
+add_files -fileset constrs_1 /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/constrs_1/new/constr.xdc
+set_property top top [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/shifter.dcp
+launch_runs impl_1 -jobs 20
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vio_0
+[Tue Nov 14 14:09:26 2023] Launched vio_0_synth_1, synth_1...
+Run output will be captured here:
+vio_0_synth_1: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/vio_0_synth_1/runme.log
+synth_1: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:09:26 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:15:14 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:15:14 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 8311.379 ; gain = 27.016 ; free physical = 111912 ; free virtual = 120649
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:20:44 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:20:44 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:25:38 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:25:38 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8746.551 ; gain = 0.000 ; free physical = 111377 ; free virtual = 120137
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 9494.652 ; gain = 0.000 ; free physical = 110727 ; free virtual = 119485
+Restored from archive | CPU: 0.170000 secs | Memory: 2.073296 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 9494.652 ; gain = 0.000 ; free physical = 110727 ; free virtual = 119485
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 9494.652 ; gain = 0.000 ; free physical = 110727 ; free virtual = 119486
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+open_run: Time (s): cpu = 00:00:36 ; elapsed = 00:00:23 . Memory (MB): peak = 9776.316 ; gain = 1380.906 ; free physical = 110658 ; free virtual = 119414
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:42:47 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:42:47 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:46:27 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:46:27 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:50:12 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:50:12 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10077.426 ; gain = 0.000 ; free physical = 110695 ; free virtual = 119447
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 10077.426 ; gain = 0.000 ; free physical = 110533 ; free virtual = 119285
+Restored from archive | CPU: 0.160000 secs | Memory: 1.893410 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 10077.426 ; gain = 0.000 ; free physical = 110533 ; free virtual = 119285
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10077.426 ; gain = 0.000 ; free physical = 110533 ; free virtual = 119285
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_utilization -name utilization_1
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:55:29 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:55:29 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10153.465 ; gain = 0.000 ; free physical = 110564 ; free virtual = 119339
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10153.465 ; gain = 0.000 ; free physical = 110413 ; free virtual = 119188
+Restored from archive | CPU: 0.180000 secs | Memory: 2.055344 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10153.465 ; gain = 0.000 ; free physical = 110413 ; free virtual = 119188
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10153.465 ; gain = 0.000 ; free physical = 110413 ; free virtual = 119188
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_utilization -name utilization_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.srcs/utils_1/imports/synth_1/shifter.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/top.dcp
+launch_runs impl_1 -jobs 20
+[Tue Nov 14 14:59:21 2023] Launched synth_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/synth_1/runme.log
+[Tue Nov 14 14:59:21 2023] Launched impl_1...
+Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/shifter/project_1/project_1.runs/impl_1/runme.log
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10169.473 ; gain = 0.000 ; free physical = 110146 ; free virtual = 118934
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10169.473 ; gain = 0.000 ; free physical = 109978 ; free virtual = 118774
+Restored from archive | CPU: 0.170000 secs | Memory: 2.088577 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10169.473 ; gain = 0.000 ; free physical = 109978 ; free virtual = 118774
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10169.473 ; gain = 0.000 ; free physical = 109978 ; free virtual = 118774
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_utilization -name utilization_1
+close_design
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10183.473 ; gain = 0.000 ; free physical = 110071 ; free virtual = 118870
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10183.473 ; gain = 0.000 ; free physical = 109928 ; free virtual = 118728
+Restored from archive | CPU: 0.190000 secs | Memory: 2.089096 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 10183.473 ; gain = 0.000 ; free physical = 109928 ; free virtual = 118728
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10183.473 ; gain = 0.000 ; free physical = 109928 ; free virtual = 118726
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_utilization -name utilization_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 14 15:23:45 2023...

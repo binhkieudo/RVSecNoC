@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1'
+HD_PWD='/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log rv32_cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu.tcl
+EAStep vivado -log rv32_cpu_alu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_alu.tcl

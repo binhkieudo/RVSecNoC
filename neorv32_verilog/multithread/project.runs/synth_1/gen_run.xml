@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1698828939" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/rv32_cpu_alu.dcp">
-  <File Type="VDS-TIMING-PB" Name="rv32_cpu_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="rv32_cpu_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="rv32_cpu.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="rv32_cpu_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="rv32_cpu_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="rv32_cpu_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="rv32_cpu.vds"/>
-  <File Type="REPORTS-TCL" Name="rv32_cpu_reports.tcl"/>
-  <File Type="PA-TCL" Name="rv32_cpu.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1699936563" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/rv32_cpu_alu.dcp">
+  <File Type="VDS-TIMING-PB" Name="rv32_cpu_alu_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="rv32_cpu_alu_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="rv32_cpu_alu.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="rv32_cpu_alu_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="rv32_cpu_alu_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="rv32_cpu_alu_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="rv32_cpu_alu.vds"/>
+  <File Type="REPORTS-TCL" Name="rv32_cpu_alu_reports.tcl"/>
+  <File Type="PA-TCL" Name="rv32_cpu_alu.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/rv32_package.vh">
@@ -18,20 +18,6 @@
         <Attr Name="IsVisible" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/cpu_rv32_regfile.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/ip_fifo.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/rv32_cpu_alu.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -39,8 +25,25 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/cpu_rv32_regfile.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ip_fifo.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/rv32_cpu_control.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -48,6 +51,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/rv32_imem.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,6 +59,39 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/rv32_cpu.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rv32_cpu_cp_mul_dsp.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rv32_dmem.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rv32_dcache.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rv32_lsu.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -62,7 +99,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="rv32_cpu"/>
+      <Option Name="TopModule" Val="rv32_cpu_alu"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -92,10 +129,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="vio_0"/>
 </GenRun>

@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Nov 13 12:49:33 2023
-# Process ID: 7854
+# Start of session at: Tue Nov 14 15:24:09 2023
+# Process ID: 402098
 # Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul
 # Command line: vivado mul.xpr
 # Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/vivado.log
@@ -26,36 +26,6 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
-open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:07 . Memory (MB): peak = 7384.121 ; gain = 309.082 ; free physical = 120255 ; free virtual = 126105
+open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:07 . Memory (MB): peak = 7356.402 ; gain = 286.418 ; free physical = 111607 ; free virtual = 120398
 update_compile_order -fileset sources_1
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_mul.dcp
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 12:50:10 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_mul.dcp
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 12:51:26 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_mul.dcp
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 12:52:41 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_mul.dcp
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 12:55:40 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.srcs/utils_1/imports/synth_1/top.dcp with file /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/rv32_mul.dcp
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 12:59:33 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1 -jobs 20
-[Mon Nov 13 13:09:07 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/mul/mul.runs/synth_1/runme.log
 exit
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 13 16:23:12 2023...
