@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`include "rv32_package.vh"
 
 module rv32_cp_shifter #(
     parameter XLEN         = 32,
@@ -29,9 +29,7 @@ module rv32_cp_shifter #(
     input  wire                     i_clk, // global clock, rising edge
     // Control signals
     input  wire [THREAD_COUNT-1:0]  i_req_thread,
-    input  wire                     i_cpu_trap,
     input  wire [2:0]               i_cpu_op,       // operation
-    input  wire [4:0]               i_cpu_exop,     // extra opration
     // Data input
     input  wire [XLEN-1:0]          i_rs1, // rf source 1
     input  wire [XLEN-1:0]          i_rs2, // shift amount
@@ -44,20 +42,21 @@ module rv32_cp_shifter #(
     reg [XLEN-1:0]          ro_res;
     reg [THREAD_COUNT-1:0]  ro_valid;
     
-    wire       shift_right = i_cpu_op[0];
-    wire       shift_arth  = i_cpu_op[1];
-    wire [4:0] shamt       = i_rs2[4:0];
+    wire [4:0] shamt = i_rs2[4:0];
+    wire       shift_right = (i_cpu_op == `SHIFT_RA) || (i_cpu_op == `SHIFT_RL);
+    wire       shift_left  = i_cpu_op == `SHIFT_LL;
+    wire       shift_arth  = i_cpu_op == `SHIFT_RA;
     
     generate
         if (METHOD == "FPGA") begin    
             always @(posedge i_clk) begin
-                ro_res   <= !shift_right? i_rs1 << shamt: 
-                             shift_arth ? i_rs1 >>> shamt: 
-                                          i_rs1 >> shamt;
+                ro_res   <= (i_cpu_op == `SHIFT_LL)? i_rs1 <<  shamt: 
+                            (i_cpu_op == `SHIFT_RA)? i_rs1 >>> shamt: 
+                                                     i_rs1 >>  shamt;
                 ro_valid <= i_req_thread;
             end
         end
-        if (METHOD == "BARREL") begin
+        if (METHOD == "ASIC") begin
             reg [XLEN-1:0] bs_level [0:5];
             reg [XLEN-1:0] bs_result;
             reg [XLEN-1:0] rv_result; // reverse result
@@ -115,7 +114,8 @@ module rv32_cp_shifter #(
         end
     endgenerate
     
-    assign o_res    = ro_res;
+    
+    assign o_res    = ro_res & {XLEN{ro_valid}};
     assign o_busy   = 1'b0;
     assign o_valid  = ro_valid;
     

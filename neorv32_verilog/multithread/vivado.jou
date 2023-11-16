@@ -2,17 +2,103 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed Nov 15 17:20:22 2023
-# Process ID: 637168
+# Start of session at: Thu Nov 16 11:57:58 2023
+# Process ID: 740816
 # Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread
-# Command line: vivado ./project.xpr
+# Command line: vivado project.xpr
 # Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/vivado.log
 # Journal file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/vivado.jou
-# Running On: binhkieudo, OS: Linux, CPU Frequency: 3529.268 MHz, CPU Physical cores: 10, Host memory: 134739 MB
+# Running On: binhkieudo, OS: Linux, CPU Frequency: 3300.000 MHz, CPU Physical cores: 10, Host memory: 134739 MB
 #-----------------------------------------------------------
 start_gui
-open_project ./project.xpr
+open_project project.xpr
 update_compile_order -fileset sources_1
-close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cp_arbtr.v w ]
-add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cp_arbtr.v
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rv32_cp_arbtr [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rv32_cpu_coproc [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_div.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_div.v
+update_compile_order -fileset sources_1
+close [ open /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cp_div.v w ]
+add_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_cp_div.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_div.v] -no_script -reset -force -quiet
+remove_files  /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_div.v
+file delete -force /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/multithread/project.srcs/sources_1/new/rv32_div.v
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rv32_cp_div [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rv32_cpu_coproc [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1

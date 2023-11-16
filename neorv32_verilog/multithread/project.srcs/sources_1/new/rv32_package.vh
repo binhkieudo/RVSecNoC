@@ -372,5 +372,9 @@
   `define RF_CSR             2'b10
   `define RF_NPC             2'b11
 
-
+  // SHIFT OPERATION
+  `define SHIFT_RL           3'b000
+  `define SHIFT_RA           3'b001
+  `define SHIFT_LL           3'b010
+  
 `endif

@@ -28,9 +28,7 @@ module rv32_cp_mul#(
     input  wire                     i_clk, // global clock, rising edge
     // Control signals
     input  wire [THREAD_COUNT-1:0]  i_req_thread,
-    input  wire                     i_cpu_trap,
     input  wire [2:0]               i_cpu_op,       // operation
-    input  wire [4:0]               i_cpu_exop,     // extra opration
     // Data input
     input  wire [XLEN-1:0]          i_rs1, // rf source 1
     input  wire [XLEN-1:0]          i_rs2, // shift amount

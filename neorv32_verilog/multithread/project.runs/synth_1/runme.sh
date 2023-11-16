@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log rv32_cpu_alu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_alu.tcl
+EAStep vivado -log rv32_cpu_coproc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_coproc.tcl

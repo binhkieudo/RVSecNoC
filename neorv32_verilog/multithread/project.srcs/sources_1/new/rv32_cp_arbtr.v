@@ -23,13 +23,16 @@
 module rv32_cp_arbtr#(
     parameter XLEN         = 32,
     parameter THREAD       = 4,
-    parameter CHANNEL      = 2,
-    parameter LOG2_CHANNEL = 1
+    parameter CHANNEL      = 4,
+    parameter LOG2_CHANNEL = 1,
+    parameter PIPELINE     = 1
 )
 (
     // Global control
     input  wire i_clk,
     // Thread control
+    output wire [THREAD*XLEN-1:0]   o_cpu_res,
+    output wire [THREAD-1:0]        o_cpu_vld,
     input  wire [THREAD-1:0]        i_cpu_cpen,
     input  wire [THREAD-1:0]        i_cpu_trap,
     input  wire [THREAD*3-1:0]      i_cpu_op,
@@ -44,7 +47,9 @@ module rv32_cp_arbtr#(
     output wire [CHANNEL*5-1:0]     o_cp_exop,
     output wire [CHANNEL*XLEN-1:0]  o_cp_rs1,
     output wire [CHANNEL*XLEN-1:0]  o_cp_rs2,
-    input  wire [CHANNEL-1:0]       i_cp_busy
+    input  wire [CHANNEL*XLEN-1:0]  i_cp_res,
+    input  wire [CHANNEL-1:0]       i_cp_busy,
+    input  wire [CHANNEL*THREAD-1:0]i_cp_valid
 );
 
     reg [LOG2_CHANNEL-1:0] sel_channel [THREAD-1:0];
@@ -73,29 +78,62 @@ module rv32_cp_arbtr#(
     reg [CHANNEL*5-1:0]         ro_cp_exop;
     reg [CHANNEL*XLEN-1:0]      ro_cp_rs1;
     reg [CHANNEL*XLEN-1:0]      ro_cp_rs2;
-        
+    
+    reg [THREAD*XLEN-1:0] ro_cpu_res;
+    reg [THREAD-1:0]      ro_cpu_vld;
+    
+    reg [XLEN-1:0]        r1_cpu_res [THREAD-1:0][CHANNEL-1:0];
+    reg [CHANNEL-1:0]     r1_cpu_vld [THREAD-1:0];
+    
     generate
-        if (CHANNEL >= THREAD) begin: forward
-            integer c_idx;
+        if (CHANNEL == THREAD) begin: forward
+            integer c_idx, t_idx;
             always @(*) begin
-                ro_cp_req   = 'b0;
-                ro_cp_en    = 'b0;
-                ro_cp_trap  = 'b0;
-                ro_cp_op    = 'b0;
-                ro_cp_exop  = 'b0;
-                ro_cp_rs1   = 'b0;
-                ro_cp_rs2   = 'b0;
+//                ro_cp_req   = 'b0;
+//                ro_cp_en    = 'b0;
+//                ro_cp_trap  = 'b0;
+//                ro_cp_op    = 'b0;
+//                ro_cp_exop  = 'b0;
+//                ro_cp_rs1   = 'b0;
+//                ro_cp_rs2   = 'b0;
                 
                 
-                ro_cp_en[CHANNEL-1:0]      = i_cpu_cpen;
-                ro_cp_trap[CHANNEL-1:0]    = i_cpu_trap;
-                ro_cp_op[CHANNEL*3-1:0]    = i_cpu_op;
-                ro_cp_exop[CHANNEL*5-1:0]  = i_cpu_exop;
-                ro_cp_rs1[THREAD*XLEN-1:0] = i_cpu_rs1;
-                ro_cp_rs2[THREAD*XLEN-1:0] = i_cpu_rs2;
+//                ro_cp_en[CHANNEL-1:0]      = i_cpu_cpen;
+//                ro_cp_trap[CHANNEL-1:0]    = i_cpu_trap;
+//                ro_cp_op[CHANNEL*3-1:0]    = i_cpu_op;
+//                ro_cp_exop[CHANNEL*5-1:0]  = i_cpu_exop;
+//                ro_cp_rs1[THREAD*XLEN-1:0] = i_cpu_rs1;
+//                ro_cp_rs2[THREAD*XLEN-1:0] = i_cpu_rs2;
                 
-                for (c_idx = 0; c_idx < CHANNEL; c_idx = c_idx + 1)
+                for (c_idx = 0; c_idx < CHANNEL; c_idx = c_idx + 1) begin
                     ro_cp_req[(c_idx+1)*THREAD-1-:THREAD] = 2**c_idx;
+                    ro_cpu_vld[c_idx] = i_cp_valid[c_idx*THREAD+c_idx];
+                end
+                
+                ro_cpu_res = i_cp_res[THREAD*XLEN-1:0];
+                
+                
+            end
+            
+            if (PIPELINE == 1) begin
+                always @(posedge i_clk) begin
+                    ro_cp_en[CHANNEL-1:0]      <= i_cpu_cpen;
+                    ro_cp_trap[CHANNEL-1:0]    <= i_cpu_trap;
+                    ro_cp_op[CHANNEL*3-1:0]    <= i_cpu_op;
+                    ro_cp_exop[CHANNEL*5-1:0]  <= i_cpu_exop;
+                    ro_cp_rs1[THREAD*XLEN-1:0] <= i_cpu_rs1;
+                    ro_cp_rs2[THREAD*XLEN-1:0] <= i_cpu_rs2;                
+                end
+            end
+            else begin
+                always @(*) begin
+                    ro_cp_en[CHANNEL-1:0]      = i_cpu_cpen;
+                    ro_cp_trap[CHANNEL-1:0]    = i_cpu_trap;
+                    ro_cp_op[CHANNEL*3-1:0]    = i_cpu_op;
+                    ro_cp_exop[CHANNEL*5-1:0]  = i_cpu_exop;
+                    ro_cp_rs1[THREAD*XLEN-1:0] = i_cpu_rs1;
+                    ro_cp_rs2[THREAD*XLEN-1:0] = i_cpu_rs2;                
+                end            
             end
         end
         else begin: arbitrator
@@ -150,20 +188,40 @@ module rv32_cp_arbtr#(
                 end
             end
             
-            integer c_idx_1;
+            integer c_idx1;
             always @(posedge i_clk) begin
-                for (c_idx_1 = 0; c_idx_1 < CHANNEL; c_idx_1 = c_idx_1 + 1) begin
-                    ro_cp_req[(c_idx_1+1)*THREAD-1-:THREAD] <= r1_cp_req[c_idx_1];
-                    ro_cp_en[c_idx_1]                   <= r2_cp_en[c_idx_1][THREAD-1];
-                    ro_cp_trap[c_idx_1]                 <= r2_cp_trap[c_idx_1][THREAD-1];
-                    ro_cp_op[(c_idx_1+1)*3-1-:3]        <= r2_cp_op[c_idx_1][THREAD-1];
-                    ro_cp_exop[(c_idx_1+1)*5-1-:5]      <= r2_cp_exop[c_idx_1][THREAD-1];
-                    ro_cp_rs1[(c_idx_1+1)*XLEN-1-:XLEN] <= r2_cp_rs1[c_idx_1][THREAD-1];
-                    ro_cp_rs2[(c_idx_1+1)*XLEN-1-:XLEN] <= r2_cp_rs2[c_idx_1][THREAD-1];
+                for (c_idx1 = 0; c_idx1 < CHANNEL; c_idx1 = c_idx1 + 1) begin
+                    ro_cp_req[(c_idx1+1)*THREAD-1-:THREAD] <= r1_cp_req[c_idx1];
+                    ro_cp_en[c_idx1]                   <= r2_cp_en[c_idx1][THREAD-1];
+                    ro_cp_trap[c_idx1]                 <= r2_cp_trap[c_idx1][THREAD-1];
+                    ro_cp_op[(c_idx1+1)*3-1-:3]        <= r2_cp_op[c_idx1][THREAD-1];
+                    ro_cp_exop[(c_idx1+1)*5-1-:5]      <= r2_cp_exop[c_idx1][THREAD-1];
+                    ro_cp_rs1[(c_idx1+1)*XLEN-1-:XLEN] <= r2_cp_rs1[c_idx1][THREAD-1];
+                    ro_cp_rs2[(c_idx1+1)*XLEN-1-:XLEN] <= r2_cp_rs2[c_idx1][THREAD-1];
                 end
             end
+            
+            integer c_idx2, t_idx2;
+            always @(*) begin
+                for (t_idx2 = 0; t_idx2 < THREAD; t_idx2 = t_idx2 + 1) begin
+                    for (c_idx2 = 0; c_idx2 < CHANNEL; c_idx2 = c_idx2 + 1) begin
+                        if (c_idx2 == 0)
+                            r1_cpu_res[t_idx2][c_idx2] = i_cp_res[(c_idx2+1)*XLEN-1-:XLEN] & {XLEN{i_cp_valid[c_idx2*THREAD + t_idx2]}};
+                        else
+                            r1_cpu_res[t_idx2][c_idx2] = r1_cpu_res[t_idx2][c_idx2-1] | (i_cp_res[(c_idx2+1)*XLEN-1-:XLEN] & {XLEN{i_cp_valid[c_idx2*THREAD + t_idx2]}});
+                                
+                        r1_cpu_vld[t_idx2][c_idx2] = i_cp_valid[c_idx2*THREAD + t_idx2];
+                    end
+                       
+                    ro_cpu_res[(t_idx2+1)*XLEN-1-:XLEN] = r1_cpu_res[t_idx2][CHANNEL-1];
+                    ro_cpu_vld[t_idx2] = |r1_cpu_vld[t_idx2];
+                 end
+            end             
         end
     endgenerate
+    
+    assign o_cpu_res = ro_cpu_res;
+    assign o_cpu_vld = ro_cpu_vld;
     
     assign o_cp_req  = ro_cp_req;
     assign o_cp_en   = ro_cp_en;
