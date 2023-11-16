@@ -27,7 +27,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log neorv32_test_on_chip_debugger.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source neorv32_test_on_chip_debugger.tcl" );
+         "-log neorv32_cpu_cp_fpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source neorv32_cpu_cp_fpu.tcl" );
 
 
 

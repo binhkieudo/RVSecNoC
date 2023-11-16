@@ -46,7 +46,8 @@ module rv32_cpu_control #(
     parameter FAST_MUL_EN                   = 1,  // 1=dsp, 0=double&add
     parameter FAST_SHIFT_EN                 = 1,  // 1=barrel, 0=serial
     // Physical memory protection (PMP)
-    parameter PMP_EN                        = 1  // Enable physical memory protection
+    parameter PMP_EN                        = 1,  // Enable physical memory protection
+    parameter COPROC                        = 3
 )
 (
     // Global control
@@ -54,29 +55,43 @@ module rv32_cpu_control #(
     input wire              i_rstn,
     // Output control signals
     //-- Register file
-    output wire [THREAD_COUNT-1:0]      o_ctrl_rf_wb_en,    // write back enable
-    output wire [THREAD_COUNT*5-1:0]    o_ctrl_rf_rs1,      // source register 1 address
-    output wire [THREAD_COUNT*5-1:0]    o_ctrl_rf_rs2,      // source register 2 address
-    output wire [THREAD_COUNT*5-1:0]    o_ctrl_rf_rd,       // destination register address
-    output wire [THREAD_COUNT*2-1:0]    o_ctrl_rf_mux,      // input source select
-    output wire [THREAD_COUNT-1:0]      o_ctrl_rf_zero_we,  // allow/force write access to x0
+    output wire [THREAD_COUNT-1:0]        o_ctrl_rf_wb_en,    // write back enable
+    output wire [THREAD_COUNT*5-1:0]      o_ctrl_rf_rs1,      // source register 1 address
+    output wire [THREAD_COUNT*5-1:0]      o_ctrl_rf_rs2,      // source register 2 address
+    output wire [THREAD_COUNT*5-1:0]      o_ctrl_rf_rd,       // destination register address
+    output wire [THREAD_COUNT*3-1:0]      o_ctrl_rf_mux,      // input source select
+    output wire [THREAD_COUNT-1:0]        o_ctrl_rf_zero_we,  // allow/force write access to x0
     //-- ALU
-    output wire [THREAD_COUNT*3-1:0]    o_ctrl_alu_op,      // ALU operation select
-    output wire [THREAD_COUNT-1:0]      o_ctrl_alu_opa_mux, // operand A select (0=rs1, 1=PC)
-    output wire [THREAD_COUNT-1:0]      o_ctrl_alu_opb_mux, // operand B select (0=rs2, 1=IMM)
-    output wire [THREAD_COUNT-1:0]      o_ctrl_alu_unsigned,// is unsigned ALU operation
+    output wire [THREAD_COUNT*3-1:0]      o_ctrl_alu_op,      // ALU operation select
+    output wire [THREAD_COUNT-1:0]        o_ctrl_alu_opa_mux, // operand A select (0=rs1, 1=PC)
+    output wire [THREAD_COUNT-1:0]        o_ctrl_alu_opb_mux, // operand B select (0=rs2, 1=IMM)
+    output wire [THREAD_COUNT-1:0]        o_ctrl_alu_unsigned,// is unsigned ALU operation
+    //-- Co-procesoor
+    output wire [THREAD_COUNT*COPROC-1:0] o_ctrl_cp_en,
+    output wire [THREAD_COUNT-1:0]        o_ctrl_trap,
+    output wire [THREAD_COUNT*3-1:0]      o_ctrl_cp_op,
+    output wire [THREAD_COUNT*5-1:0]      o_ctrl_cp_exop, 
+    input  wire [THREAD_COUNT-1:0]        i_ctrl_cp_done,   
     //-- Instruction
-    output wire [THREAD_COUNT*3-1:0]    o_ctrl_ir_funct3,   // funct3 bit field
-    output wire [THREAD_COUNT*12-1:0]   o_ctrl_ir_funct12,  // funct12 bit field
-    output wire [THREAD_COUNT*7-1:0]    o_ctrl_ir_opcode,   // opcode bit field
+    output wire [THREAD_COUNT*3-1:0]      o_ctrl_ir_funct3,   // funct3 bit field
+    output wire [THREAD_COUNT*12-1:0]     o_ctrl_ir_funct12,  // funct12 bit field
+    output wire [THREAD_COUNT*7-1:0]      o_ctrl_ir_opcode,   // opcode bit field
     // Instruction fetch
-    output wire [THREAD_COUNT*XLEN-1:0] o_bus_req_addr, // access address
-    output wire [THREAD_COUNT-1:0]      o_bus_req_re,   // read request
-    input  wire [THREAD_COUNT*XLEN-1:0] i_bus_rsp_data, // read data
-    input  wire [THREAD_COUNT-1:0]      i_bus_rsp_ack,  // access acknowledge
+    output wire [THREAD_COUNT*XLEN-1:0]   o_bus_req_addr, // access address
+    output wire [THREAD_COUNT-1:0]        o_bus_req_re,   // read request
+    input  wire [THREAD_COUNT*XLEN-1:0]   i_bus_rsp_data, // read data
+    input  wire [THREAD_COUNT-1:0]        i_bus_rsp_ack,  // access acknowledge
+    // Load/store unit control
+    output wire [THREAD_COUNT*XLEN-1:0]   o_ctrl_wadr,
+    output wire [THREAD_COUNT-1:0]        o_ctrl_we,
+    input  wire [THREAD_COUNT-1:0]        i_ctrl_wack,
+    output wire [THREAD_COUNT*XLEN-1:0]   o_ctrl_radr,
+    output wire [THREAD_COUNT-1:0]        o_ctrl_re,
+    input  wire [THREAD_COUNT-1:0]        i_ctrl_rack,
     // Data output
-    output wire [THREAD_COUNT*XLEN-1:0] o_imm,           // immediate
-    output wire [THREAD_COUNT*XLEN-1:0] o_pc             // pc
+    output wire [THREAD_COUNT*XLEN-1:0]   o_imm,           // immediate
+    output wire [THREAD_COUNT*XLEN-1:0]   o_pc,            // pc
+    output wire [THREAD_COUNT*XLEN-1:0]   i_rs1
 );
     
     // Instruction fetch
@@ -121,6 +136,17 @@ module rv32_cpu_control #(
     wire [11:0]  ir_imm12   [THREAD_COUNT-1:0];
     wire [19:0]  ir_imm20   [THREAD_COUNT-1:0];
     
+    // Instruction issue (is)
+    wire               is_restart    [THREAD_COUNT-1:0];
+    reg               is_align      [THREAD_COUNT-1:0];
+    reg               is_align_set  [THREAD_COUNT-1:0];
+    reg               is_align_clr  [THREAD_COUNT-1:0];
+    reg  [(3+32)-1:0] is_data       [THREAD_COUNT-1:0]; // 3-bit status + 32-bit instruction
+    reg  [1:0]        is_valid      [THREAD_COUNT-1:0]; // data word is valid
+    wire              is_ack        [THREAD_COUNT-1:0];
+    wire [15:0]       is_ci_i16     [THREAD_COUNT-1:0];
+    wire [31:0]       is_ci_i32     [THREAD_COUNT-1:0];   
+     
     genvar thread_idx;
     generate
         for (thread_idx = 0; thread_idx < THREAD_COUNT; thread_idx = thread_idx + 1) begin: thread_gen
@@ -162,19 +188,19 @@ module rv32_cpu_control #(
                 .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available        
             ) prefetch_bufferL (
                 // Global control
-                .i_clk      ( i_clk        ),   // global clock, rising edge
-                .i_rstn     ( i_rstn       ),  // global reset, low-active, async
+                .i_clk      ( i_clk                   ),   // global clock, rising edge
+                .i_rstn     ( i_rstn                  ),  // global reset, low-active, async
                 // Control signal
-                .i_clear    ( 1'b0         ),  // sync reset, high-active
-                .o_half     (              ),  // FIFO is half full
+                .i_clear    ( is_restart[thread_idx]  ),  // sync reset, high-active
+                .o_half     (                         ),  // FIFO is half full
                 // Write port
-                .i_wdata    ( ipb_wdata_0[thread_idx]    ), // write data
-                .i_we       ( ipb_we[thread_idx][0]      ),    // write enable
-                .o_free     ( ibp_free[thread_idx][0]    ),  // at least one entry is free when set
+                .i_wdata    ( ipb_wdata_0[thread_idx] ), // write data
+                .i_we       ( ipb_we[thread_idx][0]   ),    // write enable
+                .o_free     ( ibp_free[thread_idx][0] ),  // at least one entry is free when set
                 // Read port
-                .i_re       ( ipb_re[thread_idx][0]      ),    // read enable
-                .o_rdata    ( ipb_rdata_0[thread_idx]    ), // read data
-                .o_avail    ( ibp_avail[thread_idx][0]   )  // data available when set
+                .i_re       ( ipb_re[thread_idx][0]   ),    // read enable
+                .o_rdata    ( ipb_rdata_0[thread_idx] ), // read data
+                .o_avail    ( ibp_avail[thread_idx][0])  // data available when set
             );
 
             ip_fifo #(
@@ -184,11 +210,11 @@ module rv32_cpu_control #(
                 .FIFO_SAFE  (0                  )  // 1 = allow read/write only if entry available        
             ) prefetch_bufferH (
                 // Global control
-                .i_clk      ( i_clk        ),   // global clock, rising edge
-                .i_rstn     ( i_rstn       ),  // global reset, low-active, async
+                .i_clk      ( i_clk                      ),   // global clock, rising edge
+                .i_rstn     ( i_rstn                     ),  // global reset, low-active, async
                 // Control signal
-                .i_clear    ( 1'b0         ),  // sync reset, high-active
-                .o_half     (              ),  // FIFO is half full
+                .i_clear    ( is_restart[thread_idx]     ),  // sync reset, high-active
+                .o_half     (                            ),  // FIFO is half full
                 // Write port
                 .i_wdata    ( ipb_wdata_1[thread_idx]    ), // write data
                 .i_we       ( ipb_we[thread_idx][1]      ),    // write enable
@@ -202,10 +228,70 @@ module rv32_cpu_control #(
             assign ipb_re[thread_idx] = 2'b11;
             assign ipb_we[thread_idx] = {2{i_bus_rsp_ack[thread_idx]}};
             assign ipb_wdata_0[thread_idx] = {2'b00, i_bus_rsp_data[(thread_idx+1)*32-17 -: 16]}; 
-            assign ipb_wdata_1[thread_idx] = {2'b00, i_bus_rsp_data[(thread_idx+1)*32-1 -: 16]}; 
+            assign ipb_wdata_1[thread_idx] = {2'b00, i_bus_rsp_data[(thread_idx+1)*32-1 -: 16]};            
+
+            if (CPU_EXTENSION_RISCV_C == 1) begin
+                rv32_cpu_decompressor #(
+                    .FPU_ENABLE ((CPU_EXTENSION_RISCV_F == 1) || (CPU_EXTENSION_RISCV_D == 1))
+                ) decompressor (
+                    .i_instr16  (is_ci_i16[thread_idx]), // compressed instruction
+                    .o_instr32  (is_ci_i32[thread_idx])  // decompressed instruction
+                );
+                
+                assign is_restart[thread_idx] = !i_rstn;
+                
+                always @(posedge i_clk) begin
+                    if (is_restart[thread_idx]) 
+                        is_align[thread_idx] <=  if_pc[thread_idx][1]; // branch to unaligned address?
+                    else if (is_ack[thread_idx])
+                        is_align[thread_idx] <= (is_align[thread_idx] && !is_align_clr[thread_idx]) || is_align_set[thread_idx]; // "RS" flip-flop
+                end
+    
+                always @(*) begin
+                    is_align_set[thread_idx] = 1'b0;
+                    is_align_clr[thread_idx] = 1'b0;
+                    is_valid[thread_idx]     = 2'b00;
+                    // Start with LOW half-word --
+                    if (!is_align[thread_idx]) begin
+                        if (ipb_rdata_0[thread_idx][1:0] != 2'b11) begin // compressed
+                            is_align_set[thread_idx] = ibp_avail[thread_idx][0]; // start of next instruction word is NOT 32-bit-aligned
+                            is_valid[thread_idx][0]  = ibp_avail[thread_idx][0];
+                            is_data[thread_idx]      = {ipb_rdata_0[thread_idx][17:16], 1'b1, is_ci_i32[thread_idx]};
+                        end
+                        else begin // aligned uncompressed; use IPB(0) status flags only
+                            is_valid[thread_idx]     = {2{ibp_avail[thread_idx][1] && ibp_avail[thread_idx][0]}};
+                            is_data[thread_idx]      = {ipb_rdata_0[thread_idx][17:16], 1'b0, ipb_rdata_1[thread_idx][15:0], ipb_rdata_0[thread_idx][15:0]};
+                        end
+                    end
+                    else begin
+                        if (ipb_rdata_1[thread_idx][1:0] != 2'b11) begin // compressed
+                            is_align_clr[thread_idx] = ibp_avail[thread_idx][1]; // start of next instruction word is 32-bit-aligned again
+                            is_valid[thread_idx][1]  = ibp_avail[thread_idx][1];
+                            is_data[thread_idx]      = {ipb_rdata_1[thread_idx][17:16], 1'b1, is_ci_i32[thread_idx]};
+                        end
+                        else begin // aligned uncompressed; use IPB(0) status flags only
+                            is_valid[thread_idx]     = {2{ibp_avail[thread_idx][1] && ibp_avail[thread_idx][0]}};
+                            is_data[thread_idx]      = {ipb_rdata_0[thread_idx][17:16], 1'b0, ipb_rdata_0[thread_idx][15:0], ipb_rdata_1[thread_idx][15:0]};
+                        end
+                    end
+                end
+                            
+            end
+            else begin
+                assign is_ci_i32[thread_idx] = 32'd0;
+
+                always @(*) begin
+                    is_align_clr[thread_idx] = 1'b0;
+                    is_valid[thread_idx] = {2{ibp_avail[thread_idx][0]}};
+                    is_data[thread_idx]  = {ipb_rdata_0[thread_idx][17:16], 1'b0, ipb_rdata_1[thread_idx][15:0], ipb_rdata_0[thread_idx][15:0]};
+                end                
+            end
+            
+            assign is_ack[thread_idx] = 1'b1;
+            assign is_ci_i16[thread_idx] = is_align[thread_idx]? ipb_rdata_1[thread_idx][15:0]: ipb_rdata_0[thread_idx][15:0];
             
             // Instruction extract
-            assign if_instr[thread_idx] = {ipb_rdata_1[thread_idx][15:0], ipb_rdata_0[thread_idx][15:0]};
+            assign if_instr[thread_idx]    = is_data[thread_idx];
             assign ir_opcode[thread_idx]   = {if_instr[thread_idx][6:2], 2'b11};
             assign ir_rd[thread_idx]       = if_instr[thread_idx][11:7];
             assign ir_rs1[thread_idx]      = if_instr[thread_idx][19:15];
@@ -222,7 +308,7 @@ module rv32_cpu_control #(
             assign o_ctrl_rf_rs1[(thread_idx+1)*5-1 -: 5] = ir_rs1[thread_idx];
             assign o_ctrl_rf_rs2[(thread_idx+1)*5-1 -: 5] = ir_rs2[thread_idx];
             assign o_ctrl_rf_rd[(thread_idx+1)*5-1 -: 5]  = ir_rd[thread_idx];
-            assign o_ctrl_rf_mux[(thread_idx+1)*2-1 -: 2] = `RF_ALU;
+            assign o_ctrl_rf_mux[(thread_idx+1)*3-1 -: 3] = ir_funct3[thread_idx];
             assign o_ctrl_rf_zero_we                      = {THREAD_COUNT{1'b0}};    
             
             //-- Instruction
@@ -230,11 +316,7 @@ module rv32_cpu_control #(
             assign o_ctrl_ir_funct12[(thread_idx+1)*12-1 -: 12] = ir_funct12[thread_idx];  // funct12 bit field
             assign o_ctrl_ir_opcode[(thread_idx+1)*7-1 -: 7]    = ir_opcode[thread_idx];   // opcode bit field
             
-            // ALU control
-//            reg [2:0] ro_ctrl_alu_op;       // ALU operation select
-//            reg       ro_ctrl_alu_opa_mux;  // operand A select (0=rs1, 1=PC)
-//            reg       ro_ctrl_alu_opb_mux;  // operand B select (0=rs2, 1=IMM)
-//            reg       ro_ctrl_alu_unsigned; // is unsigned ALU operation             
+            // ALU control            
             always @(posedge i_clk) begin
                 if (!i_rstn) begin
                     ro_ctrl_alu_op       <= 3'b000;
@@ -274,6 +356,15 @@ module rv32_cpu_control #(
             assign o_ctrl_alu_opb_mux[thread_idx] = ro_ctrl_alu_opb_mux;
             assign o_ctrl_alu_unsigned[thread_idx] = ro_ctrl_alu_unsigned;
             
+            assign o_ctrl_cp_en[(thread_idx+1)*COPROC-1-:COPROC] = ir_funct3[thread_idx];
+            assign o_ctrl_cp_op[(thread_idx+1)*3-1-:3]           = ir_funct3[thread_idx];
+            assign o_ctrl_cp_exop[(thread_idx+1)*5-1-:5]         = ir_funct5[thread_idx];
+            
+            assign o_ctrl_wadr[(thread_idx+1)*XLEN-1-:XLEN] = i_rs1 + {{12{ir_imm20[thread_idx][19]}}, ir_imm20[thread_idx]};
+            assign o_ctrl_we[thread_idx] = ir_opcode[thread_idx] == `OP_STORE;
+            assign o_ctrl_radr[(thread_idx+1)*XLEN-1-:XLEN] = i_rs1 + {{12{ir_imm20[thread_idx][19]}}, ir_imm20[thread_idx]};
+            assign o_ctrl_re[thread_idx] = ir_opcode[thread_idx] == `OP_LOAD;
+    
             // Other
             assign o_imm[(thread_idx+1)*32-1 -: 32] = {{12{ir_imm20[thread_idx][19]}}, ir_imm20[thread_idx]};
             assign o_pc[(thread_idx+1)*32-1 -: 32]  = if_pc[thread_idx];

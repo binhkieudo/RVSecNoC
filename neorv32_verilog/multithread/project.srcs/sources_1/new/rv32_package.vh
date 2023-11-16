@@ -367,10 +367,11 @@
   
   // RISC-RF ----------------------------------------------------------------------------
   // -------------------------------------------------------------------------------------------
-  `define RF_ALU             2'b00
-  `define RF_MEM             2'b01
-  `define RF_CSR             2'b10
-  `define RF_NPC             2'b11
+  `define RF_ALU             3'b000
+  `define RF_MEM             3'b001
+  `define RF_CSR             3'b010
+  `define RF_NPC             3'b011
+  `define RF_COPROC          3'b100
 
   // SHIFT OPERATION
   `define SHIFT_RL           3'b000

@@ -38,7 +38,7 @@ module rv32_cpu_coproc #(
     output wire [THREAD_COUNT*XLEN-1:0]       o_cpu_res,
     output wire [THREAD_COUNT-1:0]            o_cpu_vld,
     input  wire [THREAD_COUNT*TYPE_COUNT-1:0] i_cpu_en,
-    input  wire                               i_cpu_trap,
+    input  wire [THREAD_COUNT-1:0]            i_cpu_trap,
     input  wire [THREAD_COUNT*3-1:0]          i_cpu_op,
     input  wire [THREAD_COUNT*5-1:0]          i_cpu_exop,
     // Register interface

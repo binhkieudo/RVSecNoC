@@ -70,13 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "vio_0_synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7a100tcsg324-1
+create_project -in_memory -part xc7vx485tffg1761-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -86,8 +83,7 @@ set_property webtalk.parent_dir /home/binhkieudo/Workspace/RVSecNoC/neorv32_veri
 set_property parent.project_path /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {/home/binhkieudo/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part digilentinc.com:arty-a7-100:part0:1.1 [current_project]
+set_property board_part xilinx.com:vc707:part0:1.4 [current_project]
 set_property ip_output_repo /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/multithread/project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -115,7 +111,7 @@ if { $cacheID == "" } {
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top vio_0 -part xc7a100tcsg324-1 -incremental_mode off -mode out_of_context
+synth_design -top vio_0 -part xc7vx485tffg1761-2 -incremental_mode off -mode out_of_context
 OPTRACE "synth_design" END { }
 OPTRACE "Write IP Cache" START { }
 

@@ -6,4 +6,4 @@
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log rv32_cpu_coproc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_coproc.tcl
+vivado -log rv32_cpu_regfile.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rv32_cpu_regfile.tcl
