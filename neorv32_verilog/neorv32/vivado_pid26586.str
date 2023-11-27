@@ -1,0 +1,208 @@
+/*
+
+Xilinx Vivado v2022.2 (64-bit) [Major: 2022, Minor: 2]
+SW Build: 3671981 on Fri Oct 14 04:59:54 MDT 2022
+IP Build: 3669848 on Fri Oct 14 08:30:02 MDT 2022
+
+Process ID (PID): 26586
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sat Nov 25 00:50:15 JST 2023
+Time zone: 	Japan Standard Time (Asia/Tokyo)
+
+OS: Ubuntu
+OS Version: 5.15.0-89-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 0
+Screen size: 2560x1440
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/opt/Xilinx/Vivado/2022.2/tps/lnx64/jre11.0.11_9
+Java executable: 	/opt/Xilinx/Vivado/2022.2/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	binhkieudo
+User home directory: /home/binhkieudo
+User working directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2022.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2022.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2022.2/bin
+
+Vivado preferences file: /home/binhkieudo/.Xilinx/Vivado/2022.2/vivado.xml
+Vivado preferences directory: /home/binhkieudo/.Xilinx/Vivado/2022.2/
+Vivado layouts directory: /home/binhkieudo/.Xilinx/Vivado/2022.2/data/layouts
+PlanAhead jar file: 	/opt/Xilinx/Vivado/2022.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.log
+Vivado journal file: 	/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-26586-binhkieudo-hotswap
+
+Xilinx Environment Variables
+----------------------------
+RDI_APPROOT: /opt/Xilinx/Vivado/2022.2
+RDI_BASEROOT: /opt/Xilinx/Vivado
+RDI_BINROOT: /opt/Xilinx/Vivado/2022.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /opt/Xilinx/Vivado/2022.2/data
+RDI_INSTALLROOT: /opt/Xilinx
+RDI_INSTALLVER: 2022.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 11.0.11_9
+RDI_LIBDIR: /opt/Xilinx/Vivado/2022.2/lib/lnx64.o/Ubuntu/20:/opt/Xilinx/Vivado/2022.2/lib/lnx64.o/Ubuntu:/opt/Xilinx/Vivado/2022.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /opt/Xilinx/Vitis/2022.2/bin:/opt/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /opt/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/vivado
+RDI_TPS_ROOT: /opt/Xilinx/Vivado/2022.2/tps/lnx64
+RDI_USE_JDK11: True
+XILINX: /opt/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_HLS: /opt/Xilinx/Vitis_HLS/2022.2
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2022.2
+XILINX_SDK: /opt/Xilinx/Vitis/2022.2
+XILINX_VITIS: /opt/Xilinx/Vitis/2022.2
+XILINX_VIVADO: /opt/Xilinx/Vivado/2022.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2022.2
+
+
+GUI allocated memory:	308 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,970 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 111 MB (+113800kb) [00:00:06]
+// [Engine Memory]: 1,841 MB (+1778780kb) [00:00:06]
+// Opening Vivado Project: neorv32.xpr. Version: Vivado v2022.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project neorv32.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,937 MB. GUI used memory: 64 MB. Current time: 11/25/23, 12:50:16 AM JST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 1,976 MB (+45555kb) [00:00:12]
+// [GUI Memory]: 121 MB (+4994kb) [00:00:13]
+// [Engine Memory]: 2,088 MB (+13825kb) [00:00:13]
+// WARNING: HEventQueue.dispatchEvent() is taking  2024 ms.
+// Tcl Message: open_project neorv32.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32' since last save. INFO: [filemgmt 56-1] Board Part Repository Path: Directory not found as '/home/binhkieudo/Workspace/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store'; using path '/home/binhkieudo/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store' instead. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2022.2/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:07 . Memory (MB): peak = 7359.324 ; gain = 286.738 ; free physical = 12473 ; free virtual = 84874 
+// Project name: neorv32; location: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bq
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 14 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v), alu : rv32_cpu_alu (rv32_cpu_alu.v)]", 6); // D
+// Elapsed time: 27 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header]", 1); // D
+// Elapsed time: 30 seconds
+closeMainWindow("neorv32 - [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/neorv32.xpr] - Vivado 2022.2"); // aK
+// Run Command: PAResourceCommand.PACommandNames_EXIT
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Exit Vivado"); // u
+// [GUI Memory]: 130 MB (+3207kb) [00:01:33]
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 27 seconds
+setFileChooser("/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/rtl/core/neorv32_cpu_cp_fpu.vhd");
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 37 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: import_files -norecurse /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/rtl/core/neorv32_cpu_cp_fpu.vhd 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,184 MB. GUI used memory: 73 MB. Current time: 11/25/23, 12:52:26 AM JST
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 17, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 17, true, false, false, false, false, true); // D - Double Click - Node
+// [Engine Memory]: 2,197 MB (+4798kb) [00:02:27]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 17, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top neorv32_cpu_cp_fpu [current_fileset] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3, true); // D - Node
+selectButton(PAResourceQtoS.SrcFilePropPanels_LIBRARY, (String) null); // r
+dismissDialog("Set Library"); // M
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd), neorv32_cpu_cp_fpu_f2i_inst : neorv32_cpu_cp_fpu_f2i(neorv32_cpu_cp_fpu_f2i_rtl) (neorv32_cpu_cp_fpu.vhd)]", 4, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd), neorv32_cpu_cp_fpu_f2i_inst : neorv32_cpu_cp_fpu_f2i(neorv32_cpu_cp_fpu_f2i_rtl) (neorv32_cpu_cp_fpu.vhd)]", 4, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v)]", 7, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v)]", 7, true, false, false, false, false, true); // D - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,231 MB. GUI used memory: 77 MB. Current time: 11/25/23, 12:53:01 AM JST
+// Elapsed time: 12 seconds
+selectButton(PAResourceQtoS.SrcFilePropPanels_LIBRARY, (String) null); // r
+dismissDialog("Set Library"); // M
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 15 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header, rv32_package.vh]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header, rv32_package.vh]", 2, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 72 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v)]", 7, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v)]", 7, true, false, false, false, false, true); // D - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v), controller : rv32_cpu_control (rv32_cpu_control.v)]", 8, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v), cpu : rv32_cpu (rv32_cpu.v), controller : rv32_cpu_control (rv32_cpu_control.v)]", 8, true, false, false, false, false, true); // D - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,254 MB. GUI used memory: 79 MB. Current time: 11/25/23, 12:54:51 AM JST
+// Elapsed time: 10 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_test (system_test.v)]", 6); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, neorv32_cpu_cp_fpu(neorv32_cpu_cp_fpu_rtl) (neorv32_cpu_cp_fpu.vhd)]", 3); // D
+// [GUI Memory]: 138 MB (+1487kb) [00:04:57]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,256 MB. GUI used memory: 79 MB. Current time: 11/25/23, 1:24:52 AM JST

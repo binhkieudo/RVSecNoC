@@ -2,13 +2,13 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Oct 31 18:17:17 2023
-# Process ID: 33211
-# Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32
+# Start of session at: Sat Nov 25 00:50:02 2023
+# Process ID: 26586
+# Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32
 # Command line: vivado neorv32.xpr
-# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.log
-# Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
-# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+# Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.log
+# Journal file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
+# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 2033.397 MHz, CPU Physical cores: 16, Host memory: 33036 MB
 #-----------------------------------------------------------
 start_gui
 open_project neorv32.xpr
@@ -21,20 +21,17 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 avail
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /opt/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from '/home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32' since last save.
+INFO: [filemgmt 56-1] Board Part Repository Path: Directory not found as '/home/binhkieudo/Workspace/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store'; using path '/home/binhkieudo/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store' instead.
 Scanning sources...
 Finished scanning sources
 WARNING: [Board 49-151] The current board 'digilentinc.com::arty-a7-100:1.1' is from a local repo. The vivado install has a corresponding board with version greater than or equal to the local repo board. Please use boards from vivado install to avoid any upgrade/migrate issues
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2022.2/data/ip'.
-open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:07 . Memory (MB): peak = 7372.152 ; gain = 291.133 ; free physical = 14839 ; free virtual = 86843
+open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:07 . Memory (MB): peak = 7359.324 ; gain = 286.738 ; free physical = 12473 ; free virtual = 84874
 update_compile_order -fileset sources_1
-set_property top rv32_cpu_regfile [current_fileset]
+import_files -norecurse /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/rtl/core/neorv32_cpu_cp_fpu.vhd
 update_compile_order -fileset sources_1
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.srcs/utils_1/imports/synth_1/neorv32_cpu_regfile.dcp with file /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/rv32_cpu_control.dcp
-launch_runs synth_1 -jobs 16
-[Wed Nov  1 00:16:00 2023] Launched synth_1...
-Run output will be captured here: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/neorv32.runs/synth_1/runme.log
-exit
-INFO: [Common 17-206] Exiting Vivado at Wed Nov  1 03:09:14 2023...
+set_property top neorv32_cpu_cp_fpu [current_fileset]
+update_compile_order -fileset sources_1

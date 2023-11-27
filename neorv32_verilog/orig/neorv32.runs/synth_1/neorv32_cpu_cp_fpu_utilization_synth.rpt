@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Thu Nov 16 23:14:17 2023
+| Date         : Mon Nov 27 02:58:16 2023
 | Host         : binhkieudo-hotswap running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file neorv32_cpu_cp_fpu_utilization_synth.rpt -pb neorv32_cpu_cp_fpu_utilization_synth.pb
 | Design       : neorv32_cpu_cp_fpu

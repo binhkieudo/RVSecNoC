@@ -2,23 +2,22 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Oct 31 18:17:17 2023
-# Process ID: 33211
-# Current directory: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32
+# Start of session at: Sat Nov 25 00:50:02 2023
+# Process ID: 26586
+# Current directory: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32
 # Command line: vivado neorv32.xpr
-# Log file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.log
-# Journal file: /home/binhkieudo/Workspace/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
-# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 1400.000 MHz, CPU Physical cores: 16, Host memory: 33036 MB
+# Log file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.log
+# Journal file: /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/neorv32/vivado.jou
+# Running On: binhkieudo-hotswap, OS: Linux, CPU Frequency: 2033.397 MHz, CPU Physical cores: 16, Host memory: 33036 MB
 #-----------------------------------------------------------
 start_gui
 open_project neorv32.xpr
 update_compile_order -fileset sources_1
+import_files -norecurse /home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/rtl/core/neorv32_cpu_cp_fpu.vhd
+update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top rv32_cpu_regfile [current_fileset]
+set_property top neorv32_cpu_cp_fpu [current_fileset]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 16
-wait_on_run synth_1

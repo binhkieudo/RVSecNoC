@@ -1,0 +1,38 @@
+
+*** Running vivado
+    with args -log neorv32_cpu_cp_fpu_normalizer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source neorv32_cpu_cp_fpu_normalizer.tcl
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source neorv32_cpu_cp_fpu_normalizer.tcl -notrace
+Command: synth_design -top neorv32_cpu_cp_fpu_normalizer -part xc7vx485tffg1761-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 42996
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/opt/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2428.789 ; gain = 395.551 ; free physical = 281 ; free virtual = 77378
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1795.527; parent = 1609.088; children = 186.439
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3431.648; parent = 2428.793; children = 1002.855
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-4169] error in use clause: package 'neorv32_package' not found in library 'neorv32' [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/fpu/fpu.srcs/sources_1/new/neorv32_cpu_cp_fpu_normalizer.vhd:27]
+INFO: [Synth 8-11252] unit 'neorv32_cpu_cp_fpu_normalizer' is ignored due to previous errors [/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/fpu/fpu.srcs/sources_1/new/neorv32_cpu_cp_fpu_normalizer.vhd:50]
+INFO: [Synth 8-10443] VHDL file '/home/binhkieudo/Workspace/RISC-V/RVSecNoC/neorv32_verilog/fpu/fpu.srcs/sources_1/new/neorv32_cpu_cp_fpu_normalizer.vhd' is ignored due to errors
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2499.758 ; gain = 466.520 ; free physical = 260 ; free virtual = 77303
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1883.646; parent = 1697.209; children = 186.439
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3502.617; parent = 2499.762; children = 1002.855
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+8 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 16:00:30 2023...
